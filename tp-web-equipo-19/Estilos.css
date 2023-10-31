@@ -1,0 +1,12 @@
+﻿.logo {
+    max-width: 5%;
+}
+
+.encabezado {
+    align-content:center;
+}
+
+.button-negro {
+    background-color: #000;
+    color: #fff;
+}
