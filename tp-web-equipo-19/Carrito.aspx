@@ -38,6 +38,7 @@
         <div>
             <td><b>Total:</b><asp:Label ID="lblTotalCarrito" runat="server" Text="0.00"></asp:Label></td>
         </div>
+        <a class="btn btn-success" href="compra.aspx" role="button">Iniciar compra</a>
     </div>
     <style>
         .vertical-center {

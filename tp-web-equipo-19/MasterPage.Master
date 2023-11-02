@@ -22,13 +22,22 @@
         <div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end">
                 <div class="ml-auto d-flex iconos">
+                    <a href="Ayuda.aspx" class="mr-3 space">
+                        <div>
+                            <p>Ayuda</p>
+                        </div>
+                    </a>
+                    <a href="loguin.aspx" class="mr-3 space">
+                        <div class="fas fa-right-to-bracket">
+                            <p>Mi cuenta</p>
+                        </div>
+                    </a>
                     <a href="inicio.aspx" class="mr-3 space">
                         <div class="fas fa-home">
                             <p>Inicio</p>
                         </div>
                     </a>
                     <div>
-
                     </div>
                     <a href="Carrito.aspx" class="mr-3">
                         <div class="fa-solid fa-cart-shopping">
@@ -45,10 +54,10 @@
             </div>
             <footer class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end footer">
                 <hr />
-             
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end footer"></nav>
-                    <p>Todos los derechos reservados... <span>&#x1F609;</span></p>
-               
+
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end footer"></nav>
+                <p>Todos los derechos reservados... <span>&#x1F609;</span></p>
+
             </footer>
         </div>
     </form>
@@ -70,8 +79,7 @@
         font-style: italic;
     }
 
-    .space{
+    .space {
         margin-right: 15px;
     }
-
 </style>
