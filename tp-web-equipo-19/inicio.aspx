@@ -4,13 +4,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
-    <div class="vertical-center"><h3>LISTADO DE ARTICULOS </h3></div>
-    
+
     <div style="padding: 20px; align-items:center; display: flex; justify-content: center;">
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" style= "width: 40%;">
             <asp:TextBox ID="txtBuscador" runat="server" CssClass="form-control txtBuscador" />
-            <asp:Button Text="Buscar" CssClass="btn btn-primary boton-buscar" runat="server" OnClick="btnBuscar_Click" />
+            <asp:Button Text="Buscar" CssClass="btn btn-secondary boton-buscar" runat="server" OnClick="btnBuscar_Click" />
         </div>
     </div>
 

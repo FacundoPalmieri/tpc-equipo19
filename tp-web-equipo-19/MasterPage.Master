@@ -20,29 +20,32 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end">
-                <div class="ml-auto d-flex iconos">
-                    <a href="Ayuda.aspx" class="mr-3 space">
-                        <div>
-                            <p>Ayuda</p>
+            <div style="background-color: #AAC3CD;">
+                <a href="Ayuda.aspx">
+                    <div style="color: #525252; font-size: small;">
+                        <div class="fa-solid fa-comments icon-container">
+                            <p class="iconos-text">Centro de ayuda</p>
                         </div>
-                    </a>
+                    </div>
+                </a>
+            </div>
+
+            <nav class="navbar navbar-expand-xl navbar-dark bg-dark justify-content-end">
+                <div class="ml-auto d-flex">
                     <a href="loguin.aspx" class="mr-3 space">
-                        <div class="fas fa-right-to-bracket">
-                            <p>Mi cuenta</p>
+                        <div class="fas fa-right-to-bracket" style="color: #AAC3CD;">
+                            <p class="iconos-text">Mi cuenta</p>
                         </div>
                     </a>
                     <a href="inicio.aspx" class="mr-3 space">
-                        <div class="fas fa-home">
-                            <p>Inicio</p>
+                        <div class="fas fa-home" style="color: #AAC3CD;">
+                            <p class="iconos-text">Inicio</p>
                         </div>
                     </a>
-                    <div>
-                    </div>
-                    <a href="Carrito.aspx" class="mr-3">
-                        <div class="fa-solid fa-cart-shopping">
-                            <asp:Label ID="lblCantidadArticulos" runat="server" />
-                            <p>Carrito</p>
+                    <a href="Carrito.aspx" class="mr-3 space">
+                        <div class="fa-solid fa-cart-shopping" style="color: #AAC3CD;">
+                            <span class="badge rounded-pill text-bg-success">
+                                <asp:Label ID="lblCantidadArticulos" runat="server" /></span>
                         </div>
                     </a>
                 </div>
@@ -53,10 +56,31 @@
                 </asp:ContentPlaceHolder>
             </div>
             <footer class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end footer">
-                <hr />
-
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end footer"></nav>
-                <p>Todos los derechos reservados... <span>&#x1F609;</span></p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <h5>Atención al cliente:</h5>
+                        <p>0800 122 0338</p>
+                        <p>0810 999 3728</p>
+                        <p>LU-VI de 09:00 a 18:00</p>
+                        <p>SA de 9:00 a 13:00</p>
+                        <p>contacto@af.com</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Cobranza de créditos:</h5>
+                        <p>cobranzas@af.com.ar</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Venta telefónica:</h5>
+                        <p>0810 333 8700</p>
+                        <p>LU-MA-MI de 8:00 a 24:00</p>
+                        <p>JU-VI de 8:00 a 20:00</p>
+                        <p>SA-DO-Feriados 9:00 a 21:00</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h5>Servicios a empresas:</h5>
+                        <p>Ventas corporativas</p>
+                    </div>
+                </div>
 
             </footer>
         </div>
@@ -65,18 +89,36 @@
 </html>
 
 <style>
+    .icon-container {
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        padding: 5px;
+        width: 12%;
+        justify-content: space-between;
+    }
+
     .iconos {
         margin-right: 10px;
         padding: 20px;
+        color: white;
+        font-size: large;
+        font-style: italic;
+    }
+
+
+    .iconos-text {
+        font-family: 'sans-serif', Verdana;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     .footer {
-        height: 50px;
+        height: 300px;
         align-content: end;
-        color: white;
-        font-size: large;
-        font-family: 'AR One Sans', sans-serif;
-        font-style: italic;
+        color: #AAC3CD;
     }
 
     .space {
