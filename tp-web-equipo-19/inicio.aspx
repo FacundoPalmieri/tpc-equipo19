@@ -28,7 +28,7 @@
                             <asp:Button Text="Añadir al Carrito" CssClass="btn btn-primary" runat="server" ID="btnAniadirAlCarrito" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" OnClick="btnAniadirAlCarrito_Click" />
                         </div>
                     </div>
-                </div>
+                </div>  
             </ItemTemplate>
         </asp:Repeater>
     </div>
