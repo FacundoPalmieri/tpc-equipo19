@@ -170,5 +170,13 @@ namespace tp_web_equipo_19
 
             Session["CantidadArticulosEnCarrito"] = cantidadArticulosEnCarrito;
         }
+
+        protected void ButtonCompra_Click(object sender, EventArgs e)
+        {
+            if (Session["Usuario"] == null)
+            {
+                Response.Redirect("loguin.aspx");
+            }
+        }
     }
 }

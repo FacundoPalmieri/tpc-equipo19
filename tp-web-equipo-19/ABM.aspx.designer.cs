@@ -11,34 +11,34 @@ namespace tp_web_equipo_19
 {
 
 
-    public partial class Carrito
+    public partial class ABM
     {
 
         /// <summary>
-        /// Control RepeaterCarrito.
+        /// Control ABMArticulos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterCarrito;
+        protected global::System.Web.UI.WebControls.Button ABMArticulos;
 
         /// <summary>
-        /// Control lblTotalCarrito.
+        /// Control ABMCatergorias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalCarrito;
+        protected global::System.Web.UI.WebControls.Button ABMCatergorias;
 
         /// <summary>
-        /// Control ButtonCompra.
+        /// Control ABMMarcas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCompra;
+        protected global::System.Web.UI.WebControls.Button ABMMarcas;
     }
 }

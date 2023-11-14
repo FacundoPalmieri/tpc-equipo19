@@ -11,34 +11,34 @@ namespace tp_web_equipo_19
 {
 
 
-    public partial class Carrito
+    public partial class MiCuenta
     {
 
         /// <summary>
-        /// Control RepeaterCarrito.
+        /// Control MisDatos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterCarrito;
+        protected global::System.Web.UI.WebControls.Button MisDatos;
 
         /// <summary>
-        /// Control lblTotalCarrito.
+        /// Control MisCompras.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalCarrito;
+        protected global::System.Web.UI.WebControls.Button MisCompras;
 
         /// <summary>
-        /// Control ButtonCompra.
+        /// Control CerrarSesion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonCompra;
+        protected global::System.Web.UI.WebControls.Button CerrarSesion;
     }
 }

@@ -52,7 +52,7 @@
     <Compile Include="MedioPagos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tarjeta.cs" />
-    <Compile Include="UsuarioAdm.cs" />
+    <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

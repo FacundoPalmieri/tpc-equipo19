@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
                     <asp:Repeater ID="RepeaterCarrito" runat="server">
-                        <itemtemplate>
+                        <ItemTemplate>
                             <tr>
                                 <td><%# Eval("Articulo.Nombre") %></td>
                                 <td><%# Eval("Articulo.Descripcion") %></td>
@@ -30,16 +30,22 @@
 
                                 </td>
                             </tr>
-                        </itemtemplate>
+                        </ItemTemplate>
                     </asp:Repeater>
                 </tbody>
             </table>
         </div>
         <div>
             <td><b>Total:</b><asp:Label ID="lblTotalCarrito" runat="server" Text="0.00"></asp:Label></td>
+
         </div>
-        <a class="btn btn-success" href="compra.aspx" role="button">Iniciar compra</a>
-    </div>
+
+        <div class="margen-superior">
+        <asp:Button ID="ButtonCompra" CssClass="btn btn-success " OnClick="ButtonCompra_Click" runat="server" Text="Iniciar Compra" />
+        <%--  <a class="btn btn-success" href="compra.aspx" role="button">Iniciar compra</a>--%>
+         </div>
+   </div>
+
     <style>
         .vertical-center {
             display: flex;
@@ -55,6 +61,10 @@
 
         .container {
             height: 700px;
+        }
+
+        .margen-superior {
+            margin-top: 20px; 
         }
     </style>
 </asp:Content>

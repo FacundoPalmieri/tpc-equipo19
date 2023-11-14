@@ -20,7 +20,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <div style="background-color: #242426;">
+            <div style="background-color: slategrey /*#242426; */">
                 <a href="Ayuda.aspx">
                     <div style="color: #AAC3CD; font-size: small;">
                         <div class="fa-solid fa-comments icon-container">
@@ -31,27 +31,34 @@
             </div>
 
             <nav class="navbar navbar-expand-xl navbar-dark bg-dark <%--justify-content-end--%>">
-          <%--      <div class="ml-auto d-flex ">--%>
-                    <div style="width: 50%;  justify-content-end">
-                        <a href="inicio.aspx" class="mr-3 space">
-                            <div class="fas fa-home space " style="color: #AAC3CD;">
-                                <p class="iconos-text">Inicio</p>
-                            </div>
-                        </a>
-                    </div>
-                 <div style="width: 50%; display: flex" <%--class ="justify-content-end"--%>>
-                        <a href="loguin.aspx" class="mr-3 space" style ="width: 80%">
-                            <div class="fas fa-right-to-bracket justify-content-end" style="color: #AAC3CD;  display:flex">
-                                <p class="iconos-text">Mi cuenta</p>
-                            </div>
-                        </a>
-                        <a href="Carrito.aspx" class="mr-3 space2"  style ="width: 20%">
-                            <div class="fa-solid fa-cart-shopping justify-content-end" style="color: #AAC3CD; display:flex">
-                                <span class="badge rounded-pill text-bg-success">
-                                    <asp:Label ID="lblCantidadArticulos" runat="server" /></span>
-                            </div>
-                        </a>
-                     </div>
+                <%--      <div class="ml-auto d-flex ">--%>
+                <div style="width: 50%; justify-content-end">
+                    <a href="inicio.aspx" class="mr-3 space">
+                        <div class="fas fa-home space " style="color: #AAC3CD;">
+                            <p class="iconos-text">Inicio</p>
+                        </div>
+                    </a>
+                </div>
+                <div style="width: 50%; display: flex" <%--class ="justify-content-end"--%>>
+                    <a href="loguin.aspx" class="mr-3 space" style="width: 80%">
+                        <div class="fas fa-right-to-bracket justify-content-end" style="color: #AAC3CD; display: flex;">
+                            <p class="iconos-text">Mi cuenta</p>
+                            <div style="color: #AAC3CD; display: flex; margin-top: 10px;">
+                            <% if (Session["Usuario"] != null)
+                                { %>
+                            <!-- Si la sesión está iniciada, muestra el contenido adicional -->
+                            <abbr title="Iniciado" class="margen-superior" style="font-size: 8px;">Sesion Iniciada</abbr>
+                            <% } %>
+                             </div>
+                        </div>
+                    </a>
+                    <a href="Carrito.aspx" class="mr-3 space2" style="width: 20%">
+                        <div class="fa-solid fa-cart-shopping justify-content-end" style="color: #AAC3CD; display: flex">
+                            <span class="badge rounded-pill text-bg-success">
+                                <asp:Label ID="lblCantidadArticulos" runat="server" /></span>
+                        </div>
+                    </a>
+                </div>
             </nav>
 
             <div class="container">
@@ -131,4 +138,7 @@
     .space2 {
         margin-right: 15px;
     }
+     .margen-superior {
+            margin-top: 20px; 
+        }
 </style>
