@@ -1,0 +1,8 @@
+-cuando no encuentra el usuario no muestra un mensaje de usuario no encontrado
+-falta registrar usuario
+- cuando un usuario se logee, que muestre el nombre de quien está logeado
+- se debe poder cargar más de una imágen a un artículo
+-banner
+-logo 
+-cuando inicias sesión con administrador, en principio te muestra abm, pero si volves al inicio ya no hay un ícono para rtomar abm. En mi cuenta te toma como usuario comprador
+-unificar en todas las páginas el mismo tamaño de pantalla 

@@ -4,12 +4,36 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="container-lg" style="height: 250px; margin: 1px; margin-bottom: 150px;">
-        <div class="row justify-content-center align-items-center" style="height: 100%;">
-            <asp:Button ID="ABMArticulos" runat="server" Text="ABM Articulos" />
-            <asp:Button ID="ABMCatergorias" runat="server" Text="ABM Catergorias" />
-            <asp:Button ID="ABMMarcas" runat="server" Text="ABMMarcas" />
-
+    <div class="container">
+        <div class="row justify-content-center">
+        <h5> ABM Artículos </h5>
+            <asp:Button CssClass="card style-card" ID="ABMArticulos" runat="server" Text="ABM Articulos" OnClick="ABMArticulos_Click" />
+            <asp:Button CssClass="card style-card" ID="ABMCatergorias" runat="server" Text="ABM Catergorias" />
+            <asp:Button CssClass="card style-card" ID="ABMMarcas" runat="server" Text="ABMMarcas" />
         </div>
     </div>
+
+
+    <style>
+
+        .container {
+            display: flex;
+            height: 500px;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .style-card{
+            width: 50%;
+            height: 100px;
+            align-content: center;
+            margin: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+     
+
+    </style>
 </asp:Content>

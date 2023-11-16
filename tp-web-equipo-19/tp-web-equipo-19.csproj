@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ABM.aspx" />
+    <Content Include="ABMArticulo.aspx" />
     <Content Include="Ayuda.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="compra.aspx" />
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="ABM.aspx.designer.cs">
       <DependentUpon>ABM.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMArticulo.aspx.cs">
+      <DependentUpon>ABMArticulo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMArticulo.aspx.designer.cs">
+      <DependentUpon>ABMArticulo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ayuda.aspx.cs">
       <DependentUpon>Ayuda.aspx</DependentUpon>

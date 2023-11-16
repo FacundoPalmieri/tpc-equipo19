@@ -20,5 +20,10 @@ namespace tp_web_equipo_19
             }
 
         }
+
+        protected void ABMArticulos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ABMArticulo.aspx");
+        }
     }
 }
