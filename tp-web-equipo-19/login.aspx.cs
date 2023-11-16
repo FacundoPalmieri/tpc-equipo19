@@ -10,15 +10,14 @@ using Negocio;
 
 namespace tp_web_equipo_19
 {
-    public partial class loguin : System.Web.UI.Page
+    public partial class login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Usuario"] != null)
+            if (Seguridad.SesionActiva(Session["Usuario"]))
             {
                 Response.Redirect("MiCuenta.aspx");
             }
-
         }
 
         protected void ButtonIngresar_Click(object sender, EventArgs e)

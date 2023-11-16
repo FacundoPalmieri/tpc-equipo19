@@ -40,22 +40,33 @@
                     </a>
                 </div>
                 <div style="width: 50%; display: flex" <%--class ="justify-content-end"--%>>
-                    <a href="loguin.aspx" class="mr-3 space" style="width: 80%">
+                    <a href="login.aspx" class="mr-3 space" style="width: 80%">
                         <div class="fas fa-right-to-bracket justify-content-end" style="color: #AAC3CD; display: flex;">
-                            <p class="iconos-text">Mi cuenta</p>
+                            <p class="iconos-text">Login</p>
                             <div style="color: #AAC3CD; display: flex; margin-top: 10px;">
-                            <% if (Session["Usuario"] != null)
-                                { %>
-                            <!-- Si la sesión está iniciada, muestra el contenido adicional -->
-                            <abbr title="Iniciado" class="margen-superior" style="font-size: 8px;">Sesion Iniciada</abbr>
-                            <% } %>
-                             </div>
+                                <% if (Session["Usuario"] != null)
+                                    {
+                                        var usuario = Session["Usuario"] as Dominio.Usuario; // Reemplaza 'Dominio.Usuario' con tu tipo de objeto Usuario
+                                        if (usuario != null)
+                                        {
+                                            var correoElectronico = usuario.User; // Reemplaza 'CorreoElectronico' con el nombre de la propiedad de correo electrónico en tu objeto Usuario
+                                %>
+                                <!-- Si la sesión está iniciada, muestra el correo electrónico -->
+                          <abbr title="Iniciado" class="margen-superior" style="font-size: 10px;"> <%= correoElectronico %></abbr>
+                                <%
+                                    }
+                                }
+                                %>
+                            </div>
                         </div>
                     </a>
+                    <%  if (Session["Usuario"] == null || ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == Dominio.TipoUsuario.Cliente)
+                        { %>
                     <a href="Carrito.aspx" class="mr-3 space2" style="width: 20%">
                         <div class="fa-solid fa-cart-shopping justify-content-end" style="color: #AAC3CD; display: flex">
                             <span class="badge rounded-pill text-bg-success">
                                 <asp:Label ID="lblCantidadArticulos" runat="server" /></span>
+                            <% } %>
                         </div>
                     </a>
                 </div>
@@ -138,7 +149,8 @@
     .space2 {
         margin-right: 15px;
     }
-     .margen-superior {
-            margin-top: 20px; 
-        }
+
+    .margen-superior {
+        margin-top: 20px;
+    }
 </style>

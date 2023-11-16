@@ -11,11 +11,7 @@ namespace tp_web_equipo_19
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["Usuario"] == null)
-            {
-                Response.Redirect("loguin.aspx");
-            }
-
+            
         }
 
         protected void CerrarSesion_Click(object sender, EventArgs e)

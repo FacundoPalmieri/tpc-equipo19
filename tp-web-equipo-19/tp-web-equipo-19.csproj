@@ -76,7 +76,7 @@
     <Content Include="inicio.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Estilos.css" />
-    <Content Include="loguin.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="MiCuenta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -133,12 +133,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="loguin.aspx.cs">
-      <DependentUpon>loguin.aspx</DependentUpon>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="loguin.aspx.designer.cs">
-      <DependentUpon>loguin.aspx</DependentUpon>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="MiCuenta.aspx.cs">
       <DependentUpon>MiCuenta.aspx</DependentUpon>

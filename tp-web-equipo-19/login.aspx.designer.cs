@@ -11,7 +11,7 @@ namespace tp_web_equipo_19
 {
 
 
-    public partial class loguin
+    public partial class login
     {
 
         /// <summary>

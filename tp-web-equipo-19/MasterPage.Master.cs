@@ -13,6 +13,16 @@ namespace tp_web_equipo_19
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!(Page is Default  || Page is Carrito || Page is login))
+            {
+                if (!Seguridad.SesionActiva(Session["Usuario"]))
+                {
+                    Response.Redirect("login.aspx");
+                }
+
+
+            }
             if (!IsPostBack)
             {
                 ActualizarCantidadArticulosEnCarrito();

@@ -175,7 +175,7 @@ namespace tp_web_equipo_19
         {
             if (Session["Usuario"] == null)
             {
-                Response.Redirect("loguin.aspx");
+                Response.Redirect("login.aspx");
             }
         }
     }
