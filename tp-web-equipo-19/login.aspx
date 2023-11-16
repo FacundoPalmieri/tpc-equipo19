@@ -38,8 +38,13 @@
 
                 <div>
                     <%-- <button type="button" class="btn btn-secondary btn-sm">Ingresar</button>--%>
-                    <asp:Button ID="ButtonIngresar" CssClass="btn btn-secondary btn-sm" OnClick="ButtonIngresar_Click" runat="server" Text="Ingresar" />
+                    <asp:Button ID="ButtonIngresar" CssClass="btn btn-success" OnClick="ButtonIngresar_Click" runat="server" Text="Ingresar" />
+                    <%-- <button type="button" class="btn btn-secondary btn-sm">Ingresar</button>--%>
+                    <asp:Button ID="ButtonRegistrarse" CssClass="btn btn-secondary" OnClick="ButtonRegistrarse_Click" runat="server" Text="Registrarme" />
                 </div>
+                 
+            
+
 
 
                 <div>
