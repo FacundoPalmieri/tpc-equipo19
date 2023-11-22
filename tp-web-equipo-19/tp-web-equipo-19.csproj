@@ -69,15 +69,19 @@
   <ItemGroup>
     <Content Include="ABM.aspx" />
     <Content Include="ABMArticulo.aspx" />
+    <Content Include="ABMCategoria.aspx" />
+    <Content Include="ABMMarca.aspx" />
     <Content Include="articulo.aspx" />
     <Content Include="Ayuda.aspx" />
     <Content Include="Carrito.aspx" />
+    <Content Include="categoria.aspx" />
     <Content Include="compra.aspx" />
     <Content Include="DetalleArticulo.aspx" />
     <Content Include="inicio.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Estilos.css" />
     <Content Include="login.aspx" />
+    <Content Include="marca.aspx" />
     <Content Include="MiCuenta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -95,6 +99,20 @@
     </Compile>
     <Compile Include="ABMArticulo.aspx.designer.cs">
       <DependentUpon>ABMArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMCategoria.aspx.cs">
+      <DependentUpon>ABMCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMCategoria.aspx.designer.cs">
+      <DependentUpon>ABMCategoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ABMMarca.aspx.cs">
+      <DependentUpon>ABMMarca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMMarca.aspx.designer.cs">
+      <DependentUpon>ABMMarca.aspx</DependentUpon>
     </Compile>
     <Compile Include="articulo.aspx.cs">
       <DependentUpon>articulo.aspx</DependentUpon>
@@ -116,6 +134,13 @@
     </Compile>
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="categoria.aspx.cs">
+      <DependentUpon>categoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="categoria.aspx.designer.cs">
+      <DependentUpon>categoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="compra.aspx.cs">
       <DependentUpon>compra.aspx</DependentUpon>
@@ -147,6 +172,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="marca.aspx.cs">
+      <DependentUpon>marca.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="marca.aspx.designer.cs">
+      <DependentUpon>marca.aspx</DependentUpon>
     </Compile>
     <Compile Include="MiCuenta.aspx.cs">
       <DependentUpon>MiCuenta.aspx</DependentUpon>

@@ -9,8 +9,8 @@
         <h5> ABM </h5>
             <hr />
             <asp:Button CssClass="card style-card" ID="ABMArticulos" runat="server" Text="ABM Articulos" OnClick="ABMArticulos_Click" />
-            <asp:Button CssClass="card style-card" ID="ABMCategorias" runat="server" Text="ABM Catergorias" />
-            <asp:Button CssClass="card style-card" ID="ABMMarcas" runat="server" Text="ABMMarcas" />
+            <asp:Button CssClass="card style-card" ID="ABMCategorías" runat="server" Text="ABM Categorías" OnClick="ABMCategorias_Click"/>
+            <asp:Button CssClass="card style-card" ID="ABMMarcas" runat="server" Text="ABM Marcas" OnClick="ABMMarcas_Click"/>
         </div>
     </div>
 

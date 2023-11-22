@@ -14,4 +14,8 @@
 -cuando no se asocia bien la imagen al artículo, trae una imagen de otro artículo, debería traer la imagen de error 
 -limitar el tamaño de las imagenes, para que las card de los artículos siempre tengan el mismo tamaño
 -ordenar la datagriedview por número artículo ascendente, lo mismo en la lista de articulos de la pag inicio
+-cuando ya estás logueado , el ícono login debería esconderse
+-quizás habría que pasar los métodos a sp
+-cuando creamos en abm algo nuevo, no debería aparecer el botón eliminar
+
 

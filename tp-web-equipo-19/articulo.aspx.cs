@@ -62,8 +62,6 @@ namespace tp_web_equipo_19
                     ddlMarca.SelectedValue = seleccionado.marca.Id.ToString();
                     ddlCategoria.SelectedValue = seleccionado.categoria.Id.ToString();
 
-                    //txtImagen.Text = seleccionado.imagen.ImagenUrl; no muestro el link, lo dejo vacío si quiere ingresar uno nuevo
-
                 }
             }
 
@@ -174,5 +172,6 @@ namespace tp_web_equipo_19
             }
 
         }
+
     }
 }

@@ -23,17 +23,16 @@ namespace tp_web_equipo_19
             Response.Redirect("articulo.aspx");
 
         }
-
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ABM.aspx");
+        }
         protected void dgvArticulos_SelectedIndexChanged(object sender, EventArgs e)
         {
             string Id = dgvArticulos.SelectedDataKey.Value.ToString();
             Response.Redirect("articulo.aspx?Id=" + Id);
         }
 
-        //protected void dgv_SelectedIndexChange(object sender, EventArgs e)
-        //{
-        //    var id = dgvArticulos.SelectedDataKey.Values.ToString();
-        //}
 
         protected void dgvArticulos_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {

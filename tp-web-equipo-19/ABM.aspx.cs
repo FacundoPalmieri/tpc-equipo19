@@ -23,5 +23,15 @@ namespace tp_web_equipo_19
         {
             Response.Redirect("ABMArticulo.aspx");
         }
+
+        protected void ABMCategorias_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ABMCategoria.aspx");
+        }
+
+        protected void ABMMarcas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ABMMarca.aspx");
+        }
     }
 }
