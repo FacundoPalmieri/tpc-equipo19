@@ -6,3 +6,12 @@
 -logo 
 -cuando inicias sesión con administrador, en principio te muestra abm, pero si volves al inicio ya no hay un ícono para rtomar abm. En mi cuenta te toma como usuario comprador
 -unificar en todas las páginas el mismo tamaño de pantalla 
+-paginado en la data gried view
+-si queres ver detalle de un articulo, sin loguearte , no te deja 
+-en detalle artículo agregar un botón 'agregar al carrito'
+-agregar botón 'volver'en las páginas 
+-falta cerrar sesión como administrador
+-cuando no se asocia bien la imagen al artículo, trae una imagen de otro artículo, debería traer la imagen de error 
+-limitar el tamaño de las imagenes, para que las card de los artículos siempre tengan el mismo tamaño
+-ordenar la datagriedview por número artículo ascendente, lo mismo en la lista de articulos de la pag inicio
+

@@ -24,13 +24,13 @@ namespace tp_web_equipo_19
         protected global::System.Web.UI.WebControls.Button ABMArticulos;
 
         /// <summary>
-        /// Control ABMCatergorias.
+        /// Control ABMCategorias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ABMCatergorias;
+        protected global::System.Web.UI.WebControls.Button ABMCategorias;
 
         /// <summary>
         /// Control ABMMarcas.

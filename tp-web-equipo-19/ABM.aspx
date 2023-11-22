@@ -6,9 +6,10 @@
 
     <div class="container">
         <div class="row justify-content-center">
-        <h5> ABM Artículos </h5>
+        <h5> ABM </h5>
+            <hr />
             <asp:Button CssClass="card style-card" ID="ABMArticulos" runat="server" Text="ABM Articulos" OnClick="ABMArticulos_Click" />
-            <asp:Button CssClass="card style-card" ID="ABMCatergorias" runat="server" Text="ABM Catergorias" />
+            <asp:Button CssClass="card style-card" ID="ABMCategorias" runat="server" Text="ABM Catergorias" />
             <asp:Button CssClass="card style-card" ID="ABMMarcas" runat="server" Text="ABMMarcas" />
         </div>
     </div>

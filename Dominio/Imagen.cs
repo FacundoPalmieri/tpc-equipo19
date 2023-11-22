@@ -19,10 +19,10 @@ namespace Dominio
         }
         
 
-        public static implicit operator Imagen(string v)
-        {
-            throw new NotImplementedException();
-        }
+        //public static implicit operator Imagen(string v)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
 
         public List<Imagen> listar()

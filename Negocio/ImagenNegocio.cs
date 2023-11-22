@@ -50,19 +50,15 @@ namespace Negocio
 
         }
 
-        public void Agregar(Articulo Nuevo, int id)
+        public void Agregar(string ImagenUrl, int id)
         {
-            Articulo articulo = new Articulo();
             AccesoDatos Datos = new AccesoDatos();
 
             try
             {
                 Datos.SetearConsulta("Insert into IMAGENES(IdArticulo, ImagenUrl) values(@IdCodigoArticulo, @ImagenUrl)");
                 Datos.SetearParametro("@IdCodigoArticulo", id);
-                foreach (string imagenUrl in articulo.imagen.ListaDeImagenes )
-                {
-                    Datos.SetearParametro("@ImagenUrl", imagenUrl);
-                }
+                Datos.SetearParametro("@ImagenUrl", ImagenUrl);
                 Datos.EjectuarAccion();
                 Datos.CerrarConexion();
 
