@@ -83,6 +83,9 @@
     <Content Include="login.aspx" />
     <Content Include="marca.aspx" />
     <Content Include="MiCuenta.aspx" />
+    <Content Include="RegistroEnvio.aspx" />
+    <Content Include="Registro.aspx" />
+    <Content Include="RegistroConfirmacion.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -194,6 +197,27 @@
     </Compile>
     <Compile Include="MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroEnvio.aspx.cs">
+      <DependentUpon>RegistroEnvio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroEnvio.aspx.designer.cs">
+      <DependentUpon>RegistroEnvio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroConfirmacion.aspx.cs">
+      <DependentUpon>RegistroConfirmacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistroConfirmacion.aspx.designer.cs">
+      <DependentUpon>RegistroConfirmacion.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

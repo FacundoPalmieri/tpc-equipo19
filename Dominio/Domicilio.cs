@@ -8,6 +8,7 @@ namespace Dominio
 {
     public class Domicilio
     {
+        public string Nacionalidad { get; set; }
         public string Provincia { get; set; }
         public string Partido { get; set; }
         public string Localidad { get; set; }
