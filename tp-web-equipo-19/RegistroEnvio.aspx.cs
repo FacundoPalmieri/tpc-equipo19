@@ -166,7 +166,7 @@ namespace tp_web_equipo_19
                 if (string.IsNullOrEmpty(valorDepto))
                 {
                     // El campo está vacío
-                    Session["Depto"] = null; // Otra acción para indicar que el campo está vacío
+                    Session["Depto"] = "-"; // Otra acción para indicar que el campo está vacío
                     ValidacionDepto = true;
                 }
                 else if (regex1.IsMatch(valorDepto))

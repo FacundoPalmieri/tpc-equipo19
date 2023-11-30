@@ -16,7 +16,7 @@
                 <asp:TextBox ID="TextBoxApellido" CssClass="form-control mb-2" runat="server" Style="font-size: 12px; height: 25px;"></asp:TextBox>
             </div>
             <div class="col-6" style="display: flex; margin-top: 10px;">
-                <label for="Tipo" class="form-label" style="font-size: 14px;">Tipo DNI:</label>
+                <label for="Tipo" class="form-label" style="font-size: 14px;">Tipo:</label>
                 <asp:DropDownList ID="DDLTipoDni" CssClass="form-control mb-2" runat="server" OnSelectedIndexChanged="DDLTipoDni_SelectedIndexChanged" Style="font-size: 12px; height: 33px; width: 150px;"></asp:DropDownList>
                 <label for="DNI" class="form-label" style="font-size: 14px;">Número:</label>
                 <asp:TextBox ID="TextBoxDNI" CssClass="form-control mb-2" runat="server" Style="font-size: 12px; height: 25px;"></asp:TextBox>

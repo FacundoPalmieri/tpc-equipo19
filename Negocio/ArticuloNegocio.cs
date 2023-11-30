@@ -511,17 +511,16 @@ namespace Negocio
                         Aux.categoria.Descripcion = "";
                     }
 
+                    //Imágen para inicio
                     Aux.imagen = new Imagen();
                     if (!(datos.lector.IsDBNull(datos.lector.GetOrdinal("ImagenUrl"))))
                     {
-                        string imagenUrl = (string)datos.lector["ImagenUrl"];
-                        Aux.imagen.ListaDeImagenes.Add(imagenUrl);
+                        Aux.imagen.ImagenUrl = (string)datos.lector["ImagenUrl"];
                         Aux.imagen.IdCodigoArticulo = (int)datos.lector["IdImagen"];
                     }
                     else
                     {
-                        string imagenUrl = (string)datos.lector["ImagenUrl"];
-                        Aux.imagen.ListaDeImagenes.Add("");
+                        Aux.imagen.ImagenUrl = "https://images.samsung.com/is/image/samsung/co-galaxy-s10-sm-g970-sm-g970fzyjcoo-frontcanaryyellow-thumb-149016542";
                         Aux.imagen.IdCodigoArticulo = Aux.Id;
 
                     }
