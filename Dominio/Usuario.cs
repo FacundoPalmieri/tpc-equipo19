@@ -15,12 +15,16 @@ namespace Dominio
     public class Usuario
     {
         public int Id { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+
+        public string Contacto { get; set; }
+        public string TipoDocumento { get; set; }
+        public string NDocumento { get; set; }
         public string User{ get; set; }
         public string Password { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
-        public string Nombre { get; set; }
-        public int Apellido { get; set; }
-        public bool Estado { get; set; }
+        public bool Habilitado { get; set; }
 
         public Usuario(String user, String password, bool admin)
         {
@@ -29,6 +33,8 @@ namespace Dominio
             TipoUsuario = admin ? TipoUsuario.Administrador : TipoUsuario.Cliente;
 
         }
+
+        public Usuario() { }
 
 
     }

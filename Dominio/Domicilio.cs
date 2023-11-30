@@ -8,16 +8,14 @@ namespace Dominio
 {
     public class Domicilio
     {
-        public string Nacionalidad { get; set; }
+        public int Id { get; set; }
+        public int IdUsuario { get; set; }
+        public string Pais { get; set; }
         public string Provincia { get; set; }
-        public string Partido { get; set; }
-        public string Localidad { get; set; }
+        public string Ciudad { get; set; }
         public string Calle { get; set; }
         public int Altura { get; set; }
         public int Piso { get; set; }
-        public char Departamento { get; set; }
-        public string Interseccion1 { get; set; }
-        public string Interseccion2 { get; set; }
-        public string Observaciones { get; set; }
+        public string Depto { get; set; }
     }
 }

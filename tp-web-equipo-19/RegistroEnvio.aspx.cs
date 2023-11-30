@@ -2,6 +2,7 @@
 using Negocio;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,15 +20,23 @@ namespace tp_web_equipo_19
                 DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                 DDLPais.DataSource = domicilioNegocio.listarPaises();
                 DDLPais.DataBind();
+                DDLPais.Items.Insert(0, new ListItem("-- Seleccionar Pais --", ""));
 
                 // Cargar las provincias solo una vez al cargar la página
                 DDLProvincia.DataSource = domicilioNegocio.listarProvincias();
-                DDLProvincia.DataTextField = "Nombre"; // Mostrar el nombre de la provincia
-                DDLProvincia.DataValueField = "Id"; // Usar el ID de la provincia como valor
+                DDLProvincia.DataTextField = "Nombre"; 
+                DDLProvincia.DataValueField = "Id"; 
                 DDLProvincia.DataBind();
 
-                // Agregar un elemento en blanco para indicar selección
-                DDLProvincia.Items.Insert(0, new ListItem("-- Seleccionar provincia --", ""));
+              
+                DDLProvincia.Items.Insert(0, new ListItem("-- Seleccionar Provincia --", ""));
+
+
+                // Permite mostrar "--Seleccionar ciudad--"
+                //La lista real la carga desde el evento
+                DDLCiudad.DataSource = domicilioNegocio.listarCiudades(1);
+                DDLCiudad.DataBind();
+                DDLCiudad.Items.Insert(0, new ListItem("-- Seleccionar Ciudad --", ""));
             }
 
 
@@ -50,6 +59,12 @@ namespace tp_web_equipo_19
                 DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                 DDLCiudad.DataSource = domicilioNegocio.listarCiudades(IdProvinciaSeleccionada);
                 DDLCiudad.DataBind();
+
+                if(IdProvinciaSeleccionada != 2)
+                {
+                     DDLCiudad.Items.Insert(0, new ListItem("-- Seleccionar Ciudad --", ""));
+
+                }
             }
 
 
@@ -66,7 +81,41 @@ namespace tp_web_equipo_19
 
         protected void ButtonSiguiente_Click(object sender, EventArgs e)
         {
-            Response.Redirect("RegistroConfirmacion.aspx");
+           if (!string.IsNullOrEmpty(DDLPais.SelectedValue) &&
+               !string.IsNullOrEmpty(DDLProvincia.SelectedValue) &&
+               !string.IsNullOrEmpty(DDLCiudad.SelectedValue) &&
+               !string.IsNullOrEmpty(TextBoxCalle.Text) &&
+               !string.IsNullOrEmpty(TextBoxAltura.Text) &&
+               !string.IsNullOrEmpty(TextBoxPiso.Text) &&
+               !string.IsNullOrEmpty(TextBoxDepto.Text)
+              )
+           { 
+                Session["Pais"] = DDLPais.SelectedValue;
+                Session["Provincia"] = DDLPais.SelectedValue;
+                Session["Ciudad"] = DDLPais.SelectedValue;
+                Session["Calle"] = TextBoxCalle.Text;
+                int Altura;
+                if (int.TryParse(TextBoxAltura.Text, out Altura))
+                {
+
+                    Session["Altura"] = Altura;
+                }
+
+                int Piso;
+                if (int.TryParse(TextBoxPiso.Text, out Piso))
+                {
+                    Session["Piso"] = Piso;
+                }
+
+                Session["Depto"] = TextBoxDepto.Text;
+
+                Response.Redirect("RegistroConfirmacion.aspx");
+            }
+            else
+            {
+                MensajeError.Text = "Campos incompletos y/o incorrectos";
+                MensajeError.Visible = true; // Hace visible el mensaje de error
+            }
         }
 
     }

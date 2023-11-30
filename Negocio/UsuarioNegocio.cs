@@ -40,5 +40,35 @@ namespace Negocio
 
 
         }
+
+        public int RegistrarUsuario(Usuario Nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearProcedimiento("RegistrarUsuario");
+                datos.SetearParametro("@Nombre", Nuevo.Nombre);
+                datos.SetearParametro("@Apellido", Nuevo.Apellido);
+                datos.SetearParametro("@TipoDocumento", Nuevo.TipoDocumento);
+                datos.SetearParametro("@NDocumento", Nuevo.NDocumento);
+                datos.SetearParametro("@Contacto", Nuevo.Contacto);
+                datos.SetearParametro("@Usuario", Nuevo.User);
+                datos.SetearParametro("@Contraseña", Nuevo.Password);
+
+
+                return datos.EjectuarAccionScalar();
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
 }

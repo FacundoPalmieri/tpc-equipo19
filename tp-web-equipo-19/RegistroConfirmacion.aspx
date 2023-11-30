@@ -19,9 +19,14 @@
         <div>
             <asp:TextBox ID="TextBoxPassword" type="password" CssClass="form-control mb-3" aria-describedby="passwordHelpBlock" runat="server"></asp:TextBox>
         </div>
+
         <div>
-           <asp:Button ID="ButtonVolver2" CssClass="btn btn-secondary" OnClick="ButtonVolver2_Click" runat ="server" Text="Volver" />
-           <asp:Button ID="ButtonConfirmar" CssClass="btn btn-success" OnClick="ButtonConfirmar_Click" runat="server" Text="Confirmar" />
+            <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
+        </div>
+
+        <div>
+            <asp:Button ID="ButtonVolver2" CssClass="btn btn-secondary" OnClick="ButtonVolver2_Click" runat="server" Text="Volver" />
+            <asp:Button ID="ButtonConfirmar" CssClass="btn btn-success" OnClick="ButtonConfirmar_Click" runat="server" Text="Confirmar" />
         </div>
     </div>
 </asp:Content>

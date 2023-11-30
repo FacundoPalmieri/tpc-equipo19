@@ -45,7 +45,6 @@
     <Compile Include="Carrito.cs" />
     <Compile Include="Categoria.cs" />
     <Compile Include="Ciudad.cs" />
-    <Compile Include="Cliente.cs" />
     <Compile Include="Compra.cs" />
     <Compile Include="Domicilio.cs" />
     <Compile Include="Imagen.cs" />
@@ -56,6 +55,7 @@
     <Compile Include="Provincia.cs" />
     <Compile Include="Seguridad.cs" />
     <Compile Include="Tarjeta.cs" />
+    <Compile Include="TipoDocumento.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

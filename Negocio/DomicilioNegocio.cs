@@ -113,6 +113,36 @@ namespace Negocio
 
         }
 
+        public int RegistrarDomicilio(Domicilio Nuevo, int IdUsuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearProcedimiento("RegistrarDomicilio");
+                datos.SetearParametro("@IdUsuario", IdUsuario);
+                datos.SetearParametro("@Pais", Nuevo.Pais);
+                datos.SetearParametro("@Provincia", Nuevo.Provincia);
+                datos.SetearParametro("@Ciudad", Nuevo.Ciudad);
+                datos.SetearParametro("@Calle", Nuevo.Calle);
+                datos.SetearParametro("@Altura", Nuevo.Altura);
+                datos.SetearParametro("@Piso", Nuevo.Piso);
+                datos.SetearParametro("@Depto", Nuevo.Depto);
+
+                return datos.EjectuarAccionScalar();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
 
     }
 }
