@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 namespace tp_web_equipo_19
 {
@@ -39,9 +40,27 @@ namespace tp_web_equipo_19
                 Session["Apellido"] = TextBoxApellido.Text;
                 Session["TipoDocumento"] = DDLTipoDni.SelectedValue;
                 Session["NDocumento"] = TextBoxDNI.Text;
-                Session["Celular"] = TextBoxContacto.Text;
 
-                Response.Redirect("RegistroEnvio.aspx");
+
+                string numeroContacto = TextBoxContacto.Text;
+
+                // Patrón para verificar que solo se ingresen dígitos (0-9)
+                Regex regex = new Regex(@"^[0-9]+$");
+
+
+                if (regex.IsMatch(numeroContacto))
+                {
+              
+                    Session["Celular"] = numeroContacto;
+                    Response.Redirect("RegistroEnvio.aspx");
+                }
+                else
+                {
+                  
+                    MensajeError.Text = "El campo 'Celular' Solo debe contener números";
+                    MensajeError.Visible = true; 
+                }
+
 
             }
             else

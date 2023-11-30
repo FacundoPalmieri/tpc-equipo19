@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 namespace tp_web_equipo_19
 {
@@ -79,37 +80,116 @@ namespace tp_web_equipo_19
             Response.Redirect("Registro.aspx");
         }
 
+        bool ValidacionCalle = true;
+        bool ValidacionAltura = true;
+        bool ValidacionPiso = true;
+        bool ValidacionDepto = true;
         protected void ButtonSiguiente_Click(object sender, EventArgs e)
         {
            if (!string.IsNullOrEmpty(DDLPais.SelectedValue) &&
                !string.IsNullOrEmpty(DDLProvincia.SelectedValue) &&
                !string.IsNullOrEmpty(DDLCiudad.SelectedValue) &&
                !string.IsNullOrEmpty(TextBoxCalle.Text) &&
-               !string.IsNullOrEmpty(TextBoxAltura.Text) &&
-               !string.IsNullOrEmpty(TextBoxPiso.Text) &&
-               !string.IsNullOrEmpty(TextBoxDepto.Text)
+               !string.IsNullOrEmpty(TextBoxAltura.Text)
               )
            { 
                 Session["Pais"] = DDLPais.SelectedValue;
                 Session["Provincia"] = DDLPais.SelectedValue;
                 Session["Ciudad"] = DDLPais.SelectedValue;
-                Session["Calle"] = TextBoxCalle.Text;
-                int Altura;
-                if (int.TryParse(TextBoxAltura.Text, out Altura))
-                {
 
-                    Session["Altura"] = Altura;
+                string textoCalle = TextBoxCalle.Text;
+
+                // Expresión regular para validar letras y espacios
+                Regex regex = new Regex(@"^[a-zA-Z\s]+$");
+
+                if (regex.IsMatch(textoCalle))
+                {
+                    
+                    Session["Calle"] = textoCalle;
+                    ValidacionCalle = true;
+                }
+                else
+                {
+                    
+                    MensajeError.Text = "La calle solo debe contener letras y espacios.";
+                    MensajeError.Visible = true;
+                    ValidacionCalle = false;
                 }
 
-                int Piso;
-                if (int.TryParse(TextBoxPiso.Text, out Piso))
+
+                string valorAltura = TextBoxAltura.Text;
+
+                if (int.TryParse(valorAltura, out int Altura))
+                {
+                   
+                    Session["Altura"] = Altura;
+                    ValidacionAltura = true;
+
+                }
+                else
+                {
+                  
+                    MensajeError.Text = "La altura debe ser un número entero.";
+                    MensajeError.Visible = true;
+                    ValidacionAltura = false;
+                }
+
+
+                string valorPiso = TextBoxPiso.Text.Trim(); // Eliminar espacios en blanco al principio y al final
+
+                if (string.IsNullOrEmpty(valorPiso))
+                {
+                   
+                    Session["Piso"] = null; 
+                    ValidacionPiso= true;
+                }
+                    // El valor del piso contiene como máximo dos dígitos y es un número entero válido
+                else if (valorPiso.Length <= 2 && int.TryParse(valorPiso, out int Piso))
                 {
                     Session["Piso"] = Piso;
+                    ValidacionPiso = true;
+                }
+                else
+                {
+                 
+                    MensajeError.Text = "El piso debe estar vacío o contener como máximo dos números enteros.";
+                    MensajeError.Visible = true;
+                    ValidacionPiso = false;
                 }
 
-                Session["Depto"] = TextBoxDepto.Text;
 
-                Response.Redirect("RegistroConfirmacion.aspx");
+                string valorDepto = TextBoxDepto.Text.Trim(); // Eliminar espacios en blanco al principio y al final
+
+                // Expresión regular para validar si es solo una letra o dos números, pero no una combinación de ambos
+                Regex regex1 = new Regex(@"^(?:[A-Za-z]|\d{1,2})$");
+
+                if (string.IsNullOrEmpty(valorDepto))
+                {
+                    // El campo está vacío
+                    Session["Depto"] = null; // Otra acción para indicar que el campo está vacío
+                    ValidacionDepto = true;
+                }
+                else if (regex1.IsMatch(valorDepto))
+                {
+                    // El valor del depto cumple con el formato especificado
+                    Session["Depto"] = valorDepto;
+                    ValidacionDepto = true;
+                }
+                else
+                {
+                    // El valor del depto no cumple con el formato especificado
+                    MensajeError.Text = "El campo 'Depto' debe contener como máximo dos números o una letra, pero no ambos.";
+                    MensajeError.Visible = true;
+                    ValidacionDepto = false;
+                }
+
+
+                if (ValidacionCalle && ValidacionAltura && ValidacionPiso && ValidacionDepto ==  true)
+                {
+                 Response.Redirect("RegistroConfirmacion.aspx");
+
+                }
+
             }
             else
             {

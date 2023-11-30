@@ -96,17 +96,17 @@ namespace tp_web_equipo_19
                     int id = usuarioNegocio.RegistrarUsuario(usuario);
                     int IdDomicilio = domicilioNegocio.RegistrarDomicilio(domicilio, id);
 
-                    //EmailService emailService = new EmailService();
-                    //emailService.ArmarCorreo(TextBoxUser.Text, "Bienvenido a FK Market", "Bienvenido");
-                    //try
-                    //{
-                        //emailService.EnviarMail();
-                    //}
-                    //catch (Exception Ex)
-                    //{
+                    EmailService emailService = new EmailService();
+                    emailService.ArmarCorreo(TextBoxUser.Text, "Bienvenido a FK Market", "Bienvenido");
+                    try
+                    {
+                        emailService.EnviarMail();
+                    }
+                    catch (Exception Ex)
+                    {
 
-                    //    Session.Add("error", Ex);
-                    //}
+                        Session.Add("error", Ex);
+                    }
 
                     Response.Redirect("login.aspx");
                 }

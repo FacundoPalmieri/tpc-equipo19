@@ -30,7 +30,7 @@ namespace Negocio
         public void ArmarCorreo(string EmailDestino, string Asunto, string Cuerpo)
         {
             Email = new MailMessage();
-            Email.From = new MailAddress("NoResponder@Palmierifacundo@gmail.com");
+            Email.From = new MailAddress("NoResponder@Palmierifacundo.com");
             Email.To.Add(EmailDestino);
             Email.Subject = Asunto;
             Email.IsBodyHtml = true;
