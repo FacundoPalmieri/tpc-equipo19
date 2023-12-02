@@ -28,25 +28,31 @@ namespace tp_web_equipo_19
                     {
                         Dominio.Usuario usuarioNuevo = new Dominio.Usuario();
                         int Id = usuarioEnSesion.Id;
-                    
 
-                        DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
+                        //Verificar lugar donde vive, para calcular envío 
 
-                        ListaDomicilio = domicilioNegocio.DomicilioUsuario(Id);
-                        Domicilio domicilio = ListaDomicilio.FirstOrDefault(a => a.IdUsuario == usuarioEnSesion.Id);
+                        DomicilioNegocio ProvinciaNegocio = new DomicilioNegocio();
+                        TipoEnvioNegocio envioNegocio = new TipoEnvioNegocio();
+                        int Provincia = new int();
+                        decimal Envio = new decimal();
 
-                        if (domicilio != null)
+                        Provincia = ProvinciaNegocio.ConsultarProvincias(usuarioEnSesion.Id);
+
+                        if (Provincia == 2)
                         {
-                            List<Domicilio> listaMostrar = new List<Domicilio> { domicilio };
-                            Repeater1.DataSource = listaMostrar;
-                            Repeater1.DataBind();
+                            Envio = envioNegocio.CostoEnvio(2);
 
                         }
+                        else
+                        {
+                            Envio = envioNegocio.CostoEnvio(3);
+                        }
+
                     }
+
                 }
             }
         }
-
 
 
         protected void MostrarCarrito()
@@ -79,40 +85,18 @@ namespace tp_web_equipo_19
 
         protected void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
+
             if (EnvioDomicilio.Checked)
             {
+                decimal Envio = new decimal();
+                Envio = costoEnvio();
                 CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
 
                 if (miCarritoNegocio != null)
                 {
-
-                    DomicilioNegocio ProvinciaNegocio = new DomicilioNegocio();
-                    TipoEnvioNegocio envioNegocio = new TipoEnvioNegocio();
-                    int Provincia = new int();
-                    decimal Envio = new decimal();
-
-                    //Provincia = ProvinciaNegocio.ConsultarProvincias();
-
-                    
-
-                    
-                    if(Provincia == 2)
-                    {
-                        Envio = envioNegocio.CostoEnvio(2);
-
-                    }
-                    else
-                    {
-                        Envio = envioNegocio.CostoEnvio(3);
-                    }
-
-
                     RepeaterCarrito.DataSource = miCarritoNegocio.listacarrito;
                     RepeaterCarrito.DataBind();
                     decimal totalCarrito = miCarritoNegocio.CalcularTotalCarrito();
-
-
-
                     totalCarrito += Envio;
                     lblTotalCarrito.Text = totalCarrito.ToString("C");
                     lblEnvio.Text = Envio.ToString("C");
@@ -124,16 +108,46 @@ namespace tp_web_equipo_19
 
                 if (miCarritoNegocio != null)
                 {
+                    decimal Envio = new decimal();
+                    Envio = costoEnvio();
                     RepeaterCarrito.DataSource = miCarritoNegocio.listacarrito;
                     RepeaterCarrito.DataBind();
                     decimal totalCarrito = miCarritoNegocio.CalcularTotalCarrito();
-                    decimal costoEnvio = 0;
-                    totalCarrito += costoEnvio;
                     lblTotalCarrito.Text = totalCarrito.ToString("C");
-                    lblEnvio.Text = costoEnvio.ToString("C");
+                    lblEnvio.Text = Envio.ToString("C");
                 }
 
             }
+        }
+
+        protected decimal costoEnvio()
+        {
+            var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
+
+            DomicilioNegocio ProvinciaNegocio = new DomicilioNegocio();
+            TipoEnvioNegocio envioNegocio = new TipoEnvioNegocio();
+            int Provincia = new int();
+            decimal Envio = new decimal();
+
+            Provincia = ProvinciaNegocio.ConsultarProvincias(usuarioEnSesion.Id);
+
+            if (!EnvioDomicilio.Checked)
+            {
+                Envio = envioNegocio.CostoEnvio(1);
+            }
+            else
+            {
+                if (Provincia == 2)
+                {
+                    Envio = envioNegocio.CostoEnvio(2);
+                }
+                else
+                {
+                    Envio = envioNegocio.CostoEnvio(3);
+                }
+            }
+
+            return Envio;
         }
 
     }

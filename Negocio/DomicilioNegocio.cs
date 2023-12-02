@@ -81,20 +81,19 @@ namespace Negocio
 
         public int ConsultarProvincias(int IdUsuario)
         {
-           
-
             int aux = new int ();
             AccesoDatos datos = new AccesoDatos();
 
             try
             {
-                datos.SetearConsulta("Select IdUsuario From Domicilios Where IdUsuario = @IdUsuario");
+                datos.SetearConsulta("select P.Id as Id from Domicilios D left join Provincias P ON P.Nombre = D.Provincia WHERE IdUsuario = @IdUsuario");
+               
                 datos.SetearParametro("@IdUsuario", IdUsuario);
                 datos.EjecutarConsulta();
 
                 while (datos.lector.Read())
                 {
-                    aux= (int)(datos.lector["IdUsuario"]);
+                    aux= (int)(datos.lector["Id"]);
                  
                     
                 }
