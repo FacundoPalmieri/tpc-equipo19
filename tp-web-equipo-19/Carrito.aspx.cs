@@ -144,7 +144,7 @@ namespace tp_web_equipo_19
                 if (miCarritoNegocio.listacarrito[i].Articulo.Id == idArticuloSeleccionado)
                 {
                     miCarritoNegocio.listacarrito.RemoveAt(i);
-                    break; // Importante salir del bucle después de eliminar el elemento
+                    break;
                 }
             }
 
@@ -176,6 +176,10 @@ namespace tp_web_equipo_19
             if (Session["Usuario"] == null)
             {
                 Response.Redirect("login.aspx");
+            }
+            else
+            {
+                Response.Redirect("compra.aspx");
             }
         }
     }

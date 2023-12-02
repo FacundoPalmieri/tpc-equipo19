@@ -78,6 +78,45 @@ namespace Negocio
 
         }
 
+
+        public int ConsultarProvincias(int IdUsuario)
+        {
+           
+
+            int aux = new int ();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("Select IdUsuario From Domicilios Where IdUsuario = @IdUsuario");
+                datos.SetearParametro("@IdUsuario", IdUsuario);
+                datos.EjecutarConsulta();
+
+                while (datos.lector.Read())
+                {
+                    aux= (int)(datos.lector["IdUsuario"]);
+                 
+                    
+                }
+                return aux;
+
+            }
+            catch (Exception Ex)
+            {
+
+                throw Ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+
+        }
+
+
+
+
         public List<Ciudad> listarCiudades(int Idprovincia)
         {
             List<Ciudad> lista = new List<Ciudad>();
@@ -143,6 +182,43 @@ namespace Negocio
             }
         }
 
+        public List<Domicilio> DomicilioUsuario(int id_usuario)
+        {
+            List<Domicilio> Lista = new List<Domicilio>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("SELECT IdUsuario, Ciudad, Calle, Altura, Piso, Depto FROM DOMICILIOS");
+                datos.EjecutarConsulta();
+
+                while (datos.lector.Read())
+                {
+                    Domicilio Aux = new Domicilio();
+
+                    Aux.IdUsuario = (int)datos.lector["IdUsuario"];
+                    Aux.Ciudad = (string)datos.lector["Ciudad"];
+                    Aux.Calle = (string)datos.lector["Calle"];
+                    Aux.Altura = (int)datos.lector["Altura"];
+                    Aux.Piso = (string)datos.lector["Piso"];
+                    Aux.Depto = (string)datos.lector["Depto"];
+
+                    Lista.Add(Aux);
+                }
+
+                Lista = Lista.Where(item => item.IdUsuario == id_usuario).ToList();
+
+                return Lista;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
 
     }
 }

@@ -42,7 +42,6 @@
 
         <div class="margen-superior">
         <asp:Button ID="ButtonCompra" CssClass="btn btn-success " OnClick="ButtonCompra_Click" runat="server" Text="Iniciar Compra" />
-        <%--  <a class="btn btn-success" href="compra.aspx" role="button">Iniciar compra</a>--%>
          </div>
    </div>
 

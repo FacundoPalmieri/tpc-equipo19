@@ -1,4 +1,4 @@
-﻿using Dominio;
+﻿﻿using Dominio;
 using Negocio;
 using System;
 using System.Collections.Generic;
@@ -94,8 +94,8 @@ namespace tp_web_equipo_19
               )
            { 
                 Session["Pais"] = DDLPais.SelectedValue;
-                Session["Provincia"] = DDLPais.SelectedValue;
-                Session["Ciudad"] = DDLPais.SelectedValue;
+                Session["Provincia"] = DDLProvincia.SelectedItem.Text;
+                Session["Ciudad"] = DDLCiudad.SelectedValue;
 
                 string textoCalle = TextBoxCalle.Text;
 
@@ -140,7 +140,7 @@ namespace tp_web_equipo_19
                 if (string.IsNullOrEmpty(valorPiso))
                 {
                    
-                    Session["Piso"] = null; 
+                    Session["Piso"] = 0; 
                     ValidacionPiso= true;
                 }
                     // El valor del piso contiene como máximo dos dígitos y es un número entero válido

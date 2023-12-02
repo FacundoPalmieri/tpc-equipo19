@@ -17,5 +17,4 @@
 -cuando ya estás logueado , el ícono login debería esconderse
 -quizás habría que pasar los métodos a sp
 -cuando creamos en abm algo nuevo, no debería aparecer el botón eliminar
-
-
+- costo diferencial por provincia y caba , u otros lugares 

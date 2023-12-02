@@ -15,7 +15,7 @@ namespace Dominio
         public string Ciudad { get; set; }
         public string Calle { get; set; }
         public int Altura { get; set; }
-        public int Piso { get; set; }
+        public string Piso { get; set; }
         public string Depto { get; set; }
     }
 }
