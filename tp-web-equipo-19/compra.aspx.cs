@@ -29,24 +29,12 @@ namespace tp_web_equipo_19
                         Dominio.Usuario usuarioNuevo = new Dominio.Usuario();
                         int Id = usuarioEnSesion.Id;
 
-                        //Verificar lugar donde vive, para calcular envío 
-
-                        DomicilioNegocio ProvinciaNegocio = new DomicilioNegocio();
-                        TipoEnvioNegocio envioNegocio = new TipoEnvioNegocio();
-                        int Provincia = new int();
-                        decimal Envio = new decimal();
-
-                        Provincia = ProvinciaNegocio.ConsultarProvincias(usuarioEnSesion.Id);
-
-                        if (Provincia == 2)
-                        {
-                            Envio = envioNegocio.CostoEnvio(2);
-
-                        }
-                        else
-                        {
-                            Envio = envioNegocio.CostoEnvio(3);
-                        }
+                        DomicilioNegocio domicilioNegocio = new DomicilioNegocio(); 
+                        Domicilio domicilio = new Domicilio();
+                        ListaDomicilio = domicilioNegocio.DomicilioUsuario(Id);
+                        domicilio = ListaDomicilio.LastOrDefault();
+                        Repeater1.DataSource = ListaDomicilio;
+                        Repeater1.DataBind();
 
                     }
 
@@ -68,10 +56,6 @@ namespace tp_web_equipo_19
             }
         }
 
-        protected void lblCambioDomicilio_Click(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
@@ -150,5 +134,11 @@ namespace tp_web_equipo_19
             return Envio;
         }
 
+
+
+        protected void EditarDomicilio_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("EditarDomicilio.aspx");
+        }
     }
 }

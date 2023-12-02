@@ -25,19 +25,15 @@
                                             <p class="card-text"><b>Altura: </b><%# Eval("Altura") %></p>
                                             <p class="card-text"><b>Piso: </b><%# Eval("Piso") %></p>
                                             <p class="card-text"><b>Dpto: </b><%# Eval("Depto") %></p>
+
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-end">
-                            $1000
-                        </div>
                         <hr />
                         <div>
-                            <label class="form-check-label" id="lblCambioDomicilio" onclick="lblCambioDomicilio_Click" style="color: #3483fa;">
-                                <strong>Editar o elegir otro domicilio </strong>
-                            </label>
+                            <asp:LinkButton ID="EditarDomicilio" CssClass="link-offset-2 link-bold link-underline" runat="server" OnClick="EditarDomicilio_Click1">Editar Domicilio</asp:LinkButton>
                         </div>
                     </div>
                 </div>
@@ -50,9 +46,6 @@
                                     Retirar en un punto de entrega
                                 </label>
                             </div>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            $0
                         </div>
                     </div>
                 </div>
@@ -114,6 +107,14 @@
         .botones {
             display: flex;
             justify-content: end;
+        }
+
+        .link-bold {
+            font-weight: bold;
+        }
+
+        .link-underline {
+            text-decoration: underline;
         }
     </style>
 </asp:Content>
