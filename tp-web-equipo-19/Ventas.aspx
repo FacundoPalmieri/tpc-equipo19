@@ -6,7 +6,7 @@
     <h3>Ventas</h3>
 
     <hr/>
-
+    </div>
     <style>
         .contenedor {
             height: 500px;

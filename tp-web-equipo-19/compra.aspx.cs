@@ -29,7 +29,6 @@ namespace tp_web_equipo_19
                         Dominio.Usuario usuarioNuevo = new Dominio.Usuario();
                         int Id = usuarioEnSesion.Id;
 
-<<<<<<< HEAD
                         //Verificar lugar donde vive, para calcular envío 
 
                         DomicilioNegocio ProvinciaNegocio = new DomicilioNegocio();
@@ -40,14 +39,13 @@ namespace tp_web_equipo_19
                         Provincia = ProvinciaNegocio.ConsultarProvincias(usuarioEnSesion.Id);
 
 
-=======
+
                         DomicilioNegocio domicilioNegocio = new DomicilioNegocio(); 
                         Domicilio domicilio = new Domicilio();
                         ListaDomicilio = domicilioNegocio.DomicilioUsuario(Id);
                         domicilio = ListaDomicilio.LastOrDefault();
                         Repeater1.DataSource = ListaDomicilio;
                         Repeater1.DataBind();
->>>>>>> 4486398ab48530e708f806e3dca24355bb2ed762
 
                     }
 

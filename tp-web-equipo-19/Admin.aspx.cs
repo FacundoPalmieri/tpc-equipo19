@@ -23,7 +23,6 @@ namespace tp_web_equipo_19
         protected void ABM_Click(object sender, EventArgs e)
         {
             Response.Redirect("ABM.aspx");
-
         }
 
         protected void btnVolver_Click(object sender, EventArgs e)
