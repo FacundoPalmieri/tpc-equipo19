@@ -29,7 +29,7 @@ namespace tp_web_equipo_19
                         Dominio.Usuario usuarioNuevo = new Dominio.Usuario();
                         int Id = usuarioEnSesion.Id;
 
-<<<<<<< HEAD
+
                         //Verificar lugar donde vive, para calcular envío 
 
                         DomicilioNegocio ProvinciaNegocio = new DomicilioNegocio();
@@ -40,14 +40,14 @@ namespace tp_web_equipo_19
                         Provincia = ProvinciaNegocio.ConsultarProvincias(usuarioEnSesion.Id);
 
 
-=======
+
                         DomicilioNegocio domicilioNegocio = new DomicilioNegocio(); 
                         Domicilio domicilio = new Domicilio();
                         ListaDomicilio = domicilioNegocio.DomicilioUsuario(Id);
                         domicilio = ListaDomicilio.LastOrDefault();
                         Repeater1.DataSource = ListaDomicilio;
                         Repeater1.DataBind();
->>>>>>> 4486398ab48530e708f806e3dca24355bb2ed762
+
 
                     }
 
@@ -70,15 +70,6 @@ namespace tp_web_equipo_19
         }
 
 
-        protected void btnVolver_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("Carrito.aspx");
-
-        }
-        protected void btnContinuar_Click(object sender, EventArgs e)
-        {
-            //Response.Redirect("ABM.aspx");
-        }
 
         protected void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -152,6 +143,29 @@ namespace tp_web_equipo_19
         protected void EditarDomicilio_Click1(object sender, EventArgs e)
         {
             Response.Redirect("EditarDomicilio.aspx");
+        }
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Carrito.aspx");
+
+        }
+        protected void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            
+            Carrito carrito = new Carrito();
+           
+
+            string script = "var nuevaVentana = window.open('CompraConfirmada.aspx', '_blank', 'width=600,height=400');" +
+                            "nuevaVentana.focus();" +
+                            "window.addEventListener('message', function(event) {" +
+                            "    if (event.data === 'clicEnVentanaEmergente') {" +
+                            "        window.location.href = 'inicio.aspx';" + // Redirigir a la nueva página
+                            "    }" +
+                            "});"; // Reemplaza 'NuevaPagina.aspx' con la URL deseada
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", script, true);
+            
+           
+
         }
     }
 }

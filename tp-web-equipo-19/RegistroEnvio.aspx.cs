@@ -111,7 +111,7 @@ namespace tp_web_equipo_19
                 else
                 {
                     
-                    MensajeError.Text = "La calle solo debe contener letras y espacios.";
+                    MensajeError.Text = "La calle solo debe contener letras y/o espacios.";
                     MensajeError.Visible = true;
                     ValidacionCalle = false;
                 }

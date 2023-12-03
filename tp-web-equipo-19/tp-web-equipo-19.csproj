@@ -90,6 +90,7 @@
     <Content Include="Registro.aspx" />
     <Content Include="RegistroConfirmacion.aspx" />
     <Content Include="Web.config" />
+    <Content Include="CompraConfirmada.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABM.aspx.cs">
@@ -242,6 +243,13 @@
     </Compile>
     <Compile Include="RegistroConfirmacion.aspx.designer.cs">
       <DependentUpon>RegistroConfirmacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompraConfirmada.aspx.cs">
+      <DependentUpon>CompraConfirmada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompraConfirmada.aspx.designer.cs">
+      <DependentUpon>CompraConfirmada.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -33,7 +33,7 @@
             <asp:TextBox ID="TextBoxEditarDepto" CssClass="form-control mb-2" runat="server" Style="font-size: 12px; height: 25px;"></asp:TextBox>
         </div>
 
-        <div class="form-check">
+       <div class="form-check" >
            <asp:CheckBox ID="CheckEditarDomicilioEnBase" runat="server" AutoPostBack="True" OnCheckedChanged="CheckEditarDomicilioEnBase_CheckedChanged" />
            <label for="Piso" class="form-label" style="font-size: 14px;">Usar este domicilio para futuros envíos</label>
 

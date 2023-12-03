@@ -37,7 +37,10 @@
         </div>
         <div>
             <td><b>Total:</b><asp:Label ID="lblTotalCarrito" runat="server" Text="0.00"></asp:Label></td>
+        </div>
 
+         <div>
+            <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
         </div>
 
         <div class="margen-superior">

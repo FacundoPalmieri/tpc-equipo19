@@ -144,6 +144,7 @@ namespace tp_web_equipo_19
                 if (miCarritoNegocio.listacarrito[i].Articulo.Id == idArticuloSeleccionado)
                 {
                     miCarritoNegocio.listacarrito.RemoveAt(i);
+                   
                     break;
                 }
             }
@@ -171,6 +172,23 @@ namespace tp_web_equipo_19
             Session["CantidadArticulosEnCarrito"] = cantidadArticulosEnCarrito;
         }
 
+        public void ActualizarCantidadArticulosEnCarrito(int Cantidad)
+        {
+            CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
+
+            if (miCarritoNegocio == null)
+            {
+                miCarritoNegocio = new CarritoNegocio();
+            }
+
+            int cantidadArticulosEnCarrito = Cantidad;
+
+            Session["CantidadArticulosEnCarrito"] = cantidadArticulosEnCarrito;
+        }
+
+
+
+
         protected void ButtonCompra_Click(object sender, EventArgs e)
         {
             if (Session["Usuario"] == null)
@@ -179,7 +197,26 @@ namespace tp_web_equipo_19
             }
             else
             {
-                Response.Redirect("compra.aspx");
+                // Verifica si Session["Carrito"] contiene un objeto de tipo CarritoNegocio
+                if (Session["Carrito"] != null && Session["Carrito"] is CarritoNegocio)
+                {
+                    CarritoNegocio carritoNegocio = (CarritoNegocio)Session["Carrito"];
+
+                    if (carritoNegocio.CalcularTotalCarrito() > 0)
+                    {
+                        Response.Redirect("compra.aspx");
+                    }
+                    else
+                    {
+                        MensajeError.Text = "Debe añadir artículos al carrito";
+                        MensajeError.Visible = true;
+                    }
+                }
+                else
+                {
+                    MensajeError.Text = "No hay elementos en el carrito";
+                    MensajeError.Visible = true;
+                }
             }
         }
     }

@@ -16,7 +16,7 @@
                                     Envío a domicilio
                                 </label>
                             </div>
-                            <div>
+                            <div style="margin-left: 23px; margin-top: 10px; font-size: 14px;">
                                 <asp:Repeater runat="server" ID="Repeater1">
                                     <ItemTemplate>
                                         <div>
@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <hr />
-                        <div>
+                        <div style="margin-left: 20px;">
                             <asp:LinkButton ID="EditarDomicilio" CssClass="link-offset-2 link-bold link-underline" runat="server" OnClick="EditarDomicilio_Click1">Editar Domicilio</asp:LinkButton>
                         </div>
                     </div>
@@ -48,10 +48,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="botones">
-                    <asp:Button runat="server" Style="width: 15%; margin-right: 5px;" type="button" class="btn btn-secondary" OnClick="btnVolver_Click" Text="Volver" />
-                    <asp:Button runat="server" Style="width: 15%;" type="button" class="btn btn-primary" OnClick="btnContinuar_Click" Text="Continuar" />
                 </div>
             </div>
             <div class="col-5 card border border-light" style="background: #F9F9F9;">
@@ -86,6 +82,15 @@
                     <tr>
                         <td class="text-right" colspan="2"><b>Total:</b><asp:Label ID="lblTotalCarrito" runat="server" Text="0.00" AutoPostBack="true"></asp:Label></td>
                     </tr>
+
+
+                    <div style="margin-top: 5px;">
+                        <asp:Button runat="server" CssClass="btn btn-success " OnClick="btnConfirmar_Click" Text="Confirmar compra" />
+                        <asp:Button runat="server" CssClass="btn btn-secondary" OnClick="btnVolver_Click" Text="Volver" />
+                    </div>
+
+
+
 
 
                 </div>
