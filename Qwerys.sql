@@ -27,7 +27,7 @@ Go
 
 ----Inserto Datos Provincias----
 
-INSERT INTO Provincias (Nombre) VALUES ('Buenos Aires'), ('Ciudad Autónoma de Buenos Aires');
+INSERT INTO PROVINCIAS (Nombre) VALUES ('Buenos Aires'), ('Ciudad Autónoma de Buenos Aires');
 
 Go
 
@@ -127,6 +127,27 @@ Values(2,'Admin@gmail.com','2',2,'S'),
 
 Go
 
+
+----Creación Tabla Entrega----
+Create Table TIPOSENTREGA(
+
+	Id int identity (1,1),
+	Nombre Varchar(50) null,
+	Costo Money null,
+	Habilitado Varchar(1)
+)
+Go
+
+
+----Inserto datos Tipo Entrega----
+Insert into TIPOSENTREGA(Nombre, Costo, Habilitado)
+Values('Retiro en Local', 0, 'S'),
+      ('Envío CABA', 1000, 'S'),
+	  ('Envío GBA', 1500, 'S')
+
+Go
+
+
 ----SP Registro USUARIO----
 Create Procedure RegistrarUsuario(
 @Nombre Varchar(50),
@@ -165,6 +186,8 @@ As
 	Insert Into DOMICILIOS(IdUsuario, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto) output inserted.Id Values(@IdUsuario, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
 
 Go
+
+
 
 
 

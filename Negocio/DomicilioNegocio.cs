@@ -188,7 +188,8 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT IdUsuario, Ciudad, Calle, Altura, Piso, Depto FROM DOMICILIOS");
+                datos.SetearConsulta("SELECT IdUsuario, Ciudad, Calle, Altura, CASE WHEN piso!=0 Then Piso ELSE '-' end As Piso, CASE WHEN Depto!= '-' Then Depto ELSE '-' end as Depto FROM DOMICILIOS Where IdUsuario = @IdUsuario");
+                datos.SetearParametro("@IdUsuario", id_usuario);
                 datos.EjecutarConsulta();
 
                 while (datos.lector.Read())
@@ -205,7 +206,7 @@ namespace Negocio
                     Lista.Add(Aux);
                 }
 
-                Lista = Lista.Where(item => item.IdUsuario == id_usuario).ToList();
+          
 
                 return Lista;
             }
