@@ -71,6 +71,7 @@
     <Content Include="ABMArticulo.aspx" />
     <Content Include="ABMCategoria.aspx" />
     <Content Include="ABMMarca.aspx" />
+    <Content Include="Admin.aspx" />
     <Content Include="articulo.aspx" />
     <Content Include="Ayuda.aspx" />
     <Content Include="Carrito.aspx" />
@@ -83,6 +84,7 @@
     <Content Include="login.aspx" />
     <Content Include="marca.aspx" />
     <Content Include="MiCuenta.aspx" />
+    <Content Include="Ventas.aspx" />
     <Content Include="RegistroEnvio.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="RegistroConfirmacion.aspx" />
@@ -116,6 +118,13 @@
     </Compile>
     <Compile Include="ABMMarca.aspx.designer.cs">
       <DependentUpon>ABMMarca.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.aspx.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.aspx.designer.cs">
+      <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="articulo.aspx.cs">
       <DependentUpon>articulo.aspx</DependentUpon>
@@ -189,6 +198,13 @@
     </Compile>
     <Compile Include="MiCuenta.aspx.designer.cs">
       <DependentUpon>MiCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ventas.aspx.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ventas.aspx.designer.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MasterPage.Master.cs">

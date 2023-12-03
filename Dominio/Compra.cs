@@ -14,5 +14,6 @@ namespace Dominio
         public int Orden { get; set; }
         public DateTime FechaCompra { get; set; }
         public bool Estado { get; set; }
+        public Domicilio DomicilioEntrega { get; set; }
     }
 }

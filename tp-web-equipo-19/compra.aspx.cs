@@ -38,15 +38,7 @@ namespace tp_web_equipo_19
 
                         Provincia = ProvinciaNegocio.ConsultarProvincias(usuarioEnSesion.Id);
 
-                        if (Provincia == 2)
-                        {
-                            Envio = envioNegocio.CostoEnvio(2);
 
-                        }
-                        else
-                        {
-                            Envio = envioNegocio.CostoEnvio(3);
-                        }
 
                     }
 
