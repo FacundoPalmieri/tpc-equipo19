@@ -17,6 +17,10 @@
     <form id="form1" runat="server">
         <div  style ="color:#AAC3CD"font-size: 25px;>
             <h1>¡Compra confirmada!</h1>
+            <div>
+            <asp:Label runat="server" ID="Label1" Text="Tu número de comprobante es:  "></asp:Label>
+            <asp:Label runat="server" ID="lblComprobante" Text=""></asp:Label>
+            </div>
             <p>¡Gracias por tu compra! El proceso se ha completado con éxito.</p>
 
             <!-- Aquí puedes agregar más contenido, como imágenes, tablas, etc. -->

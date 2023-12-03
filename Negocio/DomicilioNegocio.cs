@@ -188,7 +188,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT IdUsuario, Ciudad, Calle, Altura, CASE WHEN piso!=0 Then Piso ELSE '-' end As Piso, CASE WHEN Depto!= '-' Then Depto ELSE '-' end as Depto FROM DOMICILIOS Where IdUsuario = @IdUsuario");
+                datos.SetearConsulta("SELECT IdUsuario,Pais, Provincia, Ciudad, Calle, Altura, CASE WHEN piso!=0 Then Piso ELSE '-' end As Piso, CASE WHEN Depto!= '-' Then Depto ELSE '-' end as Depto FROM DOMICILIOS Where IdUsuario = @IdUsuario");
                 datos.SetearParametro("@IdUsuario", id_usuario);
                 datos.EjecutarConsulta();
 
@@ -197,6 +197,8 @@ namespace Negocio
                     Domicilio Aux = new Domicilio();
 
                     Aux.IdUsuario = (int)datos.lector["IdUsuario"];
+                    Aux.Pais = (string)datos.lector["Pais"];
+                    Aux.Provincia= (string)datos.lector["provincia"];
                     Aux.Ciudad = (string)datos.lector["Ciudad"];
                     Aux.Calle = (string)datos.lector["Calle"];
                     Aux.Altura = (int)datos.lector["Altura"];

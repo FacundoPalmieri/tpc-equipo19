@@ -10,6 +10,7 @@ namespace Dominio
     {
         public object style;
 
+        public int  Id { get; set; }
         public Articulo Articulo { get; set; }
         public int Cantidad { get; set; }
         public decimal Total { get; set; }

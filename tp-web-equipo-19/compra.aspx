@@ -83,6 +83,10 @@
                         <td class="text-right" colspan="2"><b>Total:</b><asp:Label ID="lblTotalCarrito" runat="server" Text="0.00" AutoPostBack="true"></asp:Label></td>
                     </tr>
 
+                    <div>
+                        <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
+                    </div>
+
 
                     <div style="margin-top: 5px;">
                         <asp:Button runat="server" CssClass="btn btn-success " OnClick="btnConfirmar_Click" Text="Confirmar compra" />

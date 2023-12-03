@@ -148,6 +148,26 @@ Values('Retiro en Local', 0, 'S'),
 Go
 
 
+
+---- Crea Tabla COMPRAS----
+Create table COMPRAS(
+    Id int Primary Key identity(1,1),
+	IdUsuario int Foreign key references USUARIOS(Id) not null,
+	PrecioTotal money,
+	FechaCompra date, 
+	Estado varchar(30),
+	Pais Varchar(50),
+	Provincia Varchar (50),
+	Ciudad Varchar(50),
+	Calle Varchar(50),
+	Altura int,
+	Piso Varchar(2),
+	Depto Varchar(1)
+	
+)
+GO
+
+
 ----SP Registro USUARIO----
 Create Procedure RegistrarUsuario(
 @Nombre Varchar(50),
@@ -183,34 +203,38 @@ Create Procedure RegistrarDomicilio(
 
 )
 As
-	Insert Into DOMICILIOS(IdUsuario, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto) output inserted.Id Values(@IdUsuario, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
+	Insert Into DOMICILIOS(IdUsuario, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto) 
+	output inserted.Id 
+	Values(@IdUsuario, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
 
 Go
 
 
-Create table COMPRAS(
-    Id int Primary Key identity(1,1),
-	IdUsuario int Foreign key references USUARIOS(Id) not null,
-	PrecioTotal money,
-	FechaCompra date, 
-	Estado varchar(30),
-	Pais Varchar(50),
-	Provincia Varchar (50),
-	Ciudad Varchar(50),
-	Calle Varchar(50),
-	Altura int,
-	Piso Varchar(2),
-	Depto Varchar(1)
-	
+----SP Agregar Compra----
+
+Create Procedure RegistrarCompra(
+@IdUsuario int,
+@PrecioTotal Money,
+@FechaCompra Datetime,
+@Estado varchar(50),
+@Pais varchar (50),
+@Provincia Varchar(50),
+@Ciudad Varchar(50),
+@Calle Varchar(50),
+@Altura int,
+@Piso int,
+@Depto Varchar(50)
 )
-GO
+As
+
+	Insert into COMPRAS(IdUsuario, PrecioTotal, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
+	output inserted.Id 
+	Values(@IdUsuario,  @PrecioTotal, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
+
+Go
 
 
 
-        public int IdUsuario { get; set; }
-        public List<Articulo> ListaDeArticulos { get; set; }
-        public decimal PrecioTotal { get; set; }
-        public int Orden { get; set; }
-        public DateTime FechaCompra { get; set; }
-        public string Estado { get; set; }
-        public Domicilio DomicilioEntrega { get; set; }
+
+
+   

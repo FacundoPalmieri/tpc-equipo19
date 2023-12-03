@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Dominio;
+using Negocio;
 
 namespace tp_web_equipo_19
 {
@@ -11,9 +13,19 @@ namespace tp_web_equipo_19
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Carrito carrito = new Carrito();
-            Session["Carrito"] = null;
-            carrito.ActualizarCantidadArticulosEnCarrito(0);
+            if (!IsPostBack)
+            {
+                // Suponiendo que ya has obtenido el valor de Comprobante
+                int Comprobante = (int)Session["IdCompra"];
+
+                // Asignar el valor al Label
+                lblComprobante.Text = Comprobante.ToString(); // Mostrar el valor en el Label
+            }
+
+
+
+
+
         }
     }
 }

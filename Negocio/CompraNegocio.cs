@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Negocio
 {
-    internal class CompraNegocio
+    public class CompraNegocio
     {
         public List<Compra> listar()
         {
@@ -50,14 +50,14 @@ namespace Negocio
             }
         }
 
-        public void Agregar(Compra Nueva)
+        public int AgregarCompra(Compra Nueva)
         {
 
             AccesoDatos Datos = new AccesoDatos();
 
             try
             {
-                Datos.SetearConsulta("Insert into COMPRAS(IdUsuario, PrecioTotal, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto) values('" + Nueva.IdUsuario + "','" + Nueva.PrecioTotal + "','" + Nueva.FechaCompra + "','" + Nueva.Estado + "','" + Nueva.Pais + "','" + Nueva.Provincia + "','" + Nueva.Ciudad + "','" + Nueva.Calle + "','" + Nueva.Altura + "','" + Nueva.Piso +"','" + Nueva.Piso + "','" + Nueva.Depto + "')");
+                Datos.SetearProcedimiento("RegistrarCompra");
                 Datos.SetearParametro("@IdUsuario", Nueva.IdUsuario);
                 Datos.SetearParametro("@PrecioTotal", Nueva.PrecioTotal);
                 Datos.SetearParametro("@fechaCompra", Nueva.FechaCompra);
@@ -69,7 +69,8 @@ namespace Negocio
                 Datos.SetearParametro("@Altura", Nueva.Altura);
                 Datos.SetearParametro("@Piso", Nueva.Piso);
                 Datos.SetearParametro("@Depto", Nueva.Depto);
-                Datos.EjectuarAccion();
+
+                return Datos.EjectuarAccionScalar();
 
             }
             catch (Exception ex)

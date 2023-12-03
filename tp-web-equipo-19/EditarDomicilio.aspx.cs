@@ -96,6 +96,7 @@ namespace tp_web_equipo_19
             {
                 Session["Pais"] = DDLEditarPais.SelectedValue;
                 Session["Provincia"] = DDLEditarProvincia.SelectedItem.Text;
+                Session["ProvinciaID"] = DDLEditarProvincia.SelectedValue;
                 Session["Ciudad"] = DDLEditarCiudad.SelectedValue;
 
                 string textoCalle = TextBoxEditarCalle.Text;
