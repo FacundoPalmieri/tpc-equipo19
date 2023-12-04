@@ -44,6 +44,7 @@
         </div>
 
         <div class="margen-superior">
+        <asp:Button ID="ButtonAñadirProducto" class="btn btn-primary" OnClick="ButtonAñadirProducto_Click" runat="server" Text="Añadir más productos" />
         <asp:Button ID="ButtonCompra" CssClass="btn btn-success " OnClick="ButtonCompra_Click" runat="server" Text="Iniciar Compra" />
          </div>
    </div>

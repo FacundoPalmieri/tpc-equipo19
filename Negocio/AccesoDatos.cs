@@ -60,6 +60,7 @@ namespace Negocio
 
                 throw ex;
             }
+         
 
         }
 
@@ -90,6 +91,14 @@ namespace Negocio
             Comando.CommandType = System.Data.CommandType.StoredProcedure;
             Comando.CommandText = sp;   
 
+        }
+
+        public void LimpiarParametros()
+        {
+            if (Comando != null && Comando.Parameters.Count > 0)
+            {
+                Comando.Parameters.Clear();
+            }
         }
 
         public void CerrarConexion()

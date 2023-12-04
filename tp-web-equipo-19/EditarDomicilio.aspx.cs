@@ -73,7 +73,9 @@ namespace tp_web_equipo_19
 
         protected void CheckEditarDomicilioEnBase_CheckedChanged(object sender, EventArgs e)
         {
-  
+            bool Actualizar = true;
+            Session["ActualizarDomicilio"] = Actualizar;
+
 
 
         }

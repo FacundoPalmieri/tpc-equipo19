@@ -142,6 +142,8 @@ Go
 Create table COMPRAS(
     Id int Primary Key identity(1,1),
 	IdUsuario int Foreign key references USUARIOS(Id) not null,
+	PrecioVenta money,
+	CostoEnvio money,
 	PrecioTotal money,
 	MetodoEntrega Varchar(50),
 	MedioPago varchar (50),
@@ -176,6 +178,19 @@ VALUES ('Efectivo')
 
 INSERT INTO MEDIOSPAGO (Nombre)
 VALUES ('Mercado pago (Dinero en cuenta)')
+
+
+
+Create table DETALLESCOMPRAS(
+
+ Id int identity (1,1),
+ IdCompra int,
+ IdArticulo int,
+ Cantidad int,
+ Precio Money
+
+)
+Go
 
 ----SP Registro USUARIO----
 Create Procedure RegistrarUsuario(
@@ -248,6 +263,8 @@ Go
 
 Create Procedure RegistrarCompra(
 @IdUsuario int,
+@PrecioVenta money,
+@CostoEnvio money,
 @PrecioTotal Money,
 @MetodoEntrega varchar (50),
 @MedioPago varchar(50),
@@ -263,13 +280,28 @@ Create Procedure RegistrarCompra(
 )
 As
 
-	Insert into COMPRAS(IdUsuario, PrecioTotal,MetodoEntrega,MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
+	Insert into COMPRAS(IdUsuario,PrecioVenta,CostoEnvio,PrecioTotal,MetodoEntrega,MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
 	output inserted.Id 
-	Values(@IdUsuario,  @PrecioTotal,@MetodoEntrega,@MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
+	Values(@IdUsuario,@PrecioVenta,@CostoEnvio,@PrecioTotal,@MetodoEntrega,@MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
 
 Go
 
 
+----SP DETLLAE COMPRAS----
+
+Create Procedure RegistrarDetalleCompra(
+@IdCompra int,
+@IdArticulo int,
+@Cantidad int,
+@Precio money
+
+)
+As
+
+	Insert into DETALLESCOMPRAS(IdCompra, IdArticulo,Cantidad,Precio) 
+	Values(@IdCompra, @IdArticulo, @Cantidad, @Precio * @Cantidad)
+
+Go
 
 
 

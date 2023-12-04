@@ -280,6 +280,7 @@ namespace tp_web_equipo_19
         {
             CompraNegocio compraNegocio = new Negocio.CompraNegocio();
             Compra compra = new Compra();
+            DetalleCompraNegocio detalleCompraNegocio = new DetalleCompraNegocio();
             CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
             var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
             Carrito carrito = new Carrito();
@@ -309,6 +310,7 @@ namespace tp_web_equipo_19
                 compra.IdUsuario = usuarioEnSesion.Id;
                 compra.FechaCompra = DateTime.Now;
                 compra.Estado = "Pendiente de pago";
+                compra.PrecioVenta = miCarritoNegocio.CalcularTotalCarrito();
                 compra.MedioPago = ddlMedioPago.SelectedItem.Text;
                 if (EnvioDomicilio.Checked)
                 {
@@ -318,6 +320,7 @@ namespace tp_web_equipo_19
                         { 
                             ListaDomicilio = domicilioNegocio.DomicilioUsuario(Id);
                             domicilio = ListaDomicilio.LastOrDefault();
+                            compra.CostoEnvio = costoEnvio();
                             compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito()+costoEnvio());
                             compra.Pais = domicilio.Pais;
                             compra.Provincia = domicilio.Provincia;
@@ -330,7 +333,8 @@ namespace tp_web_equipo_19
                         else //SI CARGA UNA DIRECCIÓN NUEVA
                         {
                             int IdProvincia = Convert.ToInt32(Session["ProvinciaID"]);
-                            compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito() + costoEnvio(IdProvincia));
+                             compra.CostoEnvio = costoEnvio(IdProvincia);
+                             compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito() + costoEnvio(IdProvincia));
                             //compra.MedioPago = ddlMedioPago.SelectedItem.Text;
                             compra.Pais = Session["Pais"].ToString();
                             compra.Provincia = Session["Provincia"].ToString();
@@ -343,7 +347,15 @@ namespace tp_web_equipo_19
                             }
                             compra.Piso = Session["Piso"].ToString();
                             compra.Depto = Session["Depto"].ToString();
+
+                            
+                            bool Actualizar = (bool)Session["ActualizarDomicilio"];
+                            if(Actualizar == true)
+                            {
                             domicilioNegocio.ActualizarDomicilio(compra, Id);
+                                Actualizar = false;
+
+                            }
 
 
                         }
@@ -351,6 +363,8 @@ namespace tp_web_equipo_19
                 else
                 {
                     compra.MetodoEntrega = "Retiro en local";
+                    compra.CostoEnvio = 0;
+                    compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito() + costoEnvio());
                     compra.Pais = "-";
                     compra.Provincia = "-";
                     compra.Ciudad = "-";
@@ -358,13 +372,15 @@ namespace tp_web_equipo_19
                     compra.Altura = 0;
                     compra.Piso = "-";
                     compra.Depto = "-";
-                    compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito() + costoEnvio());
                 }
 
                 
                
 
                 int IdCompra = compraNegocio.AgregarCompra(compra);
+                detalleCompraNegocio.AgregarCompra(miCarritoNegocio.listacarrito, IdCompra);
+               
+
                 Session["IdCompra"] = IdCompra;
 
              
@@ -372,6 +388,8 @@ namespace tp_web_equipo_19
 
                 //Limpio articulos en carrito y cantidad en el icono.
                 Session["Carrito"] = null;
+                Session["Pais"] = null;
+
                 carrito.ActualizarCantidadArticulosEnCarrito(0);
             }
             else

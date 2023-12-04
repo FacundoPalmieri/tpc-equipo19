@@ -144,6 +144,7 @@ namespace tp_web_equipo_19
                 if (miCarritoNegocio.listacarrito[i].Articulo.Id == idArticuloSeleccionado)
                 {
                     miCarritoNegocio.listacarrito.RemoveAt(i);
+
                    
                     break;
                 }
@@ -218,6 +219,11 @@ namespace tp_web_equipo_19
                     MensajeError.Visible = true;
                 }
             }
+        }
+
+        protected void ButtonAñadirProducto_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("inicio.aspx");
         }
     }
 }
