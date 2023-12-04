@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <div class="card container-carrousel d-flex align-items-center justify-content-center">
+    <div class="card container-carrousel d-flex align-items-center justify-content-center container">
 
         <div class="vertical-center">
             <h3>DETALLE DE ARTÍCULO</h3>
@@ -74,6 +74,7 @@
             justify-content: center;
             display: flex;
             justify-content: center;
+            margin: 30px;
         }
 
         .vertical-center {

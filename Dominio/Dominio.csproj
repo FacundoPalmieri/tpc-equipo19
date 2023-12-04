@@ -49,6 +49,7 @@
     <Compile Include="Domicilio.cs" />
     <Compile Include="Imagen.cs" />
     <Compile Include="Marca.cs" />
+    <Compile Include="MedioPago.cs" />
     <Compile Include="MedioPagos.cs" />
     <Compile Include="Pais.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

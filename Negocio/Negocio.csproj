@@ -50,6 +50,7 @@
     <Compile Include="EmailService.cs" />
     <Compile Include="ImagenNegocio.cs" />
     <Compile Include="MarcaNegocio.cs" />
+    <Compile Include="MedioPagoNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoDocumentoNegocio.cs" />
     <Compile Include="TipoEnvioNegocio.cs" />

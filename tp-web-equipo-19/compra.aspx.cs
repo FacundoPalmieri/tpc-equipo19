@@ -11,10 +11,7 @@ namespace tp_web_equipo_19
 {
     public partial class compra : System.Web.UI.Page
     {
-   
-
-        
-        
+ 
         public List<Domicilio> ListaDomicilio { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,7 +38,6 @@ namespace tp_web_equipo_19
                        
 
                         Provincia = ProvinciaNegocio.ConsultarProvincias(usuarioEnSesion.Id);
-
 
 
                         Domicilio domicilio = new Domicilio();
@@ -73,11 +69,18 @@ namespace tp_web_equipo_19
                         Repeater1.DataSource = listaDomicilio;
                         Repeater1.DataBind();
 
-
-
                     }
 
                 }
+
+                //Carga medios de pago 
+
+                MedioPagoNegocio medioPagoNegocio = new MedioPagoNegocio();
+                List<MedioPago> listaMediosPago = medioPagoNegocio.listar();
+
+                ddlMedioPago.DataSource = listaMediosPago;
+                ddlMedioPago.DataTextField = "Nombre";
+                ddlMedioPago.DataBind();
             }
         }
 
@@ -96,7 +99,6 @@ namespace tp_web_equipo_19
         }
 
 
-
         protected void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
       
@@ -113,10 +115,6 @@ namespace tp_web_equipo_19
                     int IdProvincia = Convert.ToInt32(Session["ProvinciaID"]);
                     Envio = costoEnvio(IdProvincia);
                 }
-
-
-
-
 
 
                 CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
@@ -186,10 +184,7 @@ namespace tp_web_equipo_19
 
             DomicilioNegocio ProvinciaNegocio = new DomicilioNegocio();
             TipoEnvioNegocio envioNegocio = new TipoEnvioNegocio();
-            //int Provincia = new int();
             decimal Envio = new decimal();
-
-            //Provincia = ProvinciaNegocio.ConsultarProvincias(usuarioEnSesion.Id);
 
             if (!EnvioDomicilio.Checked)
             {
@@ -213,10 +208,6 @@ namespace tp_web_equipo_19
 
 
 
-
-
-
-
         protected void EditarDomicilio_Click1(object sender, EventArgs e)
         {
             Response.Redirect("EditarDomicilio.aspx");
@@ -228,14 +219,14 @@ namespace tp_web_equipo_19
         }
 
 
-
         protected void btnConfirmar_Click(object sender, EventArgs e)
         {
             CompraNegocio compraNegocio = new Negocio.CompraNegocio();
             Compra compra = new Compra();
-            CarritoNegocio carritoNegocio = new CarritoNegocio();
+            CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
             var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
             Carrito carrito = new Carrito();
+
             Domicilio domicilio = new Domicilio();
             int Id = usuarioEnSesion.Id;
 
@@ -256,16 +247,16 @@ namespace tp_web_equipo_19
 
 
                 //Guardo en base de datos
-                
        
                 compra.IdUsuario = usuarioEnSesion.Id;
-                compra.PrecioTotal = decimal.Parse(lblTotalCarrito.Text); ///// REVISAR
                 compra.FechaCompra = DateTime.Now;
                 compra.Estado = "Pendiente de pago";
-                if (Session["Pais"] == null)
+                if (Session["Pais"] == null) //SI EL PAIS NO ESTÁ EN SESSION, ES PORQUE ELIJO EL DOMICILIO YA CARGADO
                 {
                     DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                     ListaDomicilio = domicilioNegocio.DomicilioUsuario(Id);
+                    compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito()+costoEnvio());
+                    compra.MedioPago = ddlMedioPago.SelectedItem.Text;
                     domicilio = ListaDomicilio.LastOrDefault();
                     compra.Pais = domicilio.Pais;
                     compra.Provincia = domicilio.Provincia;
@@ -275,8 +266,11 @@ namespace tp_web_equipo_19
                     compra.Piso = domicilio.Piso;
                     compra.Depto = domicilio.Depto;
                 }
-                else
+                else //SI CARGA UNA DIRECCIÓN NUEVA
                 {
+                    int IdProvincia = Convert.ToInt32(Session["ProvinciaID"]);
+                    compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito() + costoEnvio(IdProvincia));
+                    compra.MedioPago = ddlMedioPago.SelectedItem.Text;
                     compra.Pais = Session["Pais"].ToString();
                     compra.Provincia = Session["Provincia"].ToString();
                     compra.Ciudad = Session["Ciudad"].ToString();
@@ -304,18 +298,6 @@ namespace tp_web_equipo_19
                     MensajeError.Text = "Debe seleccionar método de entrega";
                     MensajeError.Visible = true;
             }
-
-       
-
-
-
-
-
-
-
-
-
-
 
         }
     }

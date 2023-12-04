@@ -32,9 +32,6 @@ INSERT INTO PROVINCIAS (Nombre) VALUES ('Buenos Aires'), ('Ciudad Autónoma de Bu
 Go
 
 
-
-
-
 ----Creación Tabla Ciudades----
 
 Create Table CIUDADES (
@@ -59,8 +56,6 @@ INSERT INTO CIUDADES (IdProvincia, Nombre) VALUES
 Go
 
 
-
-
 ----Creación Tabla Domicilios----
 
 Create Table DOMICILIOS(
@@ -76,8 +71,6 @@ Create Table DOMICILIOS(
 )
 
 Go
-
-
 
 ----Creación Tabla Tipos Documentos----
 
@@ -97,9 +90,6 @@ VALUES
 	(4, 'LE');
 
 
-
-
-
 ----Creación Tabla Usuarios----
 
 Create Table USUARIOS(
@@ -116,7 +106,6 @@ Create Table USUARIOS(
 
 )
 GO
-
 
 
 ----Inserto datos Usuarios----
@@ -150,10 +139,11 @@ Go
 
 
 ---- Crea Tabla COMPRAS----
-Create table COMPRAS(
+CREATE table COMPRAS(
     Id int Primary Key identity(1,1),
 	IdUsuario int Foreign key references USUARIOS(Id) not null,
 	PrecioTotal money,
+	MedioPago varchar (50),
 	FechaCompra date, 
 	Estado varchar(30),
 	Pais Varchar(50),
@@ -187,6 +177,23 @@ Values(@Nombre, @Apellido, @TipoDocumento, @NDocumento, @Contacto, @Usuario,@Con
 
 Go
 
+Create table MEDIOS_PAGO(
+    Id int Primary Key identity(1,1),
+	Nombre Varchar (50)
+)
+GO
+
+INSERT INTO MEDIOS_PAGO (Nombre)
+VALUES ('Tarjeta Débito')
+
+INSERT INTO MEDIOS_PAGO (Nombre)
+VALUES ('Transferencia ')
+
+INSERT INTO MEDIOS_PAGO (Nombre)
+VALUES ('Efectivo')
+
+INSERT INTO MEDIOS_PAGO (Nombre)
+VALUES ('Mercado pago (Dinero en cuenta)')
 
 
 ----SP Registro DOMICILIO----
@@ -215,6 +222,7 @@ Go
 Create Procedure RegistrarCompra(
 @IdUsuario int,
 @PrecioTotal Money,
+@MedioPago varchar(50),
 @FechaCompra Datetime,
 @Estado varchar(50),
 @Pais varchar (50),
@@ -227,9 +235,9 @@ Create Procedure RegistrarCompra(
 )
 As
 
-	Insert into COMPRAS(IdUsuario, PrecioTotal, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
+	Insert into COMPRAS(IdUsuario, PrecioTotal, MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
 	output inserted.Id 
-	Values(@IdUsuario,  @PrecioTotal, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
+	Values(@IdUsuario,  @PrecioTotal, @MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
 
 Go
 

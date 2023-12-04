@@ -12,6 +12,7 @@ namespace Dominio
         public int IdUsuario { get; set; }
         public List<Articulo> ListaDeArticulos { get; set; }
         public decimal PrecioTotal { get; set; }
+        public string MedioPago { get; set; }
         public int Orden { get; set; }
         public DateTime FechaCompra { get; set; }
         public string Estado { get; set; }

@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT Id, IdUsuario, PrecioTotal, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto FROM COMPRAS");
+                datos.SetearConsulta("SELECT Id, IdUsuario, PrecioTotal, MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto FROM COMPRAS");
                 datos.EjecutarConsulta();
 
                 while (datos.lector.Read())
@@ -25,6 +25,7 @@ namespace Negocio
                     aux.Id = (int)datos.lector["Id"];
                     aux.IdUsuario = (int)datos.lector["IdUsuario"];
                     aux.PrecioTotal = (decimal)datos.lector["PrecioTotal"];
+                    aux.PrecioTotal = (decimal)datos.lector["MedioPago"];
                     aux.FechaCompra = (DateTime)datos.lector["FechaCompra"];
                     aux.Estado = (string)datos.lector["Estado"];
                     aux.Pais = (string)datos.lector["Pais"];
@@ -60,6 +61,7 @@ namespace Negocio
                 Datos.SetearProcedimiento("RegistrarCompra");
                 Datos.SetearParametro("@IdUsuario", Nueva.IdUsuario);
                 Datos.SetearParametro("@PrecioTotal", Nueva.PrecioTotal);
+                Datos.SetearParametro("@MedioPago", Nueva.MedioPago);
                 Datos.SetearParametro("@fechaCompra", Nueva.FechaCompra);
                 Datos.SetearParametro("@Estado", Nueva.Estado);
                 Datos.SetearParametro("@Pais", Nueva.Pais);

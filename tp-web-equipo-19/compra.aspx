@@ -6,7 +6,7 @@
     <div class="contenedor">
         <div class="row">
             <div class="col-7">
-                <h3>Elegí la forma de entrega</h3>
+                <h4>Elegí la forma de entrega</h4>
                 <div class="card border-info mb-3">
                     <div class="card-body">
                         <div class="d-flex flex-column">
@@ -16,21 +16,19 @@
                                     Envío a domicilio
                                 </label>
                             </div>
-                            <div style="margin-left: 23px; margin-top: 10px; font-size: 14px;">
+                            <div class="d-flex justify-content-between" style="margin-left: 23px; margin-top: 10px; font-size: 14px;">
                                 <asp:Repeater runat="server" ID="Repeater1">
                                     <ItemTemplate>
                                         <div>
                                             <p class="card-text"><b>Ciudad:</b> <%# Eval("Ciudad")%></p>
                                             <p class="card-text"><b>Calle:</b> <%# Eval("Calle")%></p>
-                                            <p class="card-text"><b>Altura: </b><%# Eval("Altura") %></p>
-                                            <p class="card-text"><b>Piso: </b><%# Eval("Piso") %></p>
-                                            <p class="card-text"><b>Dpto: </b><%# Eval("Depto") %></p>
-
+                                            <p class="card-text"><b>Altura: </b><%# Eval("Altura") %> <b>Piso: </b><%# Eval("Piso") %><b> Dpto: </b><%# Eval("Depto") %></b></p>
                                         </div>
                                     </ItemTemplate>
                                 </asp:Repeater>
                             </div>
                         </div>
+
                         <hr />
                         <div style="margin-left: 20px;">
                             <asp:LinkButton ID="EditarDomicilio" CssClass="link-offset-2 link-bold link-underline" runat="server" OnClick="EditarDomicilio_Click1">Editar Domicilio</asp:LinkButton>
@@ -47,6 +45,15 @@
                                 </label>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <h4>Elegí la forma de pago</h4>
+                <div class="card border-info mb-3">
+                    <div class="card-body">
+                    <div class="mb-3">
+                        <label for="txtMedioPago" class="form-label">Seleccionar..</label>
+                        <asp:DropDownList runat="server" TextMode="Multiline" ID="ddlMedioPago" CssClass="btn btn-outine-dark drop-down-toggle" />
+                    </div>
                     </div>
                 </div>
             </div>
@@ -93,10 +100,6 @@
                         <asp:Button runat="server" CssClass="btn btn-secondary" OnClick="btnVolver_Click" Text="Volver" />
                     </div>
 
-
-
-
-
                 </div>
             </div>
         </div>
@@ -104,7 +107,7 @@
     <style>
         .contenedor {
             height: 500px;
-            margin: 50px;
+            margin: 30px;
         }
 
         #lblCambioDomicilio:hover {
