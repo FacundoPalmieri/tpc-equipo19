@@ -61,6 +61,7 @@ namespace Negocio
                 Datos.SetearProcedimiento("RegistrarCompra");
                 Datos.SetearParametro("@IdUsuario", Nueva.IdUsuario);
                 Datos.SetearParametro("@PrecioTotal", Nueva.PrecioTotal);
+                Datos.SetearParametro(@"MetodoEntrega", Nueva.MetodoEntrega);
                 Datos.SetearParametro("@MedioPago", Nueva.MedioPago);
                 Datos.SetearParametro("@fechaCompra", Nueva.FechaCompra);
                 Datos.SetearParametro("@Estado", Nueva.Estado);

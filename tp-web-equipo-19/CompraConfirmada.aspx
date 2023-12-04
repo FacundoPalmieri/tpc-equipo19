@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompraConfirmada.aspx.cs" Inherits="tp_web_equipo_19.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompraConfirmada.aspx.cs" Inherits="tp_web_equipo_19.CompraConfirmada" %>
 
 <!DOCTYPE html>
 
@@ -51,3 +51,4 @@
     </form>
 </body>
 </html>
+

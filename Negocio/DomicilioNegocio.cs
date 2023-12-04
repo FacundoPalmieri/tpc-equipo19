@@ -222,5 +222,34 @@ namespace Negocio
             }
         }
 
+        public void ActualizarDomicilio(Compra domicilio, int IdUsuario)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearProcedimiento("ActualizarDomicilio");
+                datos.SetearParametro("@IdUsuario", IdUsuario);
+                datos.SetearParametro("@Pais", domicilio.Pais);
+                datos.SetearParametro("@Provincia", domicilio.Provincia);
+                datos.SetearParametro("@Ciudad", domicilio.Ciudad);
+                datos.SetearParametro("@Calle", domicilio.Calle);
+                datos.SetearParametro("@Altura", domicilio.Altura);
+                datos.SetearParametro("@Piso", domicilio.Piso);
+                datos.SetearParametro("@Depto", domicilio.Depto);
+
+                datos.EjectuarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
     }
+
 }

@@ -17,6 +17,7 @@ namespace tp_web_equipo_19
         {
             if (!IsPostBack)
             {
+
                 MostrarCarrito();
 
                 // Verificar si hay un usuario en sesión
@@ -26,6 +27,24 @@ namespace tp_web_equipo_19
 
                     if (usuarioEnSesion != null)
                     {
+                        //// Restaura el estado del radio button si está almacenado en la sesión/
+                        //if (Session["EnvioSeleccionado"] != null)
+                        //{
+                        //    string radioButtonValue = Session["EnvioSeleccionado"].ToString();
+                        //    if (radioButtonValue == "EnvioDomicilio")
+                        //    {
+                        //        EnvioDomicilio.Checked = true;
+                        //        retiroLocal.Checked = false;
+
+                        //    }
+                        //    else if (radioButtonValue == "retiroLocal")
+                        //    {
+                        //        EnvioDomicilio.Checked = false;
+                        //        retiroLocal.Checked = true;
+                        //    }
+                        //}
+
+
                         Dominio.Usuario usuarioNuevo = new Dominio.Usuario();
                         int Id = usuarioEnSesion.Id;
 
@@ -69,11 +88,16 @@ namespace tp_web_equipo_19
                         Repeater1.DataSource = listaDomicilio;
                         Repeater1.DataBind();
 
-                    }
+                       
 
+
+
+                    }
+  
                 }
 
-                //Carga medios de pago 
+
+                //Carga medios de pago
 
                 MedioPagoNegocio medioPagoNegocio = new MedioPagoNegocio();
                 List<MedioPago> listaMediosPago = medioPagoNegocio.listar();
@@ -81,9 +105,17 @@ namespace tp_web_equipo_19
                 ddlMedioPago.DataSource = listaMediosPago;
                 ddlMedioPago.DataTextField = "Nombre";
                 ddlMedioPago.DataBind();
+                ddlMedioPago.Items.Insert(0, new ListItem("-- Seleccionar --", ""));
+
             }
+          
+
         }
 
+    
+      
+
+        
 
         protected void MostrarCarrito()
         {
@@ -101,19 +133,22 @@ namespace tp_web_equipo_19
 
         protected void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
-      
+            
             if (EnvioDomicilio.Checked)
             {
+              
                 decimal Envio = new decimal();
                 if (Session["Pais"] == null)
                 {
                     Envio = costoEnvio();
+                  
 
                 }
                 else
                 {
                     int IdProvincia = Convert.ToInt32(Session["ProvinciaID"]);
                     Envio = costoEnvio(IdProvincia);
+                 
                 }
 
 
@@ -132,6 +167,7 @@ namespace tp_web_equipo_19
             else
             {
                 CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
+      
 
                 if (miCarritoNegocio != null)
                 {
@@ -146,6 +182,16 @@ namespace tp_web_equipo_19
                 }
 
             }
+
+            ////Mantiene en sessión la opción seleccioanda
+            //if (EnvioDomicilio.Checked)
+            //{
+            //    Session["EnvioSeleccionado"] = "EnvioDomicilio";
+            //}
+            //else if (retiroLocal.Checked)
+            //{
+            //    Session["EnvioSeleccionado"] = "retiroLocal";
+            //}
         }
        
         protected decimal costoEnvio()
@@ -212,6 +258,17 @@ namespace tp_web_equipo_19
         {
             Response.Redirect("EditarDomicilio.aspx");
         }
+
+
+        protected void ddlMedioPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+
+
+
+
         protected void btnVolver_Click(object sender, EventArgs e)
         {
             Response.Redirect("Carrito.aspx");
@@ -226,12 +283,13 @@ namespace tp_web_equipo_19
             CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
             var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
             Carrito carrito = new Carrito();
-
             Domicilio domicilio = new Domicilio();
+            DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
             int Id = usuarioEnSesion.Id;
 
 
-            if (EnvioDomicilio.Checked || retiroLocal.Checked)
+
+            if ((EnvioDomicilio.Checked || retiroLocal.Checked) && !string.IsNullOrEmpty(ddlMedioPago.SelectedValue))
             {
                 MensajeError.Visible = false;
 
@@ -251,43 +309,66 @@ namespace tp_web_equipo_19
                 compra.IdUsuario = usuarioEnSesion.Id;
                 compra.FechaCompra = DateTime.Now;
                 compra.Estado = "Pendiente de pago";
-                if (Session["Pais"] == null) //SI EL PAIS NO ESTÁ EN SESSION, ES PORQUE ELIJO EL DOMICILIO YA CARGADO
+                compra.MedioPago = ddlMedioPago.SelectedItem.Text;
+                if (EnvioDomicilio.Checked)
                 {
-                    DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
-                    ListaDomicilio = domicilioNegocio.DomicilioUsuario(Id);
-                    compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito()+costoEnvio());
-                    compra.MedioPago = ddlMedioPago.SelectedItem.Text;
-                    domicilio = ListaDomicilio.LastOrDefault();
-                    compra.Pais = domicilio.Pais;
-                    compra.Provincia = domicilio.Provincia;
-                    compra.Ciudad = domicilio.Ciudad;
-                    compra.Calle = domicilio.Calle;
-                    compra.Altura = domicilio.Altura;
-                    compra.Piso = domicilio.Piso;
-                    compra.Depto = domicilio.Depto;
-                }
-                else //SI CARGA UNA DIRECCIÓN NUEVA
-                {
-                    int IdProvincia = Convert.ToInt32(Session["ProvinciaID"]);
-                    compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito() + costoEnvio(IdProvincia));
-                    compra.MedioPago = ddlMedioPago.SelectedItem.Text;
-                    compra.Pais = Session["Pais"].ToString();
-                    compra.Provincia = Session["Provincia"].ToString();
-                    compra.Ciudad = Session["Ciudad"].ToString();
-                    compra.Calle = Session["Calle"].ToString();
-                    int altura;
-                    if (int.TryParse(Session["Altura"].ToString(), out altura))
-                    {
-                        domicilio.Altura = altura; // Asigna la altura convertida a domicilio.Altura
-                    }
-                    compra.Piso = Session["Piso"].ToString();
-                    compra.Depto = Session["Depto"].ToString();
+                    compra.MetodoEntrega = "Envio a Domicilio";
+
+                        if (Session["Pais"] == null) //SI EL PAIS NO ESTÁ EN SESSION, ES PORQUE ELIJO EL DOMICILIO YA CARGADO
+                        { 
+                            ListaDomicilio = domicilioNegocio.DomicilioUsuario(Id);
+                            domicilio = ListaDomicilio.LastOrDefault();
+                            compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito()+costoEnvio());
+                            compra.Pais = domicilio.Pais;
+                            compra.Provincia = domicilio.Provincia;
+                            compra.Ciudad = domicilio.Ciudad;
+                            compra.Calle = domicilio.Calle;
+                            compra.Altura = domicilio.Altura;
+                            compra.Piso = domicilio.Piso;
+                            compra.Depto = domicilio.Depto;
+                        }
+                        else //SI CARGA UNA DIRECCIÓN NUEVA
+                        {
+                            int IdProvincia = Convert.ToInt32(Session["ProvinciaID"]);
+                            compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito() + costoEnvio(IdProvincia));
+                            //compra.MedioPago = ddlMedioPago.SelectedItem.Text;
+                            compra.Pais = Session["Pais"].ToString();
+                            compra.Provincia = Session["Provincia"].ToString();
+                            compra.Ciudad = Session["Ciudad"].ToString();
+                            compra.Calle = Session["Calle"].ToString();
+                            int altura;
+                            if (int.TryParse(Session["Altura"].ToString(), out altura))
+                            {
+                               compra.Altura = altura; // Asigna la altura convertida a domicilio.Altura
+                            }
+                            compra.Piso = Session["Piso"].ToString();
+                            compra.Depto = Session["Depto"].ToString();
+                            domicilioNegocio.ActualizarDomicilio(compra, Id);
 
 
+                        }
                 }
+                else
+                {
+                    compra.MetodoEntrega = "Retiro en local";
+                    compra.Pais = "-";
+                    compra.Provincia = "-";
+                    compra.Ciudad = "-";
+                    compra.Calle = "-";
+                    compra.Altura = 0;
+                    compra.Piso = "-";
+                    compra.Depto = "-";
+                    compra.PrecioTotal = (miCarritoNegocio.CalcularTotalCarrito() + costoEnvio());
+                }
+
+                
+               
 
                 int IdCompra = compraNegocio.AgregarCompra(compra);
                 Session["IdCompra"] = IdCompra;
+
+             
+               
 
                 //Limpio articulos en carrito y cantidad en el icono.
                 Session["Carrito"] = null;
@@ -295,10 +376,12 @@ namespace tp_web_equipo_19
             }
             else
             {
-                    MensajeError.Text = "Debe seleccionar método de entrega";
+                    MensajeError.Text = "Debe seleccionar método de entrega y medios de pago";
                     MensajeError.Visible = true;
             }
 
         }
+
+
     }
 }

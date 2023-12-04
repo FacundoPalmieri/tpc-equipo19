@@ -9,7 +9,7 @@ using Negocio;
 
 namespace tp_web_equipo_19
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class CompraConfirmada : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,11 +21,6 @@ namespace tp_web_equipo_19
                 // Asignar el valor al Label
                 lblComprobante.Text = Comprobante.ToString(); // Mostrar el valor en el Label
             }
-
-
-
-
-
         }
     }
 }

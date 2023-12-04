@@ -11,7 +11,7 @@ namespace tp_web_equipo_19
 {
 
 
-    public partial class WebForm1
+    public partial class CompraConfirmada
     {
 
         /// <summary>

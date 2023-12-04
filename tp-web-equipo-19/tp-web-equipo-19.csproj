@@ -77,6 +77,7 @@
     <Content Include="Carrito.aspx" />
     <Content Include="categoria.aspx" />
     <Content Include="compra.aspx" />
+    <Content Include="CompraConfirmada.aspx" />
     <Content Include="DetalleArticulo.aspx" />
     <Content Include="EditarDomicilio.aspx" />
     <Content Include="inicio.aspx" />
@@ -90,7 +91,6 @@
     <Content Include="Registro.aspx" />
     <Content Include="RegistroConfirmacion.aspx" />
     <Content Include="Web.config" />
-    <Content Include="CompraConfirmada.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ABM.aspx.cs">
@@ -162,6 +162,13 @@
     </Compile>
     <Compile Include="compra.aspx.designer.cs">
       <DependentUpon>compra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompraConfirmada.aspx.cs">
+      <DependentUpon>CompraConfirmada.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompraConfirmada.aspx.designer.cs">
+      <DependentUpon>CompraConfirmada.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetalleArticulo.aspx.cs">
       <DependentUpon>DetalleArticulo.aspx</DependentUpon>
@@ -243,13 +250,6 @@
     </Compile>
     <Compile Include="RegistroConfirmacion.aspx.designer.cs">
       <DependentUpon>RegistroConfirmacion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CompraConfirmada.aspx.cs">
-      <DependentUpon>CompraConfirmada.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CompraConfirmada.aspx.designer.cs">
-      <DependentUpon>CompraConfirmada.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

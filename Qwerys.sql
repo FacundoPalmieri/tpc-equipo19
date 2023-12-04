@@ -139,10 +139,11 @@ Go
 
 
 ---- Crea Tabla COMPRAS----
-CREATE table COMPRAS(
+Create table COMPRAS(
     Id int Primary Key identity(1,1),
 	IdUsuario int Foreign key references USUARIOS(Id) not null,
 	PrecioTotal money,
+	MetodoEntrega Varchar(50),
 	MedioPago varchar (50),
 	FechaCompra date, 
 	Estado varchar(30),
@@ -157,6 +158,24 @@ CREATE table COMPRAS(
 )
 GO
 
+---- Crea Tabla MediosPago----
+Create table MEDIOSPAGO(
+    Id int Primary Key identity(1,1),
+	Nombre Varchar (50)
+)
+GO
+
+INSERT INTO MEDIOSPAGO (Nombre)
+VALUES ('Tarjeta Débito')
+
+INSERT INTO MEDIOSPAGO (Nombre)
+VALUES ('Transferencia ')
+
+INSERT INTO MEDIOSPAGO (Nombre)
+VALUES ('Efectivo')
+
+INSERT INTO MEDIOSPAGO (Nombre)
+VALUES ('Mercado pago (Dinero en cuenta)')
 
 ----SP Registro USUARIO----
 Create Procedure RegistrarUsuario(
@@ -177,23 +196,6 @@ Values(@Nombre, @Apellido, @TipoDocumento, @NDocumento, @Contacto, @Usuario,@Con
 
 Go
 
-Create table MEDIOS_PAGO(
-    Id int Primary Key identity(1,1),
-	Nombre Varchar (50)
-)
-GO
-
-INSERT INTO MEDIOS_PAGO (Nombre)
-VALUES ('Tarjeta Débito')
-
-INSERT INTO MEDIOS_PAGO (Nombre)
-VALUES ('Transferencia ')
-
-INSERT INTO MEDIOS_PAGO (Nombre)
-VALUES ('Efectivo')
-
-INSERT INTO MEDIOS_PAGO (Nombre)
-VALUES ('Mercado pago (Dinero en cuenta)')
 
 
 ----SP Registro DOMICILIO----
@@ -217,11 +219,37 @@ As
 Go
 
 
+---- SP ACTUALIZAR DOMICILIO -----
+Create Procedure ActualizarDomicilio(
+@IdUsuario int,
+@Pais Varchar(50),
+@Provincia Varchar(50),
+@Ciudad Varchar(50),
+@Calle Varchar(50),
+@Altura int,
+@Piso int,
+@Depto Varchar(50)
+
+)
+As
+	Update DOMICILIOS Set Pais = @Pais where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Provincia = @Provincia where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Ciudad = @Ciudad where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Calle = @Calle where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Altura = @Altura where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Piso = @Piso where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Depto = @Depto where IdUsuario = @IdUsuario
+
+Go
+
+
+
 ----SP Agregar Compra----
 
 Create Procedure RegistrarCompra(
 @IdUsuario int,
 @PrecioTotal Money,
+@MetodoEntrega varchar (50),
 @MedioPago varchar(50),
 @FechaCompra Datetime,
 @Estado varchar(50),
@@ -235,9 +263,9 @@ Create Procedure RegistrarCompra(
 )
 As
 
-	Insert into COMPRAS(IdUsuario, PrecioTotal, MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
+	Insert into COMPRAS(IdUsuario, PrecioTotal,MetodoEntrega,MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
 	output inserted.Id 
-	Values(@IdUsuario,  @PrecioTotal, @MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
+	Values(@IdUsuario,  @PrecioTotal,@MetodoEntrega,@MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
 
 Go
 

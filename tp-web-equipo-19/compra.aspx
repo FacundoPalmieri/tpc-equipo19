@@ -51,8 +51,8 @@
                 <div class="card border-info mb-3">
                     <div class="card-body">
                     <div class="mb-3">
-                        <label for="txtMedioPago" class="form-label">Seleccionar..</label>
-                        <asp:DropDownList runat="server" TextMode="Multiline" ID="ddlMedioPago" CssClass="btn btn-outine-dark drop-down-toggle" />
+                        <label for="txtMedioPago" class="form-label">Medio de Pago: </label>
+                        <asp:DropDownList runat="server" TextMode="Multiline" ID="ddlMedioPago" CssClass="btn btn-outine-dark drop-down-toggle" OnSelectedIndexChanged="ddlMedioPago_SelectedIndexChanged" />
                     </div>
                     </div>
                 </div>

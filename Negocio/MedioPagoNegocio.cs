@@ -16,12 +16,13 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("Select Nombre From MEDIOS_PAGO");
+                datos.SetearConsulta("Select Id, Nombre From MEDIOSPAGO");
                 datos.EjecutarConsulta();
 
                 while (datos.lector.Read())
                 {
                     MedioPago aux = new MedioPago();
+                    aux.Id = (int)datos.lector["Id"];
                     aux.Nombre = (string)datos.lector["Nombre"];
 
                     lista.Add(aux);
