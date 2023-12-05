@@ -27,11 +27,11 @@
                                 <td>
                                     <asp:TextBox type="number" min="1" ID="txtCantidad" AutoPostBack="true" runat="server" CssClass="col-lg-4" Text='<%# Eval("cantidad") %>' OnTextChanged="txtCantidad_TextChanged" />
                                     <asp:Button ID="EliminarProducto" AutoPostBack="true" runat="server" Text="Eliminar Producto" OnClick="EliminarProducto_Click" CommandArgument='<%# Eval("Articulo.Id") %>' />
-
                                 </td>
                             </tr>
                         </ItemTemplate>
                     </asp:Repeater>
+
                 </tbody>
             </table>
         </div>
@@ -39,15 +39,15 @@
             <td><b>Total:</b><asp:Label ID="lblTotalCarrito" runat="server" Text="0.00"></asp:Label></td>
         </div>
 
-         <div>
+        <div>
             <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
         </div>
 
         <div class="margen-superior">
-        <asp:Button ID="ButtonAñadirProducto" class="btn btn-primary" OnClick="ButtonAñadirProducto_Click" runat="server" Text="Añadir más productos" />
-        <asp:Button ID="ButtonCompra" CssClass="btn btn-success " OnClick="ButtonCompra_Click" runat="server" Text="Iniciar Compra" />
-         </div>
-   </div>
+            <asp:Button ID="ButtonAñadirProducto" class="btn btn-primary" OnClick="ButtonAñadirProducto_Click" runat="server" Text="Añadir más productos" />
+            <asp:Button ID="ButtonCompra" CssClass="btn btn-success " OnClick="ButtonCompra_Click" runat="server" Text="Iniciar Compra" />
+        </div>
+    </div>
 
     <style>
         .vertical-center {
@@ -67,7 +67,7 @@
         }
 
         .margen-superior {
-            margin-top: 20px; 
+            margin-top: 20px;
         }
     </style>
 </asp:Content>

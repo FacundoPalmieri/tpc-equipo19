@@ -42,6 +42,7 @@ namespace tp_web_equipo_19
             if (int.TryParse(Valor, out int id))
             {
                 Session["Id"] = id;
+               
             }
 
             Response.Redirect("Carrito.aspx", false);

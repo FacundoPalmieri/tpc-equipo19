@@ -104,34 +104,40 @@ namespace tp_web_equipo_19
         protected void txtCantidad_TextChanged(object sender, EventArgs e)
         {
             TextBox txtCantidad = (TextBox)sender;
+            RepeaterItem repeaterItem = (RepeaterItem)txtCantidad.NamingContainer;
 
-            int idArticuloSeleccionado = Convert.ToInt32(Session["IdArticuloSeleccionado"]);
-
-            
-            CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
-
-            
-            if (miCarritoNegocio != null)
+            if (repeaterItem != null)
             {
-          
-                int nuevaCantidad;
-                if (int.TryParse(txtCantidad.Text, out nuevaCantidad))
-                {
-                    
-                    int indice = ObtenerIndiceDelArticulo(idArticuloSeleccionado);
+                int idArticulo;
 
-                    if (indice >= 0 && indice < miCarritoNegocio.listacarrito.Count)
+                // Obtener el ID del artículo del CommandArgument del Button dentro del Repeater
+                if (int.TryParse(((Button)repeaterItem.FindControl("EliminarProducto")).CommandArgument, out idArticulo))
+                {
+                    //Carga en session el carrito
+                    CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
+
+                    if (miCarritoNegocio != null)
                     {
-                        miCarritoNegocio.listacarrito[indice].Cantidad = nuevaCantidad;
+                        int nuevaCantidad;
+                        if (int.TryParse(txtCantidad.Text, out nuevaCantidad))
+                        {
+                            int indice = ObtenerIndiceDelArticulo(idArticulo);
+
+                            if (indice >= 0 && indice < miCarritoNegocio.listacarrito.Count)
+                            {
+                                miCarritoNegocio.listacarrito[indice].Cantidad = nuevaCantidad;
+                            }
+
+                            decimal totalCarrito = miCarritoNegocio.CalcularTotalCarrito();
+                            lblTotalCarrito.Text = totalCarrito.ToString("C");
+                            ActualizarCantidadArticulosEnCarrito();
+                            MostrarCarrito();
+                        }
                     }
-                  
-                    decimal totalCarrito= miCarritoNegocio.CalcularTotalCarrito();
-                    lblTotalCarrito.Text = totalCarrito.ToString("C");
-                    ActualizarCantidadArticulosEnCarrito();
-                    MostrarCarrito();
                 }
             }
         }
+
 
         protected void EliminarProducto_Click(object sender, EventArgs e)
         {

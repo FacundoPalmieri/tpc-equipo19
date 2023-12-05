@@ -43,11 +43,19 @@
                     txtNombres.Enabled = false;
                     txtApellidos.Enabled = false;
                     txtDNI.Enabled = false;
+                    txtProvincia.Enabled = false;
+                    txtCiudad.Enabled = false;
+                    txtCalle.Enabled = false;
+                    txtAltura.Enabled = false;
+                    txtPiso.Enabled = false;
+                    txtDpto.Enabled = false;
 
 
-                    // Busca los datos en la base y carga en los textBox
 
-                    if (usuario != null)
+
+                // Busca los datos en la base y carga en los textBox
+
+                if (usuario != null)
                     {
                         Id = usuario.Id;
 
