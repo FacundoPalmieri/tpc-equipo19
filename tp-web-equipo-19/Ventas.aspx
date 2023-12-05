@@ -16,7 +16,7 @@
             AllowPaging="true" PageSize="5">
             <Columns>
                 <asp:BoundField HeaderText="Id" DataField="Id" />
-                <asp:BoundField HeaderText="Fecha Compra" DataField="FechaCompra" DataFormatString="{0:d}" />
+                <asp:BoundField HeaderText="Fecha venta" DataField="FechaCompra" DataFormatString="{0:d}" />
                 <asp:BoundField HeaderText="Precio Total" DataField="PrecioTotal" />
                 <asp:BoundField HeaderText="Estado" DataField="Estado" />
                 <asp:CommandField ShowSelectButton="true" SelectText="🔎" HeaderText="Editar" />

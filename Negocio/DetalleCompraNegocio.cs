@@ -112,7 +112,6 @@ namespace Negocio
                 datos.CerrarConexion();
             }
 
-
         }
     }
 }

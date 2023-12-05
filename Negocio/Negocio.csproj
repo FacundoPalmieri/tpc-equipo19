@@ -49,6 +49,7 @@
     <Compile Include="DetalleCompraNegocio.cs" />
     <Compile Include="DomicilioNegocio.cs" />
     <Compile Include="EmailService.cs" />
+    <Compile Include="EstadoCompraNegocio.cs" />
     <Compile Include="ImagenNegocio.cs" />
     <Compile Include="MarcaNegocio.cs" />
     <Compile Include="MedioPagoNegocio.cs" />

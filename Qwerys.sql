@@ -192,6 +192,24 @@ Create table DETALLESCOMPRAS(
 )
 Go
 
+CREATE TABLE ESTADOCOMPRA(
+	Id int identity (1,1),
+	Estado varchar(30)
+)
+Go
+INSERT INTO ESTADOCOMPRA(Estado)
+VALUES('Pendiente de pago')
+
+INSERT INTO ESTADOCOMPRA(Estado)
+VALUES('Pendiente de envio')
+
+INSERT INTO ESTADOCOMPRA(Estado)
+VALUES('Cancelado')
+
+INSERT INTO ESTADOCOMPRA(Estado)
+VALUES('Finalizada')
+
+
 ----SP Registro USUARIO----
 Create Procedure RegistrarUsuario(
 @Nombre Varchar(50),
