@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="tp_web_equipo_19.login" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -36,13 +37,13 @@
 
 
                 <div>
-                    <%-- <button type="button" class="btn btn-secondary btn-sm">Ingresar</button>--%>
+
                     <asp:Button ID="ButtonIngresar" CssClass="btn btn-success" OnClick="ButtonIngresar_Click" runat="server" Text="Ingresar" />
-                    <%-- <button type="button" class="btn btn-secondary btn-sm">Ingresar</button>--%>
+
                     <asp:Button ID="ButtonRegistrarse" CssClass="btn btn-secondary" OnClick="ButtonRegistrarse_Click" runat="server" Text="Registrarme" />
                 </div>
-                 
-            
+
+
 
 
 

@@ -71,6 +71,37 @@ namespace Negocio
             }
         }
 
+        public void ActualizarDatosUsuario(Usuario usuario, Domicilio domicilio)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearProcedimiento("ActualizarDatosUsuario");
+                datos.SetearParametro("@IdUsuario", usuario.Id);
+                datos.SetearParametro("@Contacto", usuario.Contacto);
+                datos.SetearParametro("@Provincia",domicilio.Provincia);
+                datos.SetearParametro("@Ciudad", domicilio.Ciudad);
+                datos.SetearParametro("@Calle", domicilio.Calle);
+                datos.SetearParametro("@Altura", domicilio.Altura);
+                datos.SetearParametro("@Piso", domicilio.Piso);
+                datos.SetearParametro("@Depto", domicilio.Depto);
+
+
+                 datos.EjectuarAccion();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                datos.CerrarConexion();
+            }
+        }
+
         public Usuario UsuarioPorID(int id)
         {
             Usuario usuario = new Usuario();
@@ -78,7 +109,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT Id, Nombre, Apellido, Contacto, Usuario FROM USUARIOS WHERE Id = @id");
+                datos.SetearConsulta("SELECT Id, u.Nombre, u.Apellido, u.Contacto, u.Ndocumento, u.TipoUsuario, u.Usuario FROM USUARIOS u WHERE Id = @id");
                 datos.SetearParametro("@id", id);
                 datos.EjecutarConsulta();
 
@@ -88,7 +119,11 @@ namespace Negocio
                     usuario.Nombre = (string)datos.lector["Nombre"];
                     usuario.Apellido = (string)datos.lector["Apellido"];
                     usuario.Contacto = (string)datos.lector["Contacto"];
+                    usuario.NDocumento = (string)datos.lector["Ndocumento"];
                     usuario.User = (string)datos.lector["Usuario"];
+                    int tipoUsuarioValor = (int)datos.lector["TipoUsuario"];
+                    usuario.TipoUsuario = (TipoUsuario)tipoUsuarioValor;
+
                 }
 
                 return usuario;
