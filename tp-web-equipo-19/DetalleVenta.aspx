@@ -26,104 +26,184 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
-            <div class="row">
-                <hr />
-                <%-- COLUMNA VENTA --%>
-                <div class="col-md-4">
-                    <div class="mb-3">
-                        <label for="txtID" class="form-label">ID Venta</label>
-                        <asp:TextBox runat="server" ID="txtID" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtFechaVenta" class="form-label">Fecha</label>
-                        <asp:TextBox runat="server" ID="txtFechaVenta" CssClass="form-control" DataFormatString="{0:d}" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtCostoEnvio" class="form-label">Costo envío</label>
-                        <asp:TextBox runat="server" ID="txtCostoEnvio" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtCostoTotal" class="form-label">Costo Total</label>
-                        <asp:TextBox runat="server" ID="txtCostoTotal" CssClass="form-control" />
-                    </div>
-                    <div class="accordion acordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    <strong>Artículos: </strong>
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <asp:Repeater ID="RepeaterDetalleArticulos" runat="server">
-                                        <ItemTemplate>
-                                            <tr>
-                                                <td>Id: <%# Eval("IdArticulo") %></td>
-                                                <td>Cantidad: <%# Eval("Cantidad") %></td>
-                                                <td class="text-right">Precio: <%# string.Format("{0:C}", Eval("Precio")) %></td>
-                                                <hr />
-                                            </tr>
-                                        </ItemTemplate>
-                                    </asp:Repeater>
+            <hr />
+            <%-- COLUMNA VENTA --%>
+            <div class="card w-50  border-info mb-3" style="padding: 3%">
+                <div style="justify-content: center;">
+                    <h5>Datos compra</h5>
+                </div>
+                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                    <ContentTemplate>
+                        <div class=" d-flex">
+                            <table class="table ">
+                                <tr>
+                                    <th>
+                                        <label for="txtID" class="form-label">ID Venta</label></th>
+                                    <td>
+                                        <asp:Literal runat="server" ID="litID"></asp:Literal></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="txtFechaVenta" class="form-label">Fecha</label></th>
+                                    <td>
+                                        <asp:Literal runat="server" ID="litFechaVenta"></asp:Literal></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="txtCostoEnvio" class="form-label">Costo envío</label></th>
+                                    <td>
+                                        <asp:Literal runat="server" ID="litCostoEnvio"></asp:Literal></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="txtCostoTotal" class="form-label">Costo Total</label></th>
+                                    <td>
+                                        <asp:Literal runat="server" ID="litCostoTotal"></asp:Literal></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                <strong>Artículos: </strong>
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <div class="row">
+                                    <div class="col-4">Producto</div>
+                                    <div class="col-3">Cantidad</div>
+                                    <div class="col-5">Precio Total</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-4">
+                                        <asp:Repeater ID="RepeaterDetalleArticulos" runat="server">
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <td><%# Eval("Nombre") %></td>
+                                                    <hr />
+                                                </tr>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </div>
+                                    <div class="col-8">
+                                        <asp:Repeater ID="RepeaterDetalleVentas" runat="server">
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <div class="row">
+                                                        <div class="col-5">
+                                                            <td><%# Eval("Cantidad") %></td>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <td class="text-right"><%# string.Format("{0:C}", Eval("Precio")) %></td>
+                                                        </div>
+                                                    </div>
+                                                    <hr />
+                                                </tr>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <%-- COLUMNA CLIENTE --%>
-                <div class="col-md-4">
-                    <div class="mb-3">
-                        <label for="txtIDUsuario" class="form-label">Cliente N°</label>
-                        <asp:TextBox runat="server" ID="txtIDUsuario" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtNombreUsuario" class="form-label">Nombre</label>
-                        <asp:TextBox runat="server" ID="txtNombreUsuario" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtApellidoUsuario" class="form-label">Apellido</label>
-                        <asp:TextBox runat="server" ID="txtApellidoUsuario" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtContactoUsuario" class="form-label">Contacto</label>
-                        <asp:TextBox runat="server" ID="txtContactoUsuario" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtMailUsuario" class="form-label">Mail</label>
-                        <asp:TextBox runat="server" ID="txtMailUsuario" CssClass="form-control" />
-                    </div>
+            </div>
+
+            <%-- DATOS CLIENTE --%>
+            <div class="card w-50 border-info mb-3" style="padding: 3%">
+                <div style="justify-content: center;">
+                    <h5>Datos cliente</h5>
                 </div>
-                <%-- COLUMNA ENVÍO --%>
-                <div class="col-md-4">
-                    <div class="mb-3">
-                        <label for="txtFormaEnvio" class="form-label">Forma de entrega</label>
-                        <asp:TextBox runat="server" ID="txtFormaEnvio" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtProvincia" class="form-label">Provincia</label>
-                        <asp:TextBox runat="server" ID="txtProvincia" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtCalle" class="form-label">Calle</label>
-                        <asp:TextBox runat="server" ID="txtCalle" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3">
-                        <label for="txtAltura" class="form-label">Altura</label>
-                        <asp:TextBox runat="server" ID="txtAltura" CssClass="form-control" />
-                    </div>
-                    <div class="mb-3 d-flex" style="margin-top: 13%">
-                        <label for="txtPiso" class="form-label">Piso:</label>
-                        <asp:TextBox runat="server" ID="txtPiso" CssClass="form-control" />
-                        <label for="txtDepto" class="form-label ms-2">Depto:</label>
-                        <asp:TextBox runat="server" ID="txtDepto" CssClass="form-control" />
-                    </div>
+                <div class="d-flex">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                <label for="txtIDUsuario" class="form-label">Cliente N°</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litIDUsuario"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtNombreUsuario" class="form-label">Nombre</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litNombreUsuario"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtApellidoUsuario" class="form-label">Apellido</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litApellidoUsuario"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtContactoUsuario" class="form-label">Contacto</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litContactoUsuario"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtMailUsuario" class="form-label">Mail</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litMailUsuario"></asp:Literal></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
 
 
+            <%-- DATOS ENVÍO --%>
+            <div class="card w-50 border-info mb-3" style="padding: 3%">
+                <div style="justify-content: center;">
+                    <h5>Datos de entrega</h5>
+                </div>
+                <div class="d-flex">
+                    <table class="table">
+                        <tr>
+                            <th>
+                                <label for="txtFormaEnvio" class="form-label">Forma de entrega</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litFormaEnvio"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtProvincia" class="form-label">Provincia</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litProvincia"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtCalle" class="form-label">Calle</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litCalle"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtAltura" class="form-label">Altura</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litAltura"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtPiso" class="form-label">Piso:</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litPiso"></asp:Literal></td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <label for="txtDepto" class="form-label ms-2">Depto:</label></th>
+                            <td>
+                                <asp:Literal runat="server" ID="litDepto"></asp:Literal></td>
+                        </tr>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-
     <style>
         .container {
             justify-content: center;

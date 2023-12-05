@@ -13,23 +13,6 @@ namespace tp_web_equipo_19
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtID.Enabled = false;
-            txtFechaVenta.Enabled = false;
-            txtCostoEnvio.Enabled = false;
-            txtCostoTotal.Enabled = false;
-
-            txtIDUsuario.Enabled = false;
-            txtNombreUsuario.Enabled = false;
-            txtApellidoUsuario.Enabled = false;
-            txtContactoUsuario.Enabled = false;
-            txtMailUsuario.Enabled = false;
-
-            txtFormaEnvio.Enabled = false;
-            txtProvincia.Enabled = false;
-            txtCalle.Enabled = false;
-            txtAltura.Enabled = false;
-            txtPiso.Enabled = false;
-            txtDepto.Enabled = false;
 
             ddlEstado.Visible = false;
             txtEstado.Visible = true;
@@ -48,10 +31,11 @@ namespace tp_web_equipo_19
                     CompraNegocio compraNegocio = new Negocio.CompraNegocio();
                     compra = compraNegocio.CompraPorID(int.Parse(Id));
 
-                    txtID.Text = Id;
-                    txtFechaVenta.Text = compra.FechaCompra.ToString("d");
-                    txtCostoTotal.Text = compra.PrecioTotal.ToString("C2");
-                    txtCostoEnvio.Text = compra.CostoEnvio.ToString("C2");
+                    litID.Text = Id; 
+                    litFechaVenta.Text = compra.FechaCompra.ToString("d"); 
+                    litCostoEnvio.Text = compra.CostoEnvio.ToString("C2"); 
+                    litCostoTotal.Text = compra.PrecioTotal.ToString("C2");
+
 
                     //Datos cliente
                     Usuario usuario = new Usuario();
@@ -59,21 +43,27 @@ namespace tp_web_equipo_19
                     int IdUsuario = compra.IdUsuario;
                     usuario = usuarioNegocio.UsuarioPorID(IdUsuario);
 
-                    txtIDUsuario.Text = IdUsuario.ToString();
-                    txtNombreUsuario.Text = usuario.Nombre.ToString();
-                    txtApellidoUsuario.Text = usuario.Apellido.ToString();
-                    txtContactoUsuario.Text = usuario.Contacto.ToString();
-                    txtMailUsuario.Text = usuario.User.ToString();
+                    litIDUsuario.Text = IdUsuario.ToString(); // Reemplaza con el valor real
+                    litNombreUsuario.Text = usuario.Nombre.ToString(); // Reemplaza con el valor real
+                    litApellidoUsuario.Text = usuario.Apellido.ToString();// Reemplaza con el valor real
+                    litContactoUsuario.Text = usuario.Contacto.ToString(); // Reemplaza con el valor real
+                    litMailUsuario.Text = usuario.User.ToString();
 
-                    //Datos detalle compra
+
+                    // Datos detalle compra
                     DetalleCompraNegocio detalleCompraNegocio = new DetalleCompraNegocio();
                     List<DetalleCompra> Lista = detalleCompraNegocio.ListarPorID(int.Parse(Id));
 
+                    RepeaterDetalleVentas.DataSource = Lista;
+                    RepeaterDetalleVentas.DataBind();
+
+                    // Filtrar la segunda lista por IdArticulo de la primera lista
                     ArticuloNegocio articuloNegocio = new ArticuloNegocio();
                     List<Articulo> listaArticulos = articuloNegocio.Listar();
-                    listaArticulos = articuloNegocio.Listar();
 
-                    RepeaterDetalleArticulos.DataSource = Lista;
+                    List<Articulo> listaFiltrada = listaArticulos.Where(articulo => Lista.Any(detalle => detalle.IdArticulo == articulo.Id)).ToList();
+
+                    RepeaterDetalleArticulos.DataSource = listaFiltrada;
                     RepeaterDetalleArticulos.DataBind();
 
                     //Estado de compra
@@ -81,14 +71,14 @@ namespace tp_web_equipo_19
                     { txtEstado.Text = compra.Estado.ToString(); }
 
                     //Forma de entrega
-                    txtFormaEnvio.Text = compra.MetodoEntrega.ToString();
-                    txtProvincia.Text = compra.Provincia.ToString();
-                    txtCalle.Text = compra.Calle.ToString();
-                    txtAltura.Text = compra.Altura.ToString();
-                    txtPiso.Text = compra.Depto.ToString();
-                    txtDepto.Text = compra.Depto.ToString();
-
+                    litFormaEnvio.Text = compra.MetodoEntrega.ToString();
+                    litProvincia.Text = compra.Provincia.ToString();
+                    litCalle.Text = compra.Calle.ToString();
+                    litAltura.Text = compra.Altura.ToString();
+                    litPiso.Text = compra.Depto.ToString();
+                    litDepto.Text = compra.Depto.ToString();
                 }
+                
 
             }
             catch (Exception ex)

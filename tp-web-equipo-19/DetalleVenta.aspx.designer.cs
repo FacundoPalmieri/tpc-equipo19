@@ -69,40 +69,49 @@ namespace tp_web_equipo_19
         protected global::System.Web.UI.WebControls.Button btnGuardar;
 
         /// <summary>
-        /// Control txtID.
+        /// Control UpdatePanel2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtID;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
 
         /// <summary>
-        /// Control txtFechaVenta.
+        /// Control litID.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFechaVenta;
+        protected global::System.Web.UI.WebControls.Literal litID;
 
         /// <summary>
-        /// Control txtCostoEnvio.
+        /// Control litFechaVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCostoEnvio;
+        protected global::System.Web.UI.WebControls.Literal litFechaVenta;
 
         /// <summary>
-        /// Control txtCostoTotal.
+        /// Control litCostoEnvio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCostoTotal;
+        protected global::System.Web.UI.WebControls.Literal litCostoEnvio;
+
+        /// <summary>
+        /// Control litCostoTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litCostoTotal;
 
         /// <summary>
         /// Control RepeaterDetalleArticulos.
@@ -114,102 +123,111 @@ namespace tp_web_equipo_19
         protected global::System.Web.UI.WebControls.Repeater RepeaterDetalleArticulos;
 
         /// <summary>
-        /// Control txtIDUsuario.
+        /// Control RepeaterDetalleVentas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIDUsuario;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterDetalleVentas;
 
         /// <summary>
-        /// Control txtNombreUsuario.
+        /// Control litIDUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombreUsuario;
+        protected global::System.Web.UI.WebControls.Literal litIDUsuario;
 
         /// <summary>
-        /// Control txtApellidoUsuario.
+        /// Control litNombreUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellidoUsuario;
+        protected global::System.Web.UI.WebControls.Literal litNombreUsuario;
 
         /// <summary>
-        /// Control txtContactoUsuario.
+        /// Control litApellidoUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContactoUsuario;
+        protected global::System.Web.UI.WebControls.Literal litApellidoUsuario;
 
         /// <summary>
-        /// Control txtMailUsuario.
+        /// Control litContactoUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMailUsuario;
+        protected global::System.Web.UI.WebControls.Literal litContactoUsuario;
 
         /// <summary>
-        /// Control txtFormaEnvio.
+        /// Control litMailUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFormaEnvio;
+        protected global::System.Web.UI.WebControls.Literal litMailUsuario;
 
         /// <summary>
-        /// Control txtProvincia.
+        /// Control litFormaEnvio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProvincia;
+        protected global::System.Web.UI.WebControls.Literal litFormaEnvio;
 
         /// <summary>
-        /// Control txtCalle.
+        /// Control litProvincia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCalle;
+        protected global::System.Web.UI.WebControls.Literal litProvincia;
 
         /// <summary>
-        /// Control txtAltura.
+        /// Control litCalle.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAltura;
+        protected global::System.Web.UI.WebControls.Literal litCalle;
 
         /// <summary>
-        /// Control txtPiso.
+        /// Control litAltura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPiso;
+        protected global::System.Web.UI.WebControls.Literal litAltura;
 
         /// <summary>
-        /// Control txtDepto.
+        /// Control litPiso.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDepto;
+        protected global::System.Web.UI.WebControls.Literal litPiso;
+
+        /// <summary>
+        /// Control litDepto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litDepto;
     }
 }
