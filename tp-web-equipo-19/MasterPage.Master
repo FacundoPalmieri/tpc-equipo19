@@ -39,7 +39,7 @@
                         </div>
                     </a>
                 </div>
-                <h4 style ="color:#AAC3CD">🛒KF MARKET</h4>
+                <h4 style="color: #AAC3CD">🛒KF MARKET</h4>
                 <div style="width: 50%; display: flex" <%--class ="justify-content-end"--%>>
                     <a href="login.aspx" class="mr-3 space" style="width: 80%">
                         <div class="fas fa-right-to-bracket justify-content-end" style="color: #AAC3CD; display: flex;">
@@ -53,10 +53,10 @@
                                             var correoElectronico = usuario.User; // Reemplaza 'CorreoElectronico' con el nombre de la propiedad de correo electrónico en tu objeto Usuario
                                 %>
                                 <!-- Si la sesión está iniciada, muestra el correo electrónico -->
-                          <abbr title="Iniciado" class="margen-superior" style="font-size: 10px;"> <%= correoElectronico %></abbr>
+                                <abbr title="Iniciado" class="margen-superior" style="font-size: 10px;"><%= correoElectronico %></abbr>
                                 <%
+                                        }
                                     }
-                                }
                                 %>
                             </div>
                         </div>

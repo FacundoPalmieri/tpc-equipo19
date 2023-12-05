@@ -17,7 +17,7 @@
             </asp:DropDownList>
         </div>
         <div class="col-6" style="display: flex; margin-top: 10px;">
-            <label for="Ciudad" class="form-label" style="font-size: 14px;">Ciudad:</label>
+            <label for="Ciudad" class="form-label" style="font-size: 14px;">Municipio:</label>
             <asp:DropDownList ID="DDLCiudad" CssClass="form-control mb-2" runat="server" OnSelectedIndexChanged="DDLCiudad_SelectedIndexChanged" Style="font-size: 12px; height: 33px;"></asp:DropDownList>
         </div>
         <div class="col-6" style="display: flex; margin-top: 10px;">

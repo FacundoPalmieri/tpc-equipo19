@@ -8,7 +8,7 @@
         <div class="row justify-content-center">
         <h5>Mi cuenta</h5>
             <hr />
-            <asp:Button CssClass="card style-card" ID="MisDatos" runat="server" Text="Mis Datos" />
+            <asp:Button CssClass="card style-card" ID="MisDatos" OnClick="MisDatos_Click" runat ="server" Text="Mis Datos" />
             <asp:Button CssClass="card style-card" ID="CerrarSesion" runat="server" Text="Cerrar Sesión" OnClick="CerrarSesion_Click" />
         </div>
     </div>

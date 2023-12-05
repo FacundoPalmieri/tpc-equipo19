@@ -184,7 +184,7 @@ VALUES ('Mercado pago (Dinero en cuenta)')
 Create table DETALLESCOMPRAS(
 
  Id int identity (1,1),
- IdCompra int,
+ IdCompra int foreign key References Compras(Id),
  IdArticulo int,
  Cantidad int,
  Precio Money
@@ -287,11 +287,10 @@ As
 Go
 
 
-----SP DETLLAE COMPRAS----
-
+----SP DETALLE COMPRAS----
 Create Procedure RegistrarDetalleCompra(
-@IdCompra int,
-@IdArticulo int,
+@IdCompra,
+@IdArticulo int ,
 @Cantidad int,
 @Precio money
 
@@ -303,6 +302,30 @@ As
 
 Go
 
+
+----SP ActualizarDatosUsuarios----
+Alter Procedure ActualizarDatosUsuario(
+@IdUsuario int,
+@Contacto varchar(50) ,
+@Provincia varchar(50),
+@Ciudad varchar(50),
+@Calle Varchar(50),
+@Altura int,
+@Piso Varchar(2),
+@Depto Varchar(50)
+)
+As
+	Update USUARIOS Set Contacto = @Contacto Where Id = @IdUsuario
+
+	Update DOMICILIOS Set Provincia = @Provincia Where IdUsuario = @IdUsuario
+    Update DOMICILIOS Set Ciudad = @Ciudad Where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Calle = @Calle Where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Altura = @Altura Where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Piso = @Piso Where IdUsuario = @IdUsuario
+	Update DOMICILIOS Set Depto = @Depto Where IdUsuario = @IdUsuario
+	
+	
+Go
 
 
    

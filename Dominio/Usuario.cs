@@ -35,6 +35,10 @@ namespace Dominio
         }
 
         public Usuario() { }
+        public bool EsAdministrador()
+        {
+            return TipoUsuario == TipoUsuario.Administrador;
+        }
 
 
     }
