@@ -66,7 +66,8 @@
                         <thead>
                             <tr>
                                 <th>Producto</th>
-                                <th class="text-right">Precio</th>
+                                <th>Cantidad</th>
+                                <th class="text-right">Precio Unidad</th>
                             </tr>
                         </thead>
 
@@ -74,20 +75,24 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%# Eval("Articulo.Nombre") %></td>
+                                    <td><%# Eval("cantidad") %></td>
                                     <td class="text-right"><%# string.Format("{0:C}", Eval("Articulo.Precio")) %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>
                         <tr>
                             <td>Envío</td>
+                            <td></td>
                             <td class="text-right">
-                                <asp:Label ID="lblEnvio" runat="server" Text="0.00" AutoPostBack="true"></asp:Label></td>
+                                <asp:Label ID="lblEnvio" runat="server" Text="$0.00" AutoPostBack="true"></asp:Label>
+
+                            </td>
                         </tr>
 
                     </table>
 
                     <tr>
-                        <td class="text-right" colspan="2"><b>Total:</b><asp:Label ID="lblTotalCarrito" runat="server" Text="0.00" AutoPostBack="true"></asp:Label></td>
+                        <td class="text-right" colspan="2"><b>Total:</b><asp:Label ID="lblTotalCarrito" runat="server" AutoPostBack="true"></asp:Label></td>
                     </tr>
 
                     <div>

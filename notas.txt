@@ -18,3 +18,6 @@
 -quizás habría que pasar los métodos a sp
 -cuando creamos en abm algo nuevo, no debería aparecer el botón eliminar
 - costo diferencial por provincia y caba , u otros lugares 
+-ver si está cambiando ben la cantidad cuando aumentas la cantidad de artículos
+-revisar abm imagen
+-medio de pago no traer el literal, traer por foreing key

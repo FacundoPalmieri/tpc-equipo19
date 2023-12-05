@@ -75,9 +75,6 @@ namespace tp_web_equipo_19
         {
             bool Actualizar = true;
             Session["ActualizarDomicilio"] = Actualizar;
-
-
-
         }
 
         protected void ButtonVolver_Click(object sender, EventArgs e)

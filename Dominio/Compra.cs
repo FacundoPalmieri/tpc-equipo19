@@ -11,7 +11,6 @@ namespace Dominio
         public int Id { get; set; }
         public int IdUsuario { get; set; }
         public List<Articulo> ListaDeArticulos { get; set; }
-
         public decimal PrecioVenta { get; set; }
         public decimal CostoEnvio { get; set; }
         public decimal PrecioTotal { get; set; }

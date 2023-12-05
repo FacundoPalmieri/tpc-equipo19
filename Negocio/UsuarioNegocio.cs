@@ -70,5 +70,43 @@ namespace Negocio
                 datos.CerrarConexion();
             }
         }
+
+        public Usuario UsuarioPorID(int id)
+        {
+            Usuario usuario = new Usuario();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("SELECT Id, Nombre, Apellido, Contacto, Usuario FROM USUARIOS WHERE Id = @id");
+                datos.SetearParametro("@id", id);
+                datos.EjecutarConsulta();
+
+                while (datos.lector.Read())
+                {
+                    usuario.Id = (int)datos.lector["Id"];
+                    usuario.Nombre = (string)datos.lector["Nombre"];
+                    usuario.Apellido = (string)datos.lector["Apellido"];
+                    usuario.Contacto = (string)datos.lector["Contacto"];
+                    usuario.User = (string)datos.lector["Usuario"];
+                }
+
+                return usuario;
+            }
+
+
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
+        }
     }
+
 }

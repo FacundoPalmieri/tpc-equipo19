@@ -19,6 +19,11 @@ namespace tp_web_equipo_19
 
         }
 
+        protected void Ventas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Ventas.aspx");
+        }
+
         protected void ABMArticulos_Click(object sender, EventArgs e)
         {
             Response.Redirect("ABMArticulo.aspx");

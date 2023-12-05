@@ -79,6 +79,7 @@
     <Content Include="compra.aspx" />
     <Content Include="CompraConfirmada.aspx" />
     <Content Include="DetalleArticulo.aspx" />
+    <Content Include="DetalleVenta.aspx" />
     <Content Include="EditarDomicilio.aspx" />
     <Content Include="inicio.aspx" />
     <Content Include="Global.asax" />
@@ -176,6 +177,13 @@
     </Compile>
     <Compile Include="DetalleArticulo.aspx.designer.cs">
       <DependentUpon>DetalleArticulo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleVenta.aspx.cs">
+      <DependentUpon>DetalleVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleVenta.aspx.designer.cs">
+      <DependentUpon>DetalleVenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="EditarDomicilio.aspx.cs">
       <DependentUpon>EditarDomicilio.aspx</DependentUpon>

@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("SELECT Id, IdUsuario, PrecioTotal, MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto FROM COMPRAS");
+                datos.SetearConsulta("SELECT Id, IdUsuario, PrecioVenta, CostoEnvio, PrecioTotal, MetodoEntrega, MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto FROM COMPRAS");
                 datos.EjecutarConsulta();
 
                 while (datos.lector.Read())
@@ -24,8 +24,11 @@ namespace Negocio
                     Compra aux = new Compra();
                     aux.Id = (int)datos.lector["Id"];
                     aux.IdUsuario = (int)datos.lector["IdUsuario"];
+                    aux.PrecioVenta = (decimal)datos.lector["PrecioVenta"];
+                    aux.CostoEnvio = (decimal)datos.lector["CostoEnvio"];
                     aux.PrecioTotal = (decimal)datos.lector["PrecioTotal"];
-                    aux.PrecioTotal = (decimal)datos.lector["MedioPago"];
+                    aux.MetodoEntrega = (string)datos.lector["MetodoEntrega"];
+                    aux.MedioPago = (string)datos.lector["MedioPago"];
                     aux.FechaCompra = (DateTime)datos.lector["FechaCompra"];
                     aux.Estado = (string)datos.lector["Estado"];
                     aux.Pais = (string)datos.lector["Pais"];
@@ -49,6 +52,54 @@ namespace Negocio
             {
                 datos.CerrarConexion();
             }
+        }
+
+        public Compra CompraPorID(int id)
+        {
+            Compra compra = new Compra();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.SetearConsulta("SELECT Id, IdUsuario, PrecioVenta, CostoEnvio, PrecioTotal, MetodoEntrega, MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto FROM COMPRAS WHERE Id = @id");
+                datos.SetearParametro("@id", id);
+                datos.EjecutarConsulta();
+
+                while (datos.lector.Read())
+                {
+                    compra.Id = (int)datos.lector["Id"];
+                    compra.IdUsuario = (int)datos.lector["IdUsuario"];
+                    compra.PrecioVenta = (decimal)datos.lector["PrecioVenta"];
+                    compra.CostoEnvio = (decimal)datos.lector["CostoEnvio"];
+                    compra.PrecioTotal = (decimal)datos.lector["PrecioTotal"];
+                    compra.MetodoEntrega = (string)datos.lector["MetodoEntrega"];
+                    compra.MedioPago = (string)datos.lector["MedioPago"];
+                    compra.FechaCompra = (DateTime)datos.lector["FechaCompra"];
+                    compra.Estado = (string)datos.lector["Estado"];
+                    compra.Pais = (string)datos.lector["Pais"];
+                    compra.Provincia = (string)datos.lector["Provincia"];
+                    compra.Ciudad = (string)datos.lector["Ciudad"];
+                    compra.Calle = (string)datos.lector["Calle"];
+                    compra.Altura = (int)datos.lector["Altura"];
+                    compra.Piso = (string)datos.lector["Piso"];
+                    compra.Depto = (string)datos.lector["Depto"];
+                }
+
+                return compra;
+            }
+
+
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+            finally
+            {
+                datos.CerrarConexion();
+            }
+
         }
 
         public int AgregarCompra(Compra Nueva)
