@@ -139,7 +139,19 @@ namespace tp_web_equipo_19
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Ventas.aspx");
+            if (Session["Usuario"] == null || ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == Dominio.TipoUsuario.Administrador)
+            {
+
+                Response.Redirect("Ventas.aspx");
+            }
+            else
+            {
+                Usuario usuario = new Usuario();
+                int Id = new int();
+                usuario = Session["Usuario"] as Dominio.Usuario;
+                Id = usuario.Id;
+                Response.Redirect("MisCompras.aspx?Id=" + Id);
+            }
         }
 
 
