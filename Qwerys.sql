@@ -224,7 +224,7 @@ As
  Insert Into USUARIOS(Nombre,Apellido,TipoDocumento, Ndocumento, Contacto,Usuario,Contraseña, 
 					  TipoUsuario, Habilitado) output inserted.Id 
 
-Values(@Nombre, @Apellido, @TipoDocumento, @NDocumento, @Contacto, @Usuario,@Contraseña ,1, 'S')
+Values(@Nombre, @Apellido, @TipoDocumento, @NDocumento, @Contacto, @Usuario,@Contraseña ,'1', 'S')
 
 
 Go
@@ -322,7 +322,7 @@ Go
 
 
 ----SP ActualizarDatosUsuarios----
-Alter Procedure ActualizarDatosUsuario(
+Create Procedure ActualizarDatosUsuario(
 @IdUsuario int,
 @Contacto varchar(50) ,
 @Provincia varchar(50),

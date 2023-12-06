@@ -19,9 +19,12 @@
                     <div class="mb-3 d-flex">
                         <label for="ddlEstado" class="form-label">Estado</label>
                         <asp:TextBox runat="server" ID="txtEstado" CssClass="form-control" Style="width: 20%; margin-left: 10px;" ReadOnly="true" />
+                              <%  if (Session["Usuario"] == null || ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == Dominio.TipoUsuario.Administrador)
+                        { %>
                         <asp:DropDownList runat="server" ID="ddlEstado" CssClass="form control btn btn-outine-dark drop-down-toggle" OnSelectedIndexChanged="ddlEstado_SelectedIndexChanged" AutoPostBack="false" />
                         <asp:Button runat="server" Style="width: 10%; margin-left: 10px;" ID="btnEditar" CssClass="btn btn-success" OnClick="btnEditar_Click" Text="Editar" />
                         <asp:Button runat="server" Style="width: 10%; margin-left: 10px;" ID="btnGuardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" />
+                          <% } %>
                         <asp:Button runat="server" Style="width: 10%; margin-left: 10px;" ID="btnVolver" CssClass="btn btn-primary" OnClick="btnVolver_Click" Text="Volver" />
                     </div>
                 </ContentTemplate>

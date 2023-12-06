@@ -83,21 +83,30 @@ namespace tp_web_equipo_19
                     }
                     else
                     {
-                      
+
                         MensajeError.Text = "El usuario ingresado no parece ser un correo electrónico válido.";
-                        MensajeError.Visible = true; 
+                        MensajeError.Visible = true;
                     }
 
                     usuario.Password = TextBoxPassword.Text;
+                    usuario.TipoUsuario = TipoUsuario.Cliente;
+                    usuario.TipoUsuario = TipoUsuario.Cliente;
 
 
+                   int id = usuarioNegocio.RegistrarUsuario(usuario);
+                   usuario.Id = id;
+
+                   int IdDomicilio = domicilioNegocio.RegistrarDomicilio(domicilio, id);
+                   
+                    Session.Add("Usuario", usuario);
 
 
-                    int id = usuarioNegocio.RegistrarUsuario(usuario);
-                    int IdDomicilio = domicilioNegocio.RegistrarDomicilio(domicilio, id);
+               
 
+                  
+                    //usuario.User = TextBoxUser.Text;
                     //EmailService emailService = new EmailService();
-                    //emailService.ArmarCorreo(TextBoxUser.Text, "Bienvenido a FK Market", "Bienvenido");
+                    //emailService.ArmarCorreo(usuario.User, "Bienvenido a FK Market", "Bienvenido");
                     //try
                     //{
                     //    emailService.EnviarMail();
@@ -106,20 +115,23 @@ namespace tp_web_equipo_19
                     //{
 
                     //    Session.Add("error", Ex);
-                    //}
+               
+                  
+                    Response.Redirect("Inicio.aspx");
 
-                    Response.Redirect("login.aspx");
+              
+                             
                 }
-                catch (Exception ex)
-                {
-
-                    Session.Add("Error", ex.ToString());
+                catch (Exception)
+                {  
+                    MensajeError.Text = "DNI y/o EMAIL, ya se encuentra registrado en la aplicación";
+                    MensajeError.Visible = true; 
                 }
             }
             else
             {
                 MensajeError.Text = "Campos incompletos y/o incorrectos";
-                MensajeError.Visible = true; // Hace visible el mensaje de error
+                MensajeError.Visible = true; 
             }
 
         }

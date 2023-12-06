@@ -21,7 +21,7 @@
         </div>
 
         <div>
-            <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
+            <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger"></asp:Label>
         </div>
 
         <div>

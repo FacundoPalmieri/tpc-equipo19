@@ -250,15 +250,15 @@ namespace tp_web_equipo_19
             var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
             int Id = usuarioEnSesion.Id;
 
-            //Busco la información en BD que falta en la sessión de usuario
-            usuario=usuarioNegocio.UsuarioPorID(Id);
+            ////Busco la información en BD que falta en la sessión de usuario
+            //usuario=usuarioNegocio.UsuarioPorID(Id);
 
-            //asigno a la variable lo que traje de la BD
-            usuarioEnSesion.Contacto = usuario.Contacto;
+            ////asigno a la variable lo que traje de la BD
+            //usuarioEnSesion.Contacto = usuario.Contacto;
             
-            //Asigno a la sessión los datos para pasarlo a CompraConfirmada.aspx
-            Session["Mail"] = usuarioEnSesion.User;
-            Session["Celular"] = usuarioEnSesion.Contacto.ToString();
+            ////Asigno a la sessión los datos para pasarlo a CompraConfirmada.aspx
+            //Session["Mail"] = usuarioEnSesion.User;
+            //Session["Celular"] = usuarioEnSesion.Contacto.ToString();
 
 
            

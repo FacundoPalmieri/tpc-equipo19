@@ -16,8 +16,9 @@ namespace tp_web_equipo_19
                 if (!IsPostBack)
                 {
                     int Comprobante = (int)Session["IdCompra"];
-                    string Mail = (string)Session["Mail"];
-                    string Celular = (string)Session["Celular"];
+                     var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
+                     string Mail = usuarioEnSesion.User;
+                     string Celular = usuarioEnSesion.Contacto;
 
 
                      // Asignar el valor al Label

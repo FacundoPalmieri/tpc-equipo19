@@ -85,5 +85,10 @@ namespace tp_web_equipo_19
         {
             Response.Redirect("Registro.aspx");
         }
+
+        protected void myLinkButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

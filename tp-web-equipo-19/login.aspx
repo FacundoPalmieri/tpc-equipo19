@@ -8,13 +8,10 @@
         <div class="row justify-content-center align-items-center" style="height: 100%;">
             <div class="col-6">
                 <div class="font weight-bold blockquote" style="color: #AAC3CD; display: flex">
-                    <%--   <div class="mb-3 ">--%>
                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                    <%--</div>--%>
                 </div>
 
                 <div>
-                    <%-- <input type="email" class="form-control mb-3" id="exampleFormControlInput1" placeholder="nombre@ejemplo.com">--%>
                     <asp:TextBox ID="TextBoxUser" CssClass="form-control mb-3" placeholder="nombre@ejemplo.com" runat="server"></asp:TextBox>
                 </div>
 
@@ -26,28 +23,18 @@
 
 
                 <div>
-                    <asp:TextBox ID="TextBoxPassword" type="password" CssClass="form-control mb-3" aria-describedby="passwordHelpBlock" runat="server"></asp:TextBox>
-                    <%--     <input type="password" id="inputPassword5" class="form-control mb-3" aria-describedby="passwordHelpBlock">--%>
+                    <asp:TextBox ID="TextBoxPassword" type="password" CssClass="form-control mb-3" aria-describedby="passwordHelpBlock" runat="server"></asp:TextBox>     
                 </div>
-
-
-                <%--       <div id="passwordHelpBlock" class="form-text">--%>
-                <%--Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.--%>
-                <%--  </div>--%>
-
-
                 <div>
 
                     <asp:Button ID="ButtonIngresar" CssClass="btn btn-success" OnClick="ButtonIngresar_Click" runat="server" Text="Ingresar" />
-
                     <asp:Button ID="ButtonRegistrarse" CssClass="btn btn-secondary" OnClick="ButtonRegistrarse_Click" runat="server" Text="Registrarme" />
-                </div>
 
+               <%-- </div>
 
+                 <asp:LinkButton ID="myLinkButton" runat="server" Text="¿No recuerdas tu contraseña?" OnClick="myLinkButton_Click" CssClass="link-inicial"  />
 
-
-
-                <div>
+                <div>--%>
                     <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
                 </div>
             </div>

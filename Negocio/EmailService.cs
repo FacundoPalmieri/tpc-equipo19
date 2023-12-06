@@ -23,14 +23,14 @@ namespace Negocio
             Server.Credentials = new NetworkCredential("3ced0b39abe958", "********48ec");
             Server.EnableSsl = true;
             Server.Port = 2525;
-            Server.Host = "sandbox.smtp.mailtrap.io";
+            Server.Host = "smtp.mailtrap.io";
 
         }
 
         public void ArmarCorreo(string EmailDestino, string Asunto, string Cuerpo)
         {
             Email = new MailMessage();
-            Email.From = new MailAddress("NoResponder@Palmierifacundo.com");
+            Email.From = new MailAddress("NoResponder@ecommerceFK.com");
             Email.To.Add(EmailDestino);
             Email.Subject = Asunto;
             Email.IsBodyHtml = true;
