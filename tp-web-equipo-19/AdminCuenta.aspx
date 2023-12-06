@@ -14,6 +14,9 @@
                 <asp:Button CssClass="card style-card" ID="ABMCategorías" runat="server" Text="ABM Categorías" OnClick="ABMCategorias_Click" />
                 <asp:Button CssClass="card style-card" ID="ABMMarcas" runat="server" Text="ABM Marcas" OnClick="ABMMarcas_Click"/>
             </div>
+            <div>
+                 <asp:Button CssClass="card style-card" ID="CerrarSesion" runat="server" Text="Cerrar Sesión" OnClick="CerrarSesion_Click" />
+            </div>
         </div>
     </div>
 

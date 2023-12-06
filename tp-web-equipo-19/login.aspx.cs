@@ -15,7 +15,28 @@ namespace tp_web_equipo_19
         {
             if (Seguridad.SesionActiva(Session["Usuario"]))
             {
-                Response.Redirect("MiCuenta.aspx");
+                Usuario usuario = new Usuario();
+                UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+                int Id = new int();
+                //Verifica si es administrador para que no pueda acceder y sea redirigido. 
+                usuario = Session["Usuario"] as Dominio.Usuario;
+
+                if (usuario != null)
+                {
+                    Id = usuario.Id;
+                    usuario = usuarioNegocio.UsuarioPorID(Id);
+                    if (usuario.EsAdministrador())
+                    {
+
+                        Response.Redirect("AdminCuenta.aspx");
+
+                    }
+                    else
+                    {
+                        Response.Redirect("MiCuenta.aspx");
+                    }
+                }
+              
             }
         }
 

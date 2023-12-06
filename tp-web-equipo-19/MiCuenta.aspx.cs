@@ -15,20 +15,22 @@ namespace tp_web_equipo_19
         {
             Usuario usuario = new Usuario();
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+            int Id = new int();
+
+
+            //Verifica si es administrador para que no pueda acceder y sea redirigido. 
             usuario = Session["Usuario"] as Dominio.Usuario;
 
             if (usuario != null)
             {
-                int Id = usuario.Id;
-
+                Id = usuario.Id;
                 usuario = usuarioNegocio.UsuarioPorID(Id);
                 if (usuario.EsAdministrador())
                 {
-                    MisDatos.Visible = false;
+
+                    Response.Redirect("Inicio.aspx");
+
                 }
-
-
-
             }
 
         }

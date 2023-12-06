@@ -38,5 +38,12 @@ namespace tp_web_equipo_19
         {
             Response.Redirect("ABMMarca.aspx");
         }
+
+        protected void CerrarSesion_Click(object sender, EventArgs e)
+        {
+            Session.Abandon(); // Cierra la sesión actual
+            Response.Redirect("inicio.aspx");
+        }
+
     }
 }
