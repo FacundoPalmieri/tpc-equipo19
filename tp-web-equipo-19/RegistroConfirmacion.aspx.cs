@@ -21,7 +21,7 @@ namespace tp_web_equipo_19
 
         protected void ButtonConfirmar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TextBoxUser.Text) && !string.IsNullOrEmpty(TextBoxPassword1.Text) && !string.IsNullOrEmpty(TextBoxPassword1.Text) && !string.IsNullOrEmpty(TextBoxPalabraSeguridad.Text))
+            if (!string.IsNullOrEmpty(TextBoxUser.Text) && !string.IsNullOrEmpty(TextBoxPassword1.Text) && !string.IsNullOrEmpty(TextBoxPassword2.Text) && !string.IsNullOrEmpty(TextBoxPalabraSeguridad.Text))
             {
 
                 try
@@ -88,11 +88,13 @@ namespace tp_web_equipo_19
                         MensajeError.Visible = true;
                     }
 
+                    // Valida las contraseña y guarda en base
+
                     if(TextBoxPassword1.Text == TextBoxPassword2.Text)
                     {
                         usuario.Password = TextBoxPassword1.Text;
                         usuario.TipoUsuario = TipoUsuario.Cliente;
-
+                        usuario.PalabraSeguridad = TextBoxPalabraSeguridad.Text;
 
 
                         int id = usuarioNegocio.RegistrarUsuario(usuario);

@@ -11,53 +11,26 @@ namespace tp_web_equipo_19
 {
 
 
-    public partial class login
+    public partial class RecuperarContraseña2
     {
 
         /// <summary>
-        /// Control TextBoxUser.
+        /// Control TextBoxPassword1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxUser;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword1;
 
         /// <summary>
-        /// Control TextBoxPassword.
+        /// Control TextBoxPassword2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword;
-
-        /// <summary>
-        /// Control ButtonIngresar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonIngresar;
-
-        /// <summary>
-        /// Control ButtonRegistrarse.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonRegistrarse;
-
-        /// <summary>
-        /// Control RecuperarContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton RecuperarContraseña;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword2;
 
         /// <summary>
         /// Control MensajeError.
@@ -67,5 +40,23 @@ namespace tp_web_equipo_19
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MensajeError;
+
+        /// <summary>
+        /// Control ButtonVolver4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonVolver4;
+
+        /// <summary>
+        /// Control ButtonConfirmar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonConfirmar;
     }
 }

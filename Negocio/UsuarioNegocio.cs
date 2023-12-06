@@ -55,6 +55,9 @@ namespace Negocio
                 datos.SetearParametro("@Contacto", Nuevo.Contacto);
                 datos.SetearParametro("@Usuario", Nuevo.User);
                 datos.SetearParametro("@Contraseña", Nuevo.Password);
+                datos.SetearParametro("@PalabraSeguridad", Nuevo.PalabraSeguridad);
+
+
 
 
                 return datos.EjectuarAccionScalar();

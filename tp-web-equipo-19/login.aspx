@@ -30,11 +30,11 @@
                     <asp:Button ID="ButtonIngresar" CssClass="btn btn-success" OnClick="ButtonIngresar_Click" runat="server" Text="Ingresar" />
                     <asp:Button ID="ButtonRegistrarse" CssClass="btn btn-secondary" OnClick="ButtonRegistrarse_Click" runat="server" Text="Registrarme" />
 
-               <%-- </div>
+                </div>
 
-                 <asp:LinkButton ID="myLinkButton" runat="server" Text="¿No recuerdas tu contraseña?" OnClick="myLinkButton_Click" CssClass="link-inicial"  />
+                 <asp:LinkButton ID="RecuperarContraseña" runat="server" Text="¿No recuerdas tu contraseña?" OnClick="RecuperarContraseña_Click" CssClass="link-inicial"  />
 
-                <div>--%>
+                <div>
                     <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
                 </div>
             </div>

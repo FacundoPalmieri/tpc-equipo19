@@ -23,6 +23,7 @@ namespace Dominio
         public string NDocumento { get; set; }
         public string User{ get; set; }
         public string Password { get; set; }
+        public string PalabraSeguridad { get; set; }
         public TipoUsuario TipoUsuario { get; set; }
         public bool Habilitado { get; set; }
 

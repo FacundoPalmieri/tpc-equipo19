@@ -14,7 +14,7 @@ namespace tp_web_equipo_19
         protected void Page_Load(object sender, EventArgs e)
         {
      
-            if (!(Page is Default  || Page is Carrito || Page is login || Page is Registro || Page is RegistroEnvio || Page is RegistroConfirmación))
+            if (!(Page is Default  || Page is Carrito || Page is login || Page is Registro || Page is RegistroEnvio || Page is RegistroConfirmación || Page is RecuperarContraseña1 || Page is RecuperarContraseña2 || Page is RecuperarContraseña3))
             {
                 if (!Seguridad.SesionActiva(Session["Usuario"]))
                 {

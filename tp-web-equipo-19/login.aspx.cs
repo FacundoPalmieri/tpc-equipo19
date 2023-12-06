@@ -86,8 +86,11 @@ namespace tp_web_equipo_19
             Response.Redirect("Registro.aspx");
         }
 
-        protected void myLinkButton_Click(object sender, EventArgs e)
+    
+
+        protected void RecuperarContraseña_Click(object sender, EventArgs e)
         {
+            Response.Redirect("RecuperarContraseña1.aspx");
 
         }
     }

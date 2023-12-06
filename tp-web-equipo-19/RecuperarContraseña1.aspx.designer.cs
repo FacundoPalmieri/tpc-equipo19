@@ -11,7 +11,7 @@ namespace tp_web_equipo_19
 {
 
 
-    public partial class login
+    public partial class RecuperarContraseña1
     {
 
         /// <summary>
@@ -24,40 +24,13 @@ namespace tp_web_equipo_19
         protected global::System.Web.UI.WebControls.TextBox TextBoxUser;
 
         /// <summary>
-        /// Control TextBoxPassword.
+        /// Control TextBoxPalabraSeguridad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword;
-
-        /// <summary>
-        /// Control ButtonIngresar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonIngresar;
-
-        /// <summary>
-        /// Control ButtonRegistrarse.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonRegistrarse;
-
-        /// <summary>
-        /// Control RecuperarContraseña.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton RecuperarContraseña;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPalabraSeguridad;
 
         /// <summary>
         /// Control MensajeError.
@@ -67,5 +40,23 @@ namespace tp_web_equipo_19
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MensajeError;
+
+        /// <summary>
+        /// Control ButtonVolver3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonVolver3;
+
+        /// <summary>
+        /// Control ButtonEnviar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonEnviar;
     }
 }

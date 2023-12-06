@@ -89,6 +89,9 @@
     <Content Include="MiCuenta.aspx" />
     <Content Include="MisCompras.aspx" />
     <Content Include="MisDatos.aspx" />
+    <Content Include="RecuperarContraseña1.aspx" />
+    <Content Include="RecuperarContraseña2.aspx" />
+    <Content Include="RecuperarContraseña3.aspx" />
     <Content Include="Ventas.aspx" />
     <Content Include="RegistroEnvio.aspx" />
     <Content Include="Registro.aspx" />
@@ -238,6 +241,27 @@
     </Compile>
     <Compile Include="MisDatos.aspx.designer.cs">
       <DependentUpon>MisDatos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecuperarContraseña1.aspx.cs">
+      <DependentUpon>RecuperarContraseña1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecuperarContraseña1.aspx.designer.cs">
+      <DependentUpon>RecuperarContraseña1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecuperarContraseña2.aspx.cs">
+      <DependentUpon>RecuperarContraseña2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecuperarContraseña2.aspx.designer.cs">
+      <DependentUpon>RecuperarContraseña2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RecuperarContraseña3.aspx.cs">
+      <DependentUpon>RecuperarContraseña3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RecuperarContraseña3.aspx.designer.cs">
+      <DependentUpon>RecuperarContraseña3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ventas.aspx.cs">
       <DependentUpon>Ventas.aspx</DependentUpon>

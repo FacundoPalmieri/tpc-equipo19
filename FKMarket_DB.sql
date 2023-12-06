@@ -165,31 +165,33 @@ VALUES
     (3, 'LC'),
 	(4, 'LE');
 
-
-----Creación Tabla Usuarios----
-
-Create Table USUARIOS(
- Id int Primary key identity(1,1),
- Nombre Varchar(50),
- Apellido Varchar(50),
- Contacto Varchar(50),
- TipoDocumento Varchar(50),
- Ndocumento Varchar(50) unique,
- Usuario Varchar(50) unique,
- Contraseña Varchar(50),
- PalabraSeguridad varchar(50),---------------------------
- TipoUsuario int,
- Habilitado Varchar(1)
-
-)
 GO
 
 
+----Creación Tabla Usuarios----
+
+CREATE TABLE USUARIOS (
+	Id INT primary key IDENTITY(1,1),
+    Nombre VARCHAR(50),
+    Apellido VARCHAR(50),
+    Contacto VARCHAR(50),
+    TipoDocumento VARCHAR(50),
+    Ndocumento VARCHAR(50),
+    Usuario VARCHAR(50) UNIQUE,
+    Contraseña VARCHAR(50),
+    PalabraSeguridad VARCHAR(50),
+    TipoUsuario INT,
+    Habilitado VARCHAR(1),
+
+)
+
+Go
+
 ----Inserto datos Usuarios----
 Insert into USUARIOS
-(NDocumento, Usuario, Contraseña, TipoUsuario, Habilitado)
-Values(2,'Admin@gmail.com','2',2,'S'),
-	  (1,'Cliente@gmail.com','1',1,'S');
+      (Nombre,Apellido,Contacto, TipoDocumento,NDocumento, Usuario, Contraseña, TipoUsuario, Habilitado)
+Values('Administrador','Administrador','Administrador','DNI','2','Admin@gmail.com','2',2,'S'),
+	  ('Cliente','Cliente','Cliente','DNI','1','Cliente@gmail.com','1',1,'S');
 
 Go
 
@@ -257,6 +259,7 @@ INSERT INTO MEDIOSPAGO (Nombre)
 VALUES ('Mercado pago (Dinero en cuenta)')
 
 
+GO
 
 Create table DETALLESCOMPRAS(
 
