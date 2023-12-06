@@ -30,14 +30,27 @@ namespace tp_web_equipo_19
                 RecuperarContraseñaNegocio recuperarContraseñaNegocio = new RecuperarContraseñaNegocio();
                 if (!string.IsNullOrEmpty(TextBoxPassword1.Text) && !string.IsNullOrEmpty(TextBoxPassword2.Text))
                 {
-                    usuario.User = (string)Session["Usuario"];
-                    usuario.Password = TextBoxPassword1.Text;
+                    if (TextBoxPassword1.Text == TextBoxPassword2.Text)
+                    {
+                        usuario.User = (string)Session["Usuario"] ;
+                        usuario.Password = TextBoxPassword1.Text;
 
-                    recuperarContraseñaNegocio.RestablecerCredenciales(usuario);
 
-                    Session["usuario"] = Session["Usuario"];
+                        recuperarContraseñaNegocio.RestablecerCredenciales(usuario);
 
-                    Response.Redirect("RecuperarContraseña3.aspx");
+                    
+
+                        //Session["usuario"] = Session["Usuario"];
+
+                        Response.Redirect("RecuperarContraseña3.aspx");
+
+                    }
+                    else
+                    {
+                        MensajeError.Text = "Las contraseñas deben coincidir";
+                        MensajeError.Visible = true;
+
+                    }
     
                 }
                 else

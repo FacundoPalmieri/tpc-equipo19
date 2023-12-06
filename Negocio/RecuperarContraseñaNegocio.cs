@@ -51,9 +51,9 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("Update Usuarios Set Password = @Password where User = @User");
-                datos.SetearParametro("@User", usuario.User);
-                datos.SetearParametro("Password", usuario.Password);
+                datos.SetearConsulta("Update Usuarios Set Contraseña = @Contraseña where Usuario = @Usuario");
+                datos.SetearParametro("@Usuario", usuario.User);
+                datos.SetearParametro("@Contraseña", usuario.Password);
 
                 datos.EjectuarAccion();
 

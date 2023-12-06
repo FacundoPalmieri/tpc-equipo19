@@ -75,7 +75,7 @@
                             <p class="card-text"><b>Categoría: </b><%# Eval("Categoria.Descripcion") %></p>
                             <p class="card-text"><b>Precio: </b><%# string.Format("{0:C}", Eval("Precio")) %></p>
                             <a href="DetalleArticulo.aspx?id=<%#Eval("Id") %>">Ver Detalle</a>
-                            <%  if (Session["Usuario"] == null || ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == Dominio.TipoUsuario.Cliente)
+                            <%  if (Session["Usuario"] == null || !(Session["Usuario"] is Dominio.Usuario) || ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == Dominio.TipoUsuario.Cliente)
                                 { %>
                             <asp:Button Text="Añadir al Carrito" CssClass="btn btn-primary" runat="server" ID="btnAniadirAlCarrito" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" OnClick="btnAniadirAlCarrito_Click" />
                             <% } %>

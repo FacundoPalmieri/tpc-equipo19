@@ -11,7 +11,7 @@ namespace Dominio
     {
         public static bool SesionActiva(object user)
         {
-            Usuario usuario = user != null ? (Usuario) user: null;
+            Usuario usuario = user is Usuario ? (Usuario)user : null;
             if (usuario != null)
             { 
                 return true;

@@ -19,17 +19,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <div style="background-color: slategrey /*#242426; */">
-                <a href="Ayuda.aspx">
-                    <div style="color: #AAC3CD; font-size: small;">
-                        <div class="fa-solid fa-comments icon-container">
-                            <p class="iconos-text">Centro de ayuda</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
             <nav class="navbar navbar-expand-xl navbar-dark bg-dark <%--justify-content-end--%>">
                 <%--      <div class="ml-auto d-flex ">--%>
                 <div style="width: 50%; justify-content-end">
@@ -62,7 +51,7 @@
                             <% } %>
                         </div>
                     </a>
-                    <%  if (Session["Usuario"] == null || ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == Dominio.TipoUsuario.Cliente)
+                  <%   if (Session["Usuario"] == null || !(Session["Usuario"] is Dominio.Usuario) || ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == Dominio.TipoUsuario.Cliente)
                         { %>
                     <a href="Carrito.aspx" class="mr-3 space2" style="width: 20%">
                         <div class="fa-solid fa-cart-shopping justify-content-end" style="color: #AAC3CD; display: flex">
