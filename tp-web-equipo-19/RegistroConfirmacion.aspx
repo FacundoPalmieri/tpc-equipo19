@@ -3,23 +3,41 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="height: 250px; margin: 20px; margin-bottom: 180px;">
-        <h2 style="color: #AAC3CD">Confirme su registro!</h2>
-        <h4 style="color: #AAC3CD">Ingrese su usuario y contraseña </h4>
-        <div>
-            <asp:TextBox ID="TextBoxUser" CssClass="form-control mb-3" placeholder="nombre@ejemplo.com" runat="server"></asp:TextBox>
+    <div style="height: 250px; margin: 20px; margin-bottom: 280px;">
+        <h2 style="color: #AAC3CD">Confirme su registro 🎉</h2>
+        <div class="font weight-bold blockquote" style="color: #AAC3CD; display: flex">
+
+            <label for="Usuario" class="form-label">Usuario</label>
         </div>
 
+        <div>
+            <asp:TextBox ID="TextBoxUser" CssClass="form-control mb-3" placeholder="nombre@ejemplo.com" runat="server" Style="max-width: 500px;"></asp:TextBox>
+        </div>
 
         <div class="font weight-bold blockquote" style="color: #AAC3CD; display: flex">
 
-            <label for="inputPassword5" class="form-label">Contraseña</label>
+            <label for="lblContraseña" class="form-label">Contraseña</label>
+        </div>
+
+
+        <div>
+            <asp:TextBox ID="TextBoxPassword1" type="password" CssClass="form-control mb-3" aria-describedby="passwordHelpBlock" runat="server" Style="max-width: 500px;"></asp:TextBox>
+        </div>
+
+        <div class="font weight-bold blockquote" style="color: #AAC3CD; display: flex">
+            <label for="lblContraseña2" class="form-label">Reingrese su contraseña</label>
         </div>
 
         <div>
-            <asp:TextBox ID="TextBoxPassword" type="password" CssClass="form-control mb-3" aria-describedby="passwordHelpBlock" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBoxPassword2" type="password" CssClass="form-control mb-3" aria-describedby="passwordHelpBlock" runat="server" Style="max-width: 500px;"></asp:TextBox>
         </div>
 
+        <div class="font weight-bold blockquote" style="color: #AAC3CD; display: flex">
+            <label for="PreguntaSeguridad" class="form-label">Palabra de seguridad</label>
+        </div>
+        <div>
+             <asp:TextBox ID="TextBoxPalabraSeguridad" CssClass="form-control mb-3"  runat="server" Style="max-width: 500px;"></asp:TextBox>
+        </div>
         <div>
             <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger"></asp:Label>
         </div>

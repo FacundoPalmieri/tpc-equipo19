@@ -24,13 +24,31 @@ namespace tp_web_equipo_19
         protected global::System.Web.UI.WebControls.TextBox TextBoxUser;
 
         /// <summary>
-        /// Control TextBoxPassword.
+        /// Control TextBoxPassword1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword1;
+
+        /// <summary>
+        /// Control TextBoxPassword2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPassword2;
+
+        /// <summary>
+        /// Control TextBoxPalabraSeguridad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPalabraSeguridad;
 
         /// <summary>
         /// Control MensajeError.

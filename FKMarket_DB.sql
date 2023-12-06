@@ -1,6 +1,82 @@
-Use CATALOGO_P3_DB
-Go
+USE master
+GO
 
+CREATE DATABASE FKMarket
+GO
+
+USE FKMarket
+GO
+
+CREATE TABLE [dbo].[MARCAS](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Descripcion] [varchar](50) NULL,
+	CONSTRAINT [PK_MARCAS] PRIMARY KEY CLUSTERED ([Id] ASC)
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[CATEGORIAS](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Descripcion] [varchar](50) NULL,
+	CONSTRAINT [PK_CATEGORIAS] PRIMARY KEY CLUSTERED ([Id] ASC)
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[ARTICULOS](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Codigo] [varchar](50) NULL,
+	[Nombre] [varchar](50) NULL,
+	[Descripcion] [varchar](150) NULL,
+	[IdMarca] [int] NULL,
+	[IdCategoria] [int] NULL,
+	[Precio] [money] NULL,
+	CONSTRAINT [PK_ARTICULOS] PRIMARY KEY CLUSTERED ([Id] ASC)
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[IMAGENES](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[IdArticulo] [int] NOT NULL,
+	[ImagenUrl] [varchar](1000) NOT NULL,
+	CONSTRAINT [PK_IMAGENES] PRIMARY KEY CLUSTERED ([Id] ASC)
+) ON [PRIMARY]
+GO
+
+insert into MARCAS values ('Samsung'), ('Apple'), ('Sony'), ('Huawei'), ('Motorola')
+insert into CATEGORIAS values ('Celulares'),('Televisores'), ('Media'), ('Audio')
+insert into ARTICULOS values ('S01', 'Galaxy S10', 'Un teléfono inteligente de alta gama con características premium.', 1, 1, 149999),
+('M03', 'Moto G Play 7ma Gen', 'Un teléfono confiable y económico para uso diario.', 1, 5, 156999),
+('S99', 'PlayStation 4', 'Consola de videojuegos líder en entretenimiento.', 3, 3, 749000),
+('S56', 'Sony Bravia 55', 'Televisor con una calidad de imagen excepcional y funciones avanzadas.', 3, 2, 149500),
+('A23', 'Apple TV', 'Dispositivo de streaming para disfrutar contenido multimedia.', 2, 3, 607850),
+('I12', 'iPad Pro 12.9"', 'Tablet potente y versátil para usuarios exigentes.', 2, 4, 455000),
+('N78', 'Nintendo Switch', 'Consola híbrida para jugar en casa o en movimiento.', 3, 5, 250000),
+('L45', 'Logitech MX Master 3', 'Ratón ergonómico de alto rendimiento para trabajo profesional.', 1, 8, 20000),
+('P32', 'PlayStation 5', 'La última generación de la consola de videojuegos de Sony con gráficos de alta calidad.', 3, 3, 999999),
+('I11', 'iPhone 13 Pro', 'Teléfono inteligente de Apple con cámara de última generación y potente rendimiento.', 2, 1, 489999),
+('L72', 'Lenovo ThinkPad X1 Carbon', 'Portátil ultraligero y potente para usuarios profesionales.', 1, 2, 320000),
+('G84', 'GoPro Hero 10 Black', 'Cámara de acción líder en su segmento con calidad de video 5K.', 1, 4, 328999),
+('S70', 'Samsung Odyssey G9', 'Monitor curvo ultraancho para gaming con alta tasa de refresco.', 3, 2, 189999);
+
+insert into imagenes values
+(1,'https://images.samsung.com/is/image/samsung/co-galaxy-s10-sm-g970-sm-g970fzyjcoo-frontcanaryyellow-thumb-149016542'),
+(2, 'https://www.motorola.cl/arquivos/moto-g7-play-img-product.png?v=636862863804700000'),
+(2, 'https://i.blogs.es/9da288/moto-g7-/1366_2000.jpg'),
+(3, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFXkzTPbdp9VHDCQwaZFUf9Ms2u0YX6eg_ej7NJbibvmxtYmV98xIWZmLJJ3xqAtZfa1U&usqp=CAU'),
+(4, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsP5f7O_PK0U79gMo6RtKkn124-t3NS6qMxw&usqp=CAU'),
+(5, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLuaVcaE1HuWslffp41aLpQQzjmCEgPjLetg&usqp=CAU'),
+(6, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgzNZRL6xv6qTbKsqL__2wMNHOiENdrtRGAw&usqp=CAU'),
+(7, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStVtPMEtD4kDBowwp7DWsfgjlzaio52VcazQ&usqp=CAU'),
+(7, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJ6t-WQc4sYO2Fx9cS-Hof72qEK-HSi_rpJQ&usqp=CAU'),
+(8, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwQgbgwoO2rogEhVUF_ob92dqABTlLeCBq6Q&usqp=CAU'),
+(8, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCDqd169MtK8rw9kDYgWXMpxG0iD1fvINbFw&usqp=CAU'),
+(9, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAFFKYbp3rJCOFq81FYEY9yTujdCGdLh34Aw&usqp=CAU '),
+(10,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTzyKglwZzON9HzlcwguS5fgtqTgZLdW0ZvA&usqp=CAU'),
+(11,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJ2-HH_qaKa3QNFw-J-sPqLu7sY1nSjUhiKQ&usqp=CAU'),
+(12,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWyuT9Z41ykEM-EvonneLvtS3wpsTSjUGOQ&usqp=CAU'),
+(12,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhKM2poHbCSJSw-F2fNFmBEaDTG9upetyEWw&usqp=CAU'),
+(13,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmcgYs8CUEfoWMhTyvPwJCBGe3ZcP1igf91Q&usqp=CAU')
+
+go
 
 ----Creción Tabla Paises----
 Create table PAISES(
@@ -101,6 +177,7 @@ Create Table USUARIOS(
  Ndocumento Varchar(50) unique,
  Usuario Varchar(50) unique,
  Contraseña Varchar(50),
+ PalabraSeguridad varchar(50),---------------------------
  TipoUsuario int,
  Habilitado Varchar(1)
 
@@ -209,6 +286,7 @@ VALUES('Cancelado')
 INSERT INTO ESTADOCOMPRA(Estado)
 VALUES('Finalizada')
 
+Go
 
 ----SP Registro USUARIO----
 Create Procedure RegistrarUsuario(
@@ -218,13 +296,14 @@ Create Procedure RegistrarUsuario(
 @NDocumento varchar(50),
 @Contacto varchar(50),
 @Usuario Varchar(50),
-@Contraseña Varchar(50)
+@Contraseña Varchar(50),
+@PalabraSeguridad varchar(50)---------------------------------------------
 )
 As
- Insert Into USUARIOS(Nombre,Apellido,TipoDocumento, Ndocumento, Contacto,Usuario,Contraseña, 
+ Insert Into USUARIOS(Nombre,Apellido,TipoDocumento, Ndocumento, Contacto,Usuario,Contraseña,PalabraSeguridad,
 					  TipoUsuario, Habilitado) output inserted.Id 
 
-Values(@Nombre, @Apellido, @TipoDocumento, @NDocumento, @Contacto, @Usuario,@Contraseña ,'1', 'S')
+Values(@Nombre, @Apellido, @TipoDocumento, @NDocumento, @Contacto, @Usuario,@Contraseña,@PalabraSeguridad ,'1', 'S')
 
 
 Go
@@ -307,11 +386,10 @@ Go
 
 ----SP DETALLE COMPRAS----
 Create Procedure RegistrarDetalleCompra(
-@IdCompra,
+@IdCompra int,
 @IdArticulo int ,
 @Cantidad int,
 @Precio money
-
 )
 As
 

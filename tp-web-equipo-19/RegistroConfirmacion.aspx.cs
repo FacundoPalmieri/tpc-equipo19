@@ -21,7 +21,7 @@ namespace tp_web_equipo_19
 
         protected void ButtonConfirmar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TextBoxUser.Text) && !string.IsNullOrEmpty(TextBoxPassword.Text))
+            if (!string.IsNullOrEmpty(TextBoxUser.Text) && !string.IsNullOrEmpty(TextBoxPassword1.Text) && !string.IsNullOrEmpty(TextBoxPassword1.Text) && !string.IsNullOrEmpty(TextBoxPalabraSeguridad.Text))
             {
 
                 try
@@ -88,22 +88,30 @@ namespace tp_web_equipo_19
                         MensajeError.Visible = true;
                     }
 
-                    usuario.Password = TextBoxPassword.Text;
-                    usuario.TipoUsuario = TipoUsuario.Cliente;
-                    usuario.TipoUsuario = TipoUsuario.Cliente;
+                    if(TextBoxPassword1.Text == TextBoxPassword2.Text)
+                    {
+                        usuario.Password = TextBoxPassword1.Text;
+                        usuario.TipoUsuario = TipoUsuario.Cliente;
 
 
-                   int id = usuarioNegocio.RegistrarUsuario(usuario);
-                   usuario.Id = id;
 
-                   int IdDomicilio = domicilioNegocio.RegistrarDomicilio(domicilio, id);
-                   
-                    Session.Add("Usuario", usuario);
+                        int id = usuarioNegocio.RegistrarUsuario(usuario);
+                        usuario.Id = id;
 
+                        int IdDomicilio = domicilioNegocio.RegistrarDomicilio(domicilio, id);
 
-               
+                        Session.Add("Usuario", usuario);
 
-                  
+                        Response.Redirect("Inicio.aspx");
+                    }
+                    else
+                    {
+                        MensajeError.Text = "Las contraseña deben coincidir";
+                        MensajeError.Visible = true;
+
+                    }
+
+      
                     //usuario.User = TextBoxUser.Text;
                     //EmailService emailService = new EmailService();
                     //emailService.ArmarCorreo(usuario.User, "Bienvenido a FK Market", "Bienvenido");
@@ -116,9 +124,7 @@ namespace tp_web_equipo_19
 
                     //    Session.Add("error", Ex);
                
-                  
-                    Response.Redirect("Inicio.aspx");
-
+                 
               
                              
                 }

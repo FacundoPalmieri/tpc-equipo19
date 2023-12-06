@@ -6,58 +6,58 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager runat="server" ID="ScriptManager1" />
 
-        <div style="padding: 20px; align-items: center; display: flex; justify-content: center; flex-direction: column;">
-            <div class="d-flex align-items-center" style="width: 40%;">
-                <asp:TextBox ID="txtBuscador" runat="server" CssClass="form-control txtBuscador" />
-                <asp:Button Text="Buscar" CssClass="btn btn-secondary boton-buscar" runat="server" OnClick="btnBuscar_Click" />
-            </div>
-            <div class="d-flex align-items-start mt-3">
-                <asp:CheckBox Text="Filtro avanzado"
-                    ID="chkAvanzado" runat="server"
-                    AutoPostBack="true"
-                    OnCheckedChanged="chkAvanzado_CheckedChanged" />
-            </div>
+    <div style="padding: 20px; align-items: center; display: flex; justify-content: center; flex-direction: column;">
+        <div class="d-flex align-items-center" style="width: 40%;">
+            <asp:TextBox ID="txtBuscador" runat="server" CssClass="form-control txtBuscador" />
+            <asp:Button Text="Buscar" CssClass="btn btn-secondary boton-buscar" runat="server" OnClick="btnBuscar_Click" />
         </div>
+        <div class="d-flex align-items-start mt-3">
+            <asp:CheckBox Text="Filtro avanzado"
+                ID="chkAvanzado" runat="server"
+                AutoPostBack="true"
+                OnCheckedChanged="chkAvanzado_CheckedChanged" />
+        </div>
+    </div>
 
     <% if (FiltroAvanzado)
-    { %>
-        <asp:UpdatePanel ID="UpDatePanelFiltro" runat="server">
-            <ContentTemplate>
-                <div class="row" style="padding: 20px; align-items: center; display: flex; justify-content: center;">
-                    <div class="col-3" style="margin-left: 10px">
-                        <div class="mb-3">
-                            <asp:Label ID="lblCampo" runat="server" Text="Campo" />
-                            <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCampo" AutoPostBack="true" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged">
-                                <asp:ListItem Text="Todo" Value="" />
-                                <asp:ListItem Text="Categoría" />
-                                <asp:ListItem Text="Marca" />
-                                <asp:ListItem Text="Precio" />
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="col-3" style="margin-left: 10px">
-                        <div class="mb-3">
-                            <asp:Label ID="lblCriterio" runat="server" Text="Criterio" />
-                            <asp:DropDownList runat="server" ID="ddlCriterio" CssClass="form-control">
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="col-3" style="margin-left: 10px">
-                        <div class="mb-3">
-                            <asp:Label runat="server" Text="Filtro" />
-                            <asp:TextBox runat="server" ID="txtFiltroAvanzado" CssClass="form-control" />
-                        </div>
+        { %>
+    <asp:UpdatePanel ID="UpDatePanelFiltro" runat="server">
+        <ContentTemplate>
+            <div class="row" style="padding: 20px; align-items: center; display: flex; justify-content: center;">
+                <div class="col-3" style="margin-left: 10px">
+                    <div class="mb-3">
+                        <asp:Label ID="lblCampo" runat="server" Text="Campo" />
+                        <asp:DropDownList runat="server" CssClass="form-control" ID="ddlCampo" AutoPostBack="true" OnSelectedIndexChanged="ddlCampo_SelectedIndexChanged">
+                            <asp:ListItem Text="Todo" Value="" />
+                            <asp:ListItem Text="Categoría" />
+                            <asp:ListItem Text="Marca" />
+                            <asp:ListItem Text="Precio" />
+                        </asp:DropDownList>
                     </div>
                 </div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
-        <div class="row" style="padding: 20px; align-items: center; display: flex; justify-content: center;">
-            <div class="col-2">
-                <div class="mb-3">
-                    <asp:Button Text="Buscar" CssClass="btn btn-primary" runat="server" OnClick="btnFiltro_Click" />
+                <div class="col-3" style="margin-left: 10px">
+                    <div class="mb-3">
+                        <asp:Label ID="lblCriterio" runat="server" Text="Criterio" />
+                        <asp:DropDownList runat="server" ID="ddlCriterio" CssClass="form-control">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="col-3" style="margin-left: 10px">
+                    <div class="mb-3">
+                        <asp:Label runat="server" Text="Filtro" />
+                        <asp:TextBox runat="server" ID="txtFiltroAvanzado" CssClass="form-control" />
+                    </div>
                 </div>
             </div>
+        </ContentTemplate>
+    </asp:UpdatePanel>
+    <div class="row" style="padding: 20px; align-items: center; display: flex; justify-content: center;">
+        <div class="col-2">
+            <div class="mb-3">
+                <asp:Button Text="Buscar" CssClass="btn btn-primary" runat="server" OnClick="btnFiltro_Click" />
+            </div>
         </div>
+    </div>
     <% } %>
 
 
@@ -65,7 +65,8 @@
         <asp:Repeater runat="server" ID="Repetidor">
             <ItemTemplate>
                 <div class="col">
-                    <div class="card">
+                    <div class="card custom-card">
+                        <!-- Agrega la clase personalizada custom-card -->
                         <img src='<%# Eval("Imagen.ImagenUrl")%>' onerror="imgError(this);" class="card-img-top" alt="Imagen">
                         <div class="card-body">
                             <h5 class="card-title"><%# Eval("Nombre")%></h5>
@@ -114,6 +115,20 @@
             align-items: center;
             padding: 10px;
         }
+
+        /*tarjetas */
+        .custom-card {
+            height: 800px; /* Altura fija para las tarjetas */
+        }
+
+        /* Estilo para las imágenes dentro de las tarjetas */
+        .custom-card img {
+            object-fit: cover; /* La imagen se ajustará al contenedor */
+            height: 50%; /* Ajusta la altura de la imagen en la tarjeta */
+            width: 100%; /* Imgen ocupa todo el ancho */
+        }
     </style>
+
+    
 
 </asp:Content>

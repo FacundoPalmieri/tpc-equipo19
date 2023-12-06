@@ -23,7 +23,7 @@ namespace Negocio
 
         public AccesoDatos()
         {
-            Conexion = new SqlConnection("server=.\\SQLEXPRESS; database=CATALOGO_P3_DB; integrated security=true");
+            Conexion = new SqlConnection("server=.\\SQLEXPRESS; database=FKMarket; integrated security=true");
             Comando = new SqlCommand();
         }
 
