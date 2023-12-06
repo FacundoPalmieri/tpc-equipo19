@@ -13,14 +13,26 @@ namespace tp_web_equipo_19
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                // Suponiendo que ya has obtenido el valor de Comprobante
-                int Comprobante = (int)Session["IdCompra"];
+                if (!IsPostBack)
+                {
+                    int Comprobante = (int)Session["IdCompra"];
+                    string Mail = (string)Session["Mail"];
+                    string Celular = (string)Session["Celular"];
 
-                // Asignar el valor al Label
-                lblComprobante.Text = Comprobante.ToString(); // Mostrar el valor en el Label
+
+                     // Asignar el valor al Label
+                    LabelComprobante.Font.Bold = true;
+                    lblComprobante.Text = Comprobante.ToString(); // Mostrar el valor en el Label
+                    lblMail.Text = Mail.ToString();
+                    lblCelular.Text = Celular.ToString();
             }
+            
+
+        }
+
+        protected void ButtonContinuar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
         }
     }
 }

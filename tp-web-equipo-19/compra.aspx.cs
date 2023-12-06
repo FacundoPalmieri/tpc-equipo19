@@ -240,25 +240,31 @@ namespace tp_web_equipo_19
             Compra compra = new Compra();
             DetalleCompraNegocio detalleCompraNegocio = new DetalleCompraNegocio();
             CarritoNegocio miCarritoNegocio = Session["Carrito"] as CarritoNegocio;
-            var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
             Carrito carrito = new Carrito();
             Domicilio domicilio = new Domicilio();
             DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
+            Usuario usuario = new Usuario();
+            UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
+
+            //Guardo información de usuario en sessión.
+            var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
             int Id = usuarioEnSesion.Id;
 
+            //Busco la información en BD que falta en la sessión de usuario
+            usuario=usuarioNegocio.UsuarioPorID(Id);
+
+            //asigno a la variable lo que traje de la BD
+            usuarioEnSesion.Contacto = usuario.Contacto;
+            
+            //Asigno a la sessión los datos para pasarlo a CompraConfirmada.aspx
+            Session["Mail"] = usuarioEnSesion.User;
+            Session["Celular"] = usuarioEnSesion.Contacto.ToString();
+
+
+           
             if ((EnvioDomicilio.Checked || retiroLocal.Checked) && !string.IsNullOrEmpty(ddlMedioPago.SelectedValue))
             {
                 MensajeError.Visible = false;
-
-
-                string script = "var nuevaVentana = window.open('CompraConfirmada.aspx', '_blank', 'width=600,height=400');" +
-                                "nuevaVentana.focus();" +
-                                "window.addEventListener('message', function(event) {" +
-                                "    if (event.data === 'clicEnVentanaEmergente') {" +
-                                "        window.location.href = 'inicio.aspx';" + // Redirigir a la nueva página
-                                "    }" +
-                                "});"; // Reemplaza 'NuevaPagina.aspx' con la URL deseada
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "popup", script, true);
 
 
                 //Guardo en base de datos
@@ -323,6 +329,7 @@ namespace tp_web_equipo_19
                             }
                         }
                     }
+                    
                 }
                 else
                 {
@@ -340,16 +347,19 @@ namespace tp_web_equipo_19
 
                 int IdCompra = compraNegocio.AgregarCompra(compra);
                 detalleCompraNegocio.AgregarCompra(miCarritoNegocio.listacarrito, IdCompra);
-               
 
                 Session["IdCompra"] = IdCompra;
-       
+
+           
+
+
 
                 //Limpio articulos en carrito y cantidad en el icono.
                 Session["Carrito"] = null;
                 Session["Pais"] = null;
 
                 carrito.ActualizarCantidadArticulosEnCarrito(0);
+                Response.Redirect("CompraConfirmada.aspx");
             }
             else
             {

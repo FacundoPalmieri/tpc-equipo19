@@ -1,54 +1,32 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CompraConfirmada.aspx.cs" Inherits="tp_web_equipo_19.CompraConfirmada" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="CompraConfirmada.aspx.cs" Inherits="tp_web_equipo_19.CompraConfirmada" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                <h2 style="color: #AAC3CD;">¡Compra realizada! &#x2705;</h2>
+                <div>
+                    <asp:Label runat="server" ID="LabelComprobante" Text="Tu número de comprobante es:"> </asp:Label>
+                    <strong><%--Muestra el contenido en negrita--%>
+                        <asp:Label runat="server" ID="lblComprobante" Text=""></asp:Label>
+                    </strong>
+                </div>
+                <p>Nos estaremos comunicando contigo para coordinar el pago y la entrega por estos medios:</p>
+                <div>
+                    <asp:Label runat="server" ID="LabelMail" Text="📧 - Correo Electrónico:"> </asp:Label>
+                    <asp:Label runat="server" ID="lblMail" Text="- "></asp:Label>
+                </div>
+                <div>
+                    <asp:Label runat="server" ID="LabelCelular" Text="📱 - Celular:"> </asp:Label>
+                    <asp:Label runat="server" ID="lblCelular" Text="- "></asp:Label>
+                </div>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
-        <style>
-        body {
-            background-color: gray; /* Color celeste claro */
-            /* Otros estilos que desees aplicar */
-        }
-    </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div  style ="color:#AAC3CD"font-size: 25px;>
-            <h1>¡Compra confirmada!</h1>
-            <div>
-            <asp:Label runat="server" ID="Label1" Text="Tu número de comprobante es:  "></asp:Label>
-            <asp:Label runat="server" ID="lblComprobante" Text=""></asp:Label>
+                <div class="mb-4" style="margin: 50px;">
+                    <asp:Button ID="ButtonContinuar" CssClass="btn btn-success" OnClick="ButtonContinuar_Click" runat="server" Text="Continuar" />
+                </div>
             </div>
-            <p>¡Gracias por tu compra! El proceso se ha completado con éxito.</p>
-
-            <!-- Aquí puedes agregar más contenido, como imágenes, tablas, etc. -->
         </div>
-        <div>
-            <script type="text/javascript">
-                // Cuando se hace clic en la ventana emergente
-                window.onclick = function () {
-                    // Envia un mensaje a la ventana principal
-                    window.opener.postMessage("clicEnVentanaEmergente", "*");
-
-                    // Cierra la ventana emergente
-                    window.close();
-                };
-
-                // Centrar la ventana emergente
-                function centrarVentana() {
-                    var left = (window.screen.width - window.outerWidth) / 2;
-                    var top = (window.screen.height - window.outerHeight) / 2;
-                    window.moveTo(left, top);
-                }
-
-                // Llama a la función para centrar la ventana emergente
-                centrarVentana();
-            </script>
-
-        </div>
-    </form>
-</body>
-</html>
-
+    </div>
+</asp:Content>
