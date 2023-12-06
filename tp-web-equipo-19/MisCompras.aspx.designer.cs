@@ -11,34 +11,34 @@ namespace tp_web_equipo_19
 {
 
 
-    public partial class MiCuenta
+    public partial class MisCompras
     {
 
         /// <summary>
-        /// Control MisDatos.
+        /// Control ScriptManager1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MisDatos;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// Control MisCompras.
+        /// Control UpDatePanelFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button MisCompras;
+        protected global::System.Web.UI.UpdatePanel UpDatePanelFiltro;
 
         /// <summary>
-        /// Control CerrarSesion.
+        /// Control dgvVentas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CerrarSesion;
+        protected global::System.Web.UI.WebControls.GridView dgvVentas;
     }
 }

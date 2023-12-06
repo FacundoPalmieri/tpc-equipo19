@@ -1,9 +1,6 @@
 ﻿using Dominio;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Negocio
 {
@@ -163,6 +160,96 @@ namespace Negocio
             {
                 Datos.CerrarConexion();
 
+            }
+        }
+
+        public List<Compra> filtrar(string estado)
+        {
+            List<Compra> lista = new List<Compra>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = ("SELECT Id, IdUsuario, PrecioVenta, CostoEnvio, PrecioTotal, MetodoEntrega, MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto FROM COMPRAS WHERE Estado = @estado");
+                datos.SetearConsulta(consulta);
+                datos.SetearParametro("@estado", estado);
+                
+                datos.EjecutarConsulta();
+
+                while (datos.lector.Read())
+                {
+                    Compra aux = new Compra();
+                    aux.Id = (int)datos.lector["Id"];
+                    aux.IdUsuario = (int)datos.lector["IdUsuario"];
+                    aux.PrecioVenta = (decimal)datos.lector["PrecioVenta"];
+                    aux.CostoEnvio = (decimal)datos.lector["CostoEnvio"];
+                    aux.PrecioTotal = (decimal)datos.lector["PrecioTotal"];
+                    aux.MetodoEntrega = (string)datos.lector["MetodoEntrega"];
+                    aux.MedioPago = (string)datos.lector["MedioPago"];
+                    aux.FechaCompra = (DateTime)datos.lector["FechaCompra"];
+                    aux.Estado = (string)datos.lector["Estado"];
+                    aux.Pais = (string)datos.lector["Pais"];
+                    aux.Provincia = (string)datos.lector["Provincia"];
+                    aux.Ciudad = (string)datos.lector["Ciudad"];
+                    aux.Calle = (string)datos.lector["Calle"];
+                    aux.Altura = (int)datos.lector["Altura"];
+                    aux.Piso = (string)datos.lector["Piso"];
+                    aux.Depto = (string)datos.lector["Depto"];
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Compra> filtrarPorUsuario(int IdUsuario)
+        {
+            List<Compra> lista = new List<Compra>();
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                string consulta = ("SELECT Id, IdUsuario, PrecioVenta, CostoEnvio, PrecioTotal, MetodoEntrega, MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle, Altura, Piso, Depto FROM COMPRAS WHERE IdUsuario = @IdUsuario");
+                datos.SetearConsulta(consulta);
+                datos.SetearParametro("@IdUsuario", IdUsuario);
+
+                datos.EjecutarConsulta();
+
+                while (datos.lector.Read())
+                {
+                    Compra aux = new Compra();
+                    aux.Id = (int)datos.lector["Id"];
+                    aux.IdUsuario = (int)datos.lector["IdUsuario"];
+                    aux.PrecioVenta = (decimal)datos.lector["PrecioVenta"];
+                    aux.CostoEnvio = (decimal)datos.lector["CostoEnvio"];
+                    aux.PrecioTotal = (decimal)datos.lector["PrecioTotal"];
+                    aux.MetodoEntrega = (string)datos.lector["MetodoEntrega"];
+                    aux.MedioPago = (string)datos.lector["MedioPago"];
+                    aux.FechaCompra = (DateTime)datos.lector["FechaCompra"];
+                    aux.Estado = (string)datos.lector["Estado"];
+                    aux.Pais = (string)datos.lector["Pais"];
+                    aux.Provincia = (string)datos.lector["Provincia"];
+                    aux.Ciudad = (string)datos.lector["Ciudad"];
+                    aux.Calle = (string)datos.lector["Calle"];
+                    aux.Altura = (int)datos.lector["Altura"];
+                    aux.Piso = (string)datos.lector["Piso"];
+                    aux.Depto = (string)datos.lector["Depto"];
+
+                    lista.Add(aux);
+                }
+
+                return lista;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

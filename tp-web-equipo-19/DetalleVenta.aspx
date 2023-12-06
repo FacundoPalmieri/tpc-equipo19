@@ -22,6 +22,7 @@
                         <asp:DropDownList runat="server" ID="ddlEstado" CssClass="form control btn btn-outine-dark drop-down-toggle" OnSelectedIndexChanged="ddlEstado_SelectedIndexChanged" AutoPostBack="false" />
                         <asp:Button runat="server" Style="width: 10%; margin-left: 10px;" ID="btnEditar" CssClass="btn btn-success" OnClick="btnEditar_Click" Text="Editar" />
                         <asp:Button runat="server" Style="width: 10%; margin-left: 10px;" ID="btnGuardar" CssClass="btn btn-primary" OnClick="btnGuardar_Click" Text="Guardar" />
+                        <asp:Button runat="server" Style="width: 10%; margin-left: 10px;" ID="btnVolver" CssClass="btn btn-primary" OnClick="btnVolver_Click" Text="Volver" />
                     </div>
                 </ContentTemplate>
             </asp:UpdatePanel>
@@ -59,6 +60,12 @@
                                         <label for="txtCostoTotal" class="form-label">Costo Total</label></th>
                                     <td>
                                         <asp:Literal runat="server" ID="litCostoTotal"></asp:Literal></td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <label for="txtMedioPago" class="form-label">Medio de pago</label></th>
+                                    <td>
+                                        <asp:Literal runat="server" ID="txtMedioPago"></asp:Literal></td>
                                 </tr>
                             </table>
                         </div>

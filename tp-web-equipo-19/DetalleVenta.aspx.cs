@@ -18,7 +18,6 @@ namespace tp_web_equipo_19
             txtEstado.Visible = true;
             btnGuardar.Visible = false;
 
-
             try
             {
                 string Id = Request.QueryString["Id"];
@@ -35,6 +34,7 @@ namespace tp_web_equipo_19
                     litFechaVenta.Text = compra.FechaCompra.ToString("d"); 
                     litCostoEnvio.Text = compra.CostoEnvio.ToString("C2"); 
                     litCostoTotal.Text = compra.PrecioTotal.ToString("C2");
+                    txtMedioPago.Text = compra.MedioPago.ToString();
 
 
                     //Datos cliente
@@ -135,6 +135,13 @@ namespace tp_web_equipo_19
         {
             Response.Redirect("Ventas.aspx");
         }
+
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Ventas.aspx");
+        }
+
 
         protected string ObtenerNombreArticulo(int idArticulo, List<Articulo> listaArticulos)
         {

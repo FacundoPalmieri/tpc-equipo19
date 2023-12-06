@@ -16,8 +16,6 @@ namespace tp_web_equipo_19
             Usuario usuario = new Usuario();
             UsuarioNegocio usuarioNegocio = new UsuarioNegocio();
             int Id = new int();
-
-
             //Verifica si es administrador para que no pueda acceder y sea redirigido. 
             usuario = Session["Usuario"] as Dominio.Usuario;
 
@@ -35,6 +33,19 @@ namespace tp_web_equipo_19
 
         }
 
+        protected void MisDatos_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MisDatos.aspx");
+        }
+
+        protected void MisCompras_Click(object sender, EventArgs e)
+        {
+            Usuario usuario = new Usuario();
+            int Id = new int();
+            usuario = Session["Usuario"] as Dominio.Usuario;
+            Id = usuario.Id;
+            Response.Redirect("MisCompras.aspx?Id=" + Id);
+        }
         protected void CerrarSesion_Click(object sender, EventArgs e)
         {
             Session.Abandon(); // Cierra la sesión actual
@@ -42,9 +53,5 @@ namespace tp_web_equipo_19
         }
 
 
-        protected void MisDatos_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("MisDatos.aspx");
-        }
     }
 }

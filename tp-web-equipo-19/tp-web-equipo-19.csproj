@@ -87,6 +87,7 @@
     <Content Include="login.aspx" />
     <Content Include="marca.aspx" />
     <Content Include="MiCuenta.aspx" />
+    <Content Include="MisCompras.aspx" />
     <Content Include="MisDatos.aspx" />
     <Content Include="Ventas.aspx" />
     <Content Include="RegistroEnvio.aspx" />
@@ -223,6 +224,13 @@
     </Compile>
     <Compile Include="MiCuenta.aspx.designer.cs">
       <DependentUpon>MiCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MisCompras.aspx.cs">
+      <DependentUpon>MisCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisCompras.aspx.designer.cs">
+      <DependentUpon>MisCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="MisDatos.aspx.cs">
       <DependentUpon>MisDatos.aspx</DependentUpon>
