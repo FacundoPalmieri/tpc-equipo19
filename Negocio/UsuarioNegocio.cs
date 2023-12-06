@@ -38,7 +38,6 @@ namespace Negocio
                 datos.CerrarConexion();
             }
 
-
         }
 
         public int RegistrarUsuario(Usuario Nuevo)

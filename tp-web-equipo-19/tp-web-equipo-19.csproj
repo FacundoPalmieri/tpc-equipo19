@@ -67,7 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ABM.aspx" />
+    <Content Include="AdminCuenta.aspx" />
     <Content Include="ABMArticulo.aspx" />
     <Content Include="ABMCategoria.aspx" />
     <Content Include="ABMMarca.aspx" />
@@ -95,12 +95,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ABM.aspx.cs">
-      <DependentUpon>ABM.aspx</DependentUpon>
+    <Compile Include="AdminCuenta.aspx.cs">
+      <DependentUpon>AdminCuenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ABM.aspx.designer.cs">
-      <DependentUpon>ABM.aspx</DependentUpon>
+    <Compile Include="AdminCuenta.aspx.designer.cs">
+      <DependentUpon>AdminCuenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="ABMArticulo.aspx.cs">
       <DependentUpon>ABMArticulo.aspx</DependentUpon>

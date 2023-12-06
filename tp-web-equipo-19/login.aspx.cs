@@ -40,7 +40,7 @@ namespace tp_web_equipo_19
                     else
                     {
                         Session.Add("Usuario", usuario);
-                        Response.Redirect("ABM.aspx");
+                        Response.Redirect("AdminCuenta.aspx");
 
                     }
 
