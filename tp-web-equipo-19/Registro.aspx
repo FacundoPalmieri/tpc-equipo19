@@ -28,7 +28,7 @@
             </div>
 
             <div>
-                <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
+                <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger" Font-Bold="true"></asp:Label>
             </div>
              <div class="col-6" style="display: flex; margin-top: 20px;">
                  <asp:Button ID="ButtonSiguiente" class="btn btn-primary"  OnClick="ButtonSiguiente_Click" runat="server" Text="Siguiente" />

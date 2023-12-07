@@ -12,10 +12,7 @@
             <asp:Button Text="Buscar" CssClass="btn btn-secondary boton-buscar" runat="server" OnClick="btnBuscar_Click" />
         </div>
         <div class="d-flex align-items-start mt-3">
-            <asp:CheckBox Text="Filtro avanzado"
-                ID="chkAvanzado" runat="server"
-                AutoPostBack="true"
-                OnCheckedChanged="chkAvanzado_CheckedChanged" />
+            <asp:CheckBox ID="chkAvanzado" runat="server" AutoPostBack="true" OnCheckedChanged="chkAvanzado_CheckedChanged" Font-Bold="true" ForeColor="#808080" Text="Filtro avanzado" />
         </div>
     </div>
 
@@ -67,14 +64,21 @@
                 <div class="col">
                     <div class="card custom-card">
                         <!-- Agrega la clase personalizada custom-card -->
-                        <img src='<%# Eval("Imagen.ImagenUrl")%>' onerror="imgError(this);" class="card-img-top" alt="Imagen">
+                        <img src='<%# Eval("Imagen.ImagenUrl")%>' onerror="imgError(this);" class="card-img-top" alt="Imagen" style="width: 300px; height: 355px;">
+
                         <div class="card-body">
                             <h5 class="card-title"><%# Eval("Nombre")%></h5>
-                            <p class="card-text"><%# Eval("Descripcion")%></p>
+                            <%--     <p class="card-text"><%# Eval("Descripcion")%></p>--%>
                             <p class="card-text"><b>Marca: </b><%# Eval("Marca.Descripcion") %></p>
                             <p class="card-text"><b>Categoría: </b><%# Eval("Categoria.Descripcion") %></p>
                             <p class="card-text"><b>Precio: </b><%# string.Format("{0:C}", Eval("Precio")) %></p>
-                            <a href="DetalleArticulo.aspx?id=<%#Eval("Id") %>">Ver Detalle</a>
+                            <button type="button" class="btn btn-secondary" onclick="verDetalle(<%#Eval("Id") %>);">Ver Detalle</button>
+
+                            <script>
+                                function verDetalle(id) {
+                                    window.location.href = 'DetalleArticulo.aspx?id=' + id;
+                                }
+                            </script>
                             <%  if (Session["Usuario"] == null || !(Session["Usuario"] is Dominio.Usuario) || ((Dominio.Usuario)Session["Usuario"]).TipoUsuario == Dominio.TipoUsuario.Cliente)
                                 { %>
                             <asp:Button Text="Añadir al Carrito" CssClass="btn btn-primary" runat="server" ID="btnAniadirAlCarrito" CommandArgument='<%#Eval("Id") %>' CommandName="IdArticulo" OnClick="btnAniadirAlCarrito_Click" />
@@ -116,19 +120,28 @@
             padding: 10px;
         }
 
-        /*tarjetas */
+        /* Estilo para las tarjetas */
         .custom-card {
-            height: 800px; /* Altura fija para las tarjetas */
+            max-height: 550px; /* Altura máxima de la tarjeta */
+            overflow: hidden; /* Oculta cualquier desbordamiento */
+            width: 310px;
+            display: flex;
+            align-items: center; /* Centra verticalmente la imagen */
+            justify-content: center; /* Centra horizontalmente la imagen */
         }
 
-        /* Estilo para las imágenes dentro de las tarjetas */
-        .custom-card img {
-            object-fit: cover; /* La imagen se ajustará al contenedor */
-            height: 50%; /* Ajusta la altura de la imagen en la tarjeta */
-            width: 100%; /* Imgen ocupa todo el ancho */
-        }
+       /* Estilo para las imágenes dentro de las tarjetas */
+       .custom-card img {
+           object-fit: cover; /* La imagen se ajustará al contenedor */
+           max-width: 100%; /* La imagen no excederá el ancho de la tarjeta */
+           max-height: 100%; /* La imagen no excederá el 100% de la altura de la tarjeta */
+           width: 350px;
+           margin-top: 3px;
+           margin-right: 3px;
+           margin-left: 3px;
+       }
     </style>
 
-    
+
 
 </asp:Content>

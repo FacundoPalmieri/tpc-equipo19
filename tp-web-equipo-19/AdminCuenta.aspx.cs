@@ -10,7 +10,7 @@ using Negocio;
 
 namespace tp_web_equipo_19
 {
-    public partial class ABM : System.Web.UI.Page
+    public partial class AdminCuenta : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

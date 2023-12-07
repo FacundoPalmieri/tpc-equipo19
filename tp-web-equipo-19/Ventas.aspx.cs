@@ -46,22 +46,42 @@ namespace tp_web_equipo_19
 
         protected void btnReporte_Click(object sender, EventArgs e)
         {
-            
-            // Captura los valores de las fechas de los controles TextBox
-            DateTime fechaInicio = DateTime.ParseExact(txtStartDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            DateTime fechaFin = DateTime.ParseExact(txtEndDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            try
+            {  // Captura los valores de las fechas de los controles TextBox
+                DateTime fechaInicio = DateTime.ParseExact(txtStartDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                DateTime fechaFin = DateTime.ParseExact(txtEndDate.Text, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
-            // Llama al método de CompraNegocio para realizar el filtrado
-            CompraNegocio compraNegocio = new CompraNegocio();
-            List<Compra> reporte = compraNegocio.Reporte(fechaInicio, fechaFin);
+                if (fechaInicio < fechaFin)
+                {
+                    // Llama al método de CompraNegocio para realizar el filtrado
+                    CompraNegocio compraNegocio = new CompraNegocio();
+                    List<Compra> reporte = compraNegocio.Reporte(fechaInicio, fechaFin);
 
-            // Puedes hacer algo con la lista de compras filtradas, como mostrarla en un GridView o realizar alguna operación adicional.
+                    // Puedes hacer algo con la lista de compras filtradas, como mostrarla en un GridView o realizar alguna operación adicional.
 
-            dgvVentas.DataSource = reporte;
-            dgvVentas.DataBind();
+                    dgvVentas.DataSource = reporte;
+                    dgvVentas.DataBind();
 
-            Session["reporte"] = compraNegocio.Reporte(fechaInicio, fechaFin).OrderByDescending(x => x.FechaCompra).ToList();
-            UpDatePanelFiltro.Update();
+                    Session["reporte"] = compraNegocio.Reporte(fechaInicio, fechaFin).OrderByDescending(x => x.FechaCompra).ToList();
+                    UpDatePanelFiltro.Update();
+
+                }
+                else
+                {
+                    MensajeError.Text = "'Fecha Desde' no puede menor que 'Fecha Hasta'.";
+                    MensajeError.Visible = true;
+                }
+
+            }
+            catch (Exception)
+            {
+                MensajeError.Text = "Los campos 'Fecha Desde' y 'Fecha Hasta' no pueden estar vacios";
+                MensajeError.Visible = true;
+
+               
+            }
+
+          
         }
 
 

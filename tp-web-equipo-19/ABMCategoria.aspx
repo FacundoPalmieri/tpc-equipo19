@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="encabezado-tabla">
-            <h3 style="width: 90%;">Listado Categorías</h3>
+            <h3 style="width: 90%;">Listado Categorías 🗂️</h3>
             <asp:Button runat="server" Style="width: 10%; margin-right:5px;" type="button" class="btn btn-primary" OnClick="btnAgregar_Click" Text="Agregar" />
             <asp:Button runat="server" Style="width: 10%;" type="button" class="btn btn-secondary" OnClick="btnVolver_Click" Text="Volver" />
         </div>

@@ -24,7 +24,7 @@ namespace tp_web_equipo_19
         protected global::System.Web.UI.WebControls.Button Ventas;
 
         /// <summary>
-        /// Control ABM.
+        /// Control AdminCuenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

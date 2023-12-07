@@ -35,7 +35,7 @@
                     <ContentTemplate>
 
                         <div class="row">
-                            <asp:Button runat="server" Style="width: 19.5%; margin-bottom: 10px;" OnClick="btnEliminar_Click" CssClass="btn btn-danger" Text="Eliminar" />
+                            <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger" Font-Bold="true"></asp:Label>
                         </div>
                         </div>
                 <%if (ConfirmaEliminacion)

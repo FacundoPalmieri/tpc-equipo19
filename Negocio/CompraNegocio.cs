@@ -122,6 +122,7 @@ namespace Negocio
                 Datos.SetearParametro("@Altura", Nueva.Altura);
                 Datos.SetearParametro("@Piso", Nueva.Piso);
                 Datos.SetearParametro("@Depto", Nueva.Depto);
+          
 
                 return Datos.EjectuarAccionScalar();
 

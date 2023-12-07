@@ -5,7 +5,7 @@
     <asp:ScriptManager runat="server" ID="ScriptManager1" />
     <div class="container">
         <div class="encabezado-tabla">
-            <h3 style="width: 90%;">Listado Compras</h3>
+            <h3 style="width: 90%;">Listado Compras 🛍️</h3>
             <asp:Button runat="server" Style="width: 10%;" type="button" class="btn btn-secondary" OnClick="btnVolver_Click" Text="Volver" />
         </div>
         <hr />
@@ -19,8 +19,8 @@
                     OnPageIndexChanging="dgvVentas_PageIndexChanging"
                     AllowPaging="true" PageSize="5">
                     <Columns>
-                        <asp:BoundField HeaderText="Fecha venta" DataField="FechaCompra" DataFormatString="{0:d}" />
-                        <asp:BoundField HeaderText="Precio Total" DataField="PrecioTotal" />
+                        <asp:BoundField HeaderText="Fecha Compra" DataField="FechaCompra" DataFormatString="{0:d}" />
+                       <asp:BoundField HeaderText="Precio Total" DataField="PrecioTotal" DataFormatString="{0:C2}" />
                         <asp:BoundField HeaderText="Estado" DataField="Estado" />
                         <asp:CommandField ShowSelectButton="true" SelectText="✏️" HeaderText="Detalle" />
                     </Columns>

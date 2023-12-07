@@ -25,7 +25,7 @@ namespace tp_web_equipo_19
 
         protected void btnVolver_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ABM.aspx");
+            Response.Redirect("AdminCuenta.aspx");
         }
 
         protected void dgvCategorias_SelectedIndexChanged(object sender, EventArgs e)

@@ -21,7 +21,7 @@
             <asp:TextBox ID="TextBoxPalabraSeguridad" CssClass="form-control mb-3" runat="server" Style="max-width: 500px;"></asp:TextBox>
         </div>
         <div>
-            <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger"></asp:Label>
+           <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger" Font-Bold="true"></asp:Label>
         </div>
 
         <div>

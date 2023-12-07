@@ -1,10 +1,10 @@
 USE master
 GO
 
-CREATE DATABASE FKMarket
+CREATE DATABASE KFMarket
 GO
 
-USE FKMarket
+USE KFMarket
 GO
 
 CREATE TABLE [dbo].[MARCAS](
@@ -36,7 +36,7 @@ GO
 CREATE TABLE [dbo].[IMAGENES](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[IdArticulo] [int] NOT NULL,
-	[ImagenUrl] [varchar](1000) NOT NULL,
+	[ImagenUrl] [varchar](Max) NOT NULL,
 	CONSTRAINT [PK_IMAGENES] PRIMARY KEY CLUSTERED ([Id] ASC)
 ) ON [PRIMARY]
 GO
@@ -148,6 +148,14 @@ Create Table DOMICILIOS(
 
 Go
 
+-- Insert Tabla Domicilio---
+Insert into Domicilios
+		(IdUsuario, Pais, Provincia, Ciudad, Calle, Altura)
+ Values (1,'Argentina','Ciudad Autónoma de Buenos Aires','Ciudad Autónoma de Buenos Aires','Cliente',1),
+		(2,'Argentina','Ciudad Autónoma de Buenos Aires','Ciudad Autónoma de Buenos Aires','Admin',1)
+
+Go
+
 ----Creación Tabla Tipos Documentos----
 
 CREATE TABLE TIPOSDOCUMENTOS (
@@ -189,9 +197,9 @@ Go
 
 ----Inserto datos Usuarios----
 Insert into USUARIOS
-      (Nombre,Apellido,Contacto, TipoDocumento,NDocumento, Usuario, Contraseña, TipoUsuario, Habilitado)
-Values('Administrador','Administrador','Administrador','DNI','2','Admin@gmail.com','2',2,'S'),
-	  ('Cliente','Cliente','Cliente','DNI','1','Cliente@gmail.com','1',1,'S');
+      (Nombre,Apellido,Contacto, TipoDocumento,NDocumento, Usuario, Contraseña,PalabraSeguridad,TipoUsuario, Habilitado)
+Values ('Cliente','Cliente','1111','DNI','1','Cliente@gmail.com','1','Cliente',1,'S'),
+	   ('Administrador','Administrador','1111','DNI','2','Admin@gmail.com','2','Admin',2,'S')
 
 Go
 
@@ -376,13 +384,14 @@ Create Procedure RegistrarCompra(
 @Calle Varchar(50),
 @Altura int,
 @Piso int,
-@Depto Varchar(50)
+@Depto Varchar(50),
+@Contacto Varchar(50)
 )
 As
 
-	Insert into COMPRAS(IdUsuario,PrecioVenta,CostoEnvio,PrecioTotal,MetodoEntrega,MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
+	Insert into COMPRAS(IdUsuario,PrecioVenta,CostoEnvio,PrecioTotal,MetodoEntrega,MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto, Contacto)
 	output inserted.Id 
-	Values(@IdUsuario,@PrecioVenta,@CostoEnvio,@PrecioTotal,@MetodoEntrega,@MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
+	Values(@IdUsuario,@PrecioVenta,@CostoEnvio,@PrecioTotal,@MetodoEntrega,@MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto, @Contacto)
 
 Go
 

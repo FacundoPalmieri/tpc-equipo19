@@ -35,7 +35,7 @@
                  <asp:LinkButton ID="RecuperarContraseña" runat="server" Text="¿No recuerdas tu contraseña?" OnClick="RecuperarContraseña_Click" CssClass="link-inicial"  />
 
                 <div>
-                    <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
+                    <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger" Font-Bold="true"></asp:Label>
                 </div>
             </div>
         </div>

@@ -40,7 +40,7 @@
         </div>
 
         <div>
-            <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
+            <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger" Font-Bold="true"></asp:Label>
         </div>
 
         <asp:Button ID="ButtonVolver" CssClass="btn btn-secondary" OnClick="ButtonVolver_Click" runat="server" Text="Volver" />

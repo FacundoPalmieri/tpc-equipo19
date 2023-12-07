@@ -51,10 +51,15 @@ namespace tp_web_equipo_19
                 usuario = new Usuario(TextBoxUser.Text, TextBoxPassword.Text, false);
                 if (usuarioNegocio.Loguear(usuario))
                 {
-                    Session["Usuario"] = usuario;
-                    if (((Usuario)Session["Usuario"]).TipoUsuario == TipoUsuario.Cliente)
+                    //Session["Usuario"] = usuario;
+                    if (usuario.TipoUsuario == TipoUsuario.Cliente)
                     {
-                        Session.Add("Usuario", usuario);
+                        Usuario usuarioAux = new Usuario();
+                        UsuarioNegocio usuarioNegocioAux = new UsuarioNegocio();
+
+                        usuarioAux = usuarioNegocioAux.UsuarioPorID(usuario.Id);
+
+                        Session.Add("Usuario", usuarioAux);
                         Response.Redirect("inicio.aspx");
 
                     }

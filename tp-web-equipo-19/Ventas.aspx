@@ -18,7 +18,7 @@
 
     <div class="container">
         <div class="encabezado-tabla">
-            <h3 style="width: 90%;">Listado Ventas</h3>
+            <h3 style="width: 90%;">Listado Ventas 💰</h3>
             <asp:Button runat="server" Style="width: 10%;" type="button" class="btn btn-secondary" OnClick="btnVolver_Click" Text="Volver" />
         </div>
         <hr />
@@ -33,11 +33,14 @@
                     <asp:Button Text="Buscar" CssClass="btn btn-primary" runat="server" OnClick="btnFiltro_Click" />
                     <button type="button" class="btn btn-success" onclick="mostrarFechas()">Reporte de ventas por fecha</button>
                 </p>
+                <div>
+                    <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger" Font-Bold="true"></asp:Label>
+                </div>
+
 
                 <%-- REPORTE VENTAS --%>
                 <div class="row" id="contenedorFechas" style="display: none;">
                     <div class="row">
-
                         <div class="col-md-4">
                             <div class="input-group date" id="FechaInicio">
                                 <label for="startDate" class="input-group-prepend">
@@ -64,15 +67,16 @@
                                 </div>
                             </div>
                         </div>
-<div class="col-md-4 d-flex align-items-center">
-    <asp:LinkButton Text="Buscar" CssClass="btn btn-primary" runat="server" OnClick="btnReporte_Click" />
-    <div class="form-check ml-3">
-        <asp:LinkButton Text="Limpiar filtro" CssClass="form-check-label" runat="server" OnClick="btnLimpiarFiltro_Click" />
-    </div>
-</div>
+                        <div class="col-md-4 d-flex align-items-center">
+                            <asp:LinkButton Text="Buscar" CssClass="btn btn-primary" runat="server" OnClick="btnReporte_Click" />
+                            <div class="form-check ml-3">
+                                <asp:LinkButton Text="Limpiar filtro" CssClass="form-check-label" runat="server" OnClick="btnLimpiarFiltro_Click" />
+                            </div>
+                        </div>
 
                     </div>
                 </div>
+
 
                 <%-- LISTADO --%>
                 <asp:GridView runat="server" ID="dgvVentas" DataKeyNames="Id"
@@ -83,7 +87,7 @@
                     <Columns>
                         <asp:BoundField HeaderText="Id" DataField="Id" />
                         <asp:BoundField HeaderText="Fecha venta" DataField="FechaCompra" DataFormatString="{0:d}" />
-                        <asp:BoundField HeaderText="Precio Total" DataField="PrecioTotal" />
+                        <asp:BoundField HeaderText="Precio Total" DataField="PrecioTotal" DataFormatString="{0:C2}" />
                         <asp:BoundField HeaderText="Estado" DataField="Estado" />
                         <asp:CommandField ShowSelectButton="true" SelectText="✏️" HeaderText="Detalle" />
                     </Columns>

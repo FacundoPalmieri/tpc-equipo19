@@ -5,9 +5,9 @@
     
     <div class="container">
         <div class="encabezado-tabla">
-            <h3 style="width:90%;">Listado Artículos</h3>
+            <h3 style="width:90%;">Listado Artículos  💻</h3>
             <asp:button runat="server" style="width:10%; margin-right:5px;" type="button" class="btn btn-primary" OnClick="btnAgregar_Click" Text="Agregar"/>
-                        <asp:button runat="server" style="width:10%;" type="button" class="btn btn-secondary" OnClick="btnVolver_Click" Text="Volver"/>
+           <asp:button runat="server" style="width:10%;" type="button" class="btn btn-secondary" OnClick="btnVolver_Click" Text="Volver"/>
         </div>
         <hr />
 

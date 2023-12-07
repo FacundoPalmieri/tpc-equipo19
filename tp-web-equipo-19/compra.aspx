@@ -6,7 +6,7 @@
     <div class="contenedor">
         <div class="row">
             <div class="col-7">
-                <h4>Elegí la forma de entrega</h4>
+                <h4>Elegí la forma de entrega 🚚 </h4>
                 <div class="card border-info mb-3">
                     <div class="card-body">
                         <div class="d-flex flex-column">
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <h4>Elegí la forma de pago</h4>
+                <h4>Elegí la forma de pago 💳</h4>
                 <div class="card border-info mb-3">
                     <div class="card-body">
                     <div class="mb-3">
@@ -59,7 +59,7 @@
             </div>
             <div class="col-5 card border border-light" style="background: #F9F9F9;">
                 <div class="card-body">
-                    <h5>Resumen de compra</h5>
+                    <h5>Resumen de compra 🎫</h5>
                     <hr />
 
                     <table class="table">
@@ -96,7 +96,7 @@
                     </tr>
 
                     <div>
-                        <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
+                        <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger" Font-Bold="true"></asp:Label>
                     </div>
 
 

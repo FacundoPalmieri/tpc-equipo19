@@ -5,15 +5,15 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="tamanio container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="vertical-center">
-                <h3>LISTADO DE COMPRAS </h3>
+            <div style="margin-left: 1px;">
+                <h3>Carrito 🛒</h3>
             </div>
             <table class="table">
                 <thead>
                     <tr>
                         <th class="auto-style1">PRODUCTO</th>
                         <th class="auto-style1">DESCRIPCION</th>
-                        <th class="auto-style1">PRECIO</th>
+                       <th class="auto-style1" style="width: 150px;">PRECIO</th>
                         <th class="auto-style1">CANTIDAD</th>
                     </tr>
                 </thead>
@@ -40,7 +40,7 @@
         </div>
 
         <div>
-            <asp:Label ID="MensajeError" runat="server" Visible="false" CssClass="text-danger"></asp:Label>
+            <asp:Label runat="server" ID="MensajeError" Visible="false" Text="" CssClass="text-danger" Font-Bold="true"></asp:Label>
         </div>
 
         <div class="margen-superior">

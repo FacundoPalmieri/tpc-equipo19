@@ -49,6 +49,10 @@ namespace tp_web_equipo_19
             }
         }
 
+        protected void ButtonVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("inicio.aspx");
+        }
     }
 
 }
