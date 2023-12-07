@@ -17,7 +17,7 @@ namespace tp_web_equipo_19
         {
             if (!IsPostBack)
             {
-
+        
                 MostrarCarrito();
 
                 // Verificar si hay un usuario en sesión
@@ -101,25 +101,24 @@ namespace tp_web_equipo_19
             }
         }
 
-
+       
         protected void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             
             if (EnvioDomicilio.Checked)
             {
-              
                 decimal Envio = new decimal();
                 if (Session["Pais"] == null)
                 {
                     Envio = costoEnvio();
-                  
+
 
                 }
                 else
                 {
                     int IdProvincia = Convert.ToInt32(Session["ProvinciaID"]);
                     Envio = costoEnvio(IdProvincia);
-                 
+
                 }
 
 

@@ -17,6 +17,7 @@ namespace tp_web_equipo_19
             this.EnableViewState = true;
             if (!IsPostBack)
             {
+                Session["Pais"] = null;
                 DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                 DDLEditarPais.DataSource = domicilioNegocio.listarPaises();
                 DDLEditarPais.DataBind();

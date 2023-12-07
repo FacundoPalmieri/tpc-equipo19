@@ -53,6 +53,11 @@ namespace tp_web_equipo_19
         {
             Response.Redirect("inicio.aspx");
         }
+
+        protected void ButtonVolver_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("inicio.aspx");
+        }
     }
 
 }

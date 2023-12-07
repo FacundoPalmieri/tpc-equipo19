@@ -5,15 +5,36 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<div class="container">
-    <div class="row justify-content-center align-items-center vh-100">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <!-- Contenido de la tarjeta -->
-                    <h3 style="color: #AAC3CD;"class="card-title text-center">Detalle de artículo 🔍</h3>
-             
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
+        .card {
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .carousel-inner {
+            margin-top: 20px;
+        }
+
+        .carousel-item img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+    </style>
+
+    <div class="container">
+        <div class="card">
+            <h3 style="color: #AAC3CD;" class="card-title">Detalle de artículo 🔍</h3>
             <div class="carousel-inner">
                 <asp:Repeater runat="server" ID="Repeater1">
                     <ItemTemplate>
@@ -29,13 +50,11 @@
             </div>
 
             <div id="Carousel" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner align-items-center justify-content-center">
+                <div class="carousel-inner">
                     <asp:Repeater runat="server" ID="Carousel">
                         <ItemTemplate>
                             <div class='<%# Container.ItemIndex == 0 ? "carousel-item active" : "carousel-item" %>'>
-                                  <div style="margin-left: 65px;"> <!-- Aplicar margen izquierdo -->
-                                        <img src='<%# Container.DataItem as string %>' onerror="imgError(this);" style="width: 200px; height: 200px;" class="img-fluid" alt="Imagen">
-                                    </div>
+                                <img src='<%# Container.DataItem as string %>' onerror="imgError(this);" style="max-width:300px; max-height:300px;" class="img-fluid" alt="Imagen">
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
@@ -50,49 +69,19 @@
                 </a>
             </div>
 
-             <div style="margin-left: 130px;"> 
-                 <asp:Button ID="ButtonVolver" CssClass="btn btn-secondary" OnClick="ButtonVolver_Click" runat="server" Text="Volver" />
-                </div>
+            <div class="text-center mt-3"> 
+                <asp:Button ID="ButtonVolver" CssClass="btn btn-secondary" OnClick="ButtonVolver_Click" runat="server" Text="Volver" />
             </div>
         </div>
     </div>
-</div>
 
-
-        <script type="text/javascript">
-            function imgError(image) {
-                image.onerror = "";
-                image.src = 'https://static.vecteezy.com/system/resources/previews/005/337/799/non_2x/icon-image-not-found-free-vector.jpg';
-                image.style.Width = "200px";
-                image.style.Height = "200px";
-                return true;
-            }
-        </script>
-
-
-        <style>
-            .container-carrousel {
-                width: 600px;
-                height: 550px;
-                padding: 20px;
-                margin: 50px;
-            }
-
-            .container {
-                max-width: 10000px;
-                justify-content: space-between;
-                justify-content: center;
-                display: flex;
-                justify-content: center;
-                margin: 30px;
-            }
-
-            .vertical-center {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                padding: 10px;
-            }
-        </style>
+    <script type="text/javascript">
+        function imgError(image) {
+            image.onerror = "";
+            image.src = 'https://static.vecteezy.com/system/resources/previews/005/337/799/non_2x/icon-image-not-found-free-vector.jpg';
+            image.style.width = "300px";
+            image.style.height = "300px";
+            return true;
+        }
+    </script>
 </asp:Content>
-
