@@ -13,19 +13,19 @@ namespace tp_web_equipo_19
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-                if (!IsPostBack)
-                {
-                    int Comprobante = (int)Session["IdCompra"];
-                     var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
-                     string Mail = usuarioEnSesion.User;
-                     string Celular = usuarioEnSesion.Contacto;
+            if (!IsPostBack)
+            {
+                int Comprobante = (int)Session["IdCompra"];
+                 var usuarioEnSesion = Session["Usuario"] as Dominio.Usuario;
+                 string Mail = usuarioEnSesion.User;
+                 string Celular = usuarioEnSesion.Contacto;
 
 
-                     // Asignar el valor al Label
-                    LabelComprobante.Font.Bold = true;
-                    lblComprobante.Text = Comprobante.ToString(); // Mostrar el valor en el Label
-                    lblMail.Text = Mail.ToString();
-                    lblCelular.Text = Celular.ToString();
+                 // Asignar el valor al Label
+                LabelComprobante.Font.Bold = true;
+                lblComprobante.Text = Comprobante.ToString(); // Mostrar el valor en el Label
+                lblMail.Text = Mail.ToString();
+                lblCelular.Text = Celular.ToString();
             }
             
 

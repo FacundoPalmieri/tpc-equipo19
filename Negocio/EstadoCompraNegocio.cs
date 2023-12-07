@@ -16,7 +16,7 @@ namespace Negocio
 
             try
             {
-                datos.SetearConsulta("Select Id, Estado From ESTADOSCOMPRA");
+                datos.SetearConsulta("Select Id, Estado From ESTADOCOMPRA");
                 datos.EjecutarConsulta();
 
                 while (datos.lector.Read())
