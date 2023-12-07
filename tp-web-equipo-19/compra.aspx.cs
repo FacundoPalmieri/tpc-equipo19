@@ -19,7 +19,6 @@ namespace tp_web_equipo_19
             {
         
                 MostrarCarrito();
-
                 // Verificar si hay un usuario en sesión
                 if (Session["Usuario"] != null)
                 {
@@ -107,10 +106,20 @@ namespace tp_web_equipo_19
             
             if (EnvioDomicilio.Checked)
             {
+                bool edito = new bool();
+
+                if (Session["EditoDomicilio"] != null && Session["EditoDomicilio"] is bool)
+                {
+                     edito = (bool)Session["EditoDomicilio"];
+                    
+                }
+
+
                 decimal Envio = new decimal();
-                if (Session["Pais"] == null)
+                if (edito == false)
                 {
                     Envio = costoEnvio();
+                    Session["EditoDomicilio"] = null;
 
 
                 }

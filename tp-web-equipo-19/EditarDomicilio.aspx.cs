@@ -12,11 +12,13 @@ namespace tp_web_equipo_19
 {
     public partial class EditarDomicilio : System.Web.UI.Page
     {
+       private bool edito = new bool();
         protected void Page_Load(object sender, EventArgs e)
         {
             this.EnableViewState = true;
             if (!IsPostBack)
             {
+            
                 Session["Pais"] = null;
                 DomicilioNegocio domicilioNegocio = new DomicilioNegocio();
                 DDLEditarPais.DataSource = domicilioNegocio.listarPaises();
@@ -191,7 +193,12 @@ namespace tp_web_equipo_19
 
                 if (ValidacionCalle && ValidacionAltura && ValidacionPiso && ValidacionDepto == true)
                 {
-                    Response.Redirect("Compra.aspx");
+                        Session["EditoDomicilio"] = true;
+                        Response.Redirect("Compra.aspx");
+                       
+
+
+
 
                 }
 
@@ -201,7 +208,16 @@ namespace tp_web_equipo_19
                 MensajeError.Text = "Campos incompletos y/o incorrectos";
                 MensajeError.Visible = true; // Hace visible el mensaje de error
             }
+            
+           
+
 
         }
+
+
+       
+
+      
+
     }
 }
