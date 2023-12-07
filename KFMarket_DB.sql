@@ -384,14 +384,13 @@ Create Procedure RegistrarCompra(
 @Calle Varchar(50),
 @Altura int,
 @Piso int,
-@Depto Varchar(50),
-@Contacto Varchar(50)
+@Depto Varchar(50)
 )
 As
 
-	Insert into COMPRAS(IdUsuario,PrecioVenta,CostoEnvio,PrecioTotal,MetodoEntrega,MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto, Contacto)
+	Insert into COMPRAS(IdUsuario,PrecioVenta,CostoEnvio,PrecioTotal,MetodoEntrega,MedioPago, FechaCompra, Estado, Pais, Provincia, Ciudad, Calle,Altura, Piso, Depto)
 	output inserted.Id 
-	Values(@IdUsuario,@PrecioVenta,@CostoEnvio,@PrecioTotal,@MetodoEntrega,@MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto, @Contacto)
+	Values(@IdUsuario,@PrecioVenta,@CostoEnvio,@PrecioTotal,@MetodoEntrega,@MedioPago, @FechaCompra, @Estado, @Pais, @Provincia, @Ciudad, @Calle, @Altura,@Piso,@Depto)
 
 Go
 
